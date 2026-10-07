@@ -635,7 +635,9 @@ title: "Systems of linear equations"
     3 \; x_3 = 6 ~\Longrightarrow~ x_3 = 2,
     \qquad
     x_2 = 3 - 2 \; x_3 = -1,
-    \qquad
+    $$
+
+    $$
     2 \; x_1 = -1 - x_2 + x_3 = -1 + 1 + 2 = 2 ~\Longrightarrow~ x_1 = 1.
     $$
 

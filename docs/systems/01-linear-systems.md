@@ -1008,10 +1008,10 @@ title: "System of linear equations"
 
         \begin{equation*}
         \begin{cases}
-                    \begin{tabular}{rrrrrrrrrrrrr}											
-        $-x_1$ & $+$ & $x_2$ & $=$ &$2$\\[2ex]
-        $8\;x_1$ & $+$ & $2\;x_2$ & $=$ &$19$
-                    \end{tabular}
+                    \begin{array}{rrrrrrrrrrrrr}											
+        -x_1 & + & x_2 & = &2\\[2ex]
+        8\;x_1 & + & 2\;x_2 & = &19
+                    \end{array}
                 \end{cases}
                 ~~\Longrightarrow~~
         (\tilde{x}_1, \tilde{x}_2) 
@@ -1062,10 +1062,10 @@ title: "System of linear equations"
 
         \begin{equation*}
         \begin{cases}
-                    \begin{tabular}{rrrrrrrrrrrrr}											
-        $-x_1$ & $-$ & $x_2$ & $=$ &$-2$\\[2ex]
-        $x_1$ & $-$ & $x_2$ & $=$ &$0$
-                    \end{tabular}
+                    \begin{array}{rrrrrrrrrrrrr}											
+        -x_1 & - & x_2 & = &-2\\[2ex]
+        x_1 & - & x_2 & = &0
+                    \end{array}
                 \end{cases}
                 ~~\Longrightarrow~~
         (\tilde{x}_1, \tilde{x}_2) 
@@ -1200,7 +1200,7 @@ title: "System of linear equations"
 
 - Cramer's rule gives an explicit formula, which is very useful for small systems ($m=2$ or $m=3$) and for theoretical purposes. However, it is <strong>not</strong> a practical method for large systems.
 
-- To apply Cramer's rule we need $m+1$ determinants of order $m$: $\det({\boldsymbol A}), \det({\boldsymbol A}_1), \dots, \det({\boldsymbol A}_m)$. If each determinant is computed with the Laplace expansion, the number of arithmetic operations grows roughly like $m!$ for each determinant.
+- To apply Cramer's rule we need $m+1$ determinants of order $m$: $\det({\boldsymbol A})$, $\det({\boldsymbol A}_1)$, $\dots$, $\det({\boldsymbol A}_m)$. If each determinant is computed with the Laplace expansion, the number of arithmetic operations grows roughly like $m!$ for each determinant.
 
 - Gaussian elimination, instead, solves the system with a number of operations which grows roughly like $m^3$ (about $\frac{2}{3} m^3$ operations).
 
