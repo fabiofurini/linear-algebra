@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="it">
+<head><meta charset="utf-8"><title>Test del motore</title></head>
+<body>
+<pre id="out">in corso…</pre>
+<script src="../docs/javascripts/algebra.js"></script>
+<script src="test_algebra.js"></script>
+<script>
+fetch("casi.json").then(r => r.json()).then(casi => {
+  let testo;
+  try {
+    const t0 = performance.now();
+    const r = runTests(LA, casi);
+    testo = `${r.checks} controlli, ${r.errors.length} errori (${Math.round(performance.now() - t0)} ms)\n` +
+      r.errors.slice(0, 60).map(e => "  ✗ " + e).join("\n");
+  } catch (e) {
+    testo = "ECCEZIONE: " + e + "\n" + e.stack;
+  }
+  document.getElementById("out").textContent = testo;
+}).catch(e => { document.getElementById("out").textContent = "ECCEZIONE: " + e; });
+</script>
+</body>
+</html>

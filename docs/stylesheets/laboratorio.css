@@ -1,0 +1,129 @@
+/* Laboratorio di calcolo: inserimento delle matrici, passi, esercizi. */
+.la-tool {
+  --la-line: #e3e8ef; --la-card: #ffffff; --la-muted: #5b6675;
+  --la-piv: #0E7490; --la-mod: #D9480F; --la-ok: #2B8A3E; --la-err: #C92A2A;
+  border: 1px solid var(--la-line);
+  border-radius: 16px;
+  background: var(--la-card);
+  box-shadow: 0 6px 24px rgba(22, 50, 74, .10);
+  margin: 1.4em 0;
+  overflow: hidden;
+  font-size: .8rem;
+}
+[data-md-color-scheme="slate"] .la-tool {
+  --la-line: #2a3b52; --la-card: #152131; --la-muted: #9fb0c3;
+  --la-piv: #3BC9DB; --la-mod: #FF8A4C; --la-ok: #63E6A0; --la-err: #FF6B6B;
+  box-shadow: none;
+}
+
+/* schede (Calcola / Esercitati / Fallo tu) */
+.la-tabs { display: flex; gap: .4em; padding: .7em 1em 0; background: linear-gradient(120deg, #16324A, #0E7490 70%, #15AABF); }
+.la-tab { border: 0; background: rgba(255,255,255,.18); color: #fff; padding: .35em 1.1em; border-radius: 10px 10px 0 0; cursor: pointer; font: inherit; font-weight: 600; }
+.la-tab.la-on { background: var(--la-card); color: var(--md-default-fg-color); }
+.la-pane { padding: 1em; }
+
+/* inserimento */
+.la-inputs { display: flex; flex-wrap: wrap; gap: 1.2em; align-items: flex-start; }
+.la-input-head { display: flex; align-items: center; gap: .8em; flex-wrap: wrap; margin-bottom: .4em; color: var(--la-muted); }
+.la-input-name { font-size: 1.1em; color: var(--md-default-fg-color); }
+.la-dims { display: flex; gap: .7em; flex-wrap: wrap; }
+.la-dim { display: inline-flex; align-items: center; gap: .3em; }
+.la-grid { display: grid; gap: .3em; }
+.la-cell {
+  width: 100%; min-width: 2.6em; box-sizing: border-box;
+  padding: .35em .3em; text-align: center;
+  border: 1px solid var(--la-line); border-radius: 7px;
+  background: var(--md-default-bg-color); color: inherit; font: inherit; font-variant-numeric: tabular-nums;
+}
+.la-cell:focus { outline: 2px solid var(--la-piv); outline-offset: 1px; }
+.la-cell.la-bad { border-color: var(--la-err); background: color-mix(in srgb, var(--la-err) 12%, transparent); }
+.la-answer { max-width: 9em; }
+.la-answer.la-wide, .la-cell.la-wide { max-width: 18em; }
+.la-lam { max-width: 4.5em; }
+.la-textarea { width: 100%; max-width: 28em; border: 1px solid var(--la-line); border-radius: 8px; padding: .5em; background: var(--md-default-bg-color); color: inherit; font-family: var(--md-code-font-family); }
+.la-input-bar, .la-opts, .la-actions { display: flex; flex-wrap: wrap; gap: .5em; align-items: center; margin-top: .6em; }
+.la-pair { display: flex; align-items: flex-start; gap: .8em; flex-wrap: wrap; }
+.la-bar-sep { align-self: center; font-size: 2em; color: var(--la-muted); }
+.la-check { display: inline-flex; align-items: center; gap: .4em; }
+
+/* pulsanti e menu */
+.la-btn { border: 1px solid var(--la-line); background: transparent; color: inherit; border-radius: 999px; padding: .3em 1em; cursor: pointer; font: inherit; }
+.la-btn:hover { border-color: var(--la-piv); color: var(--la-piv); }
+.la-btn.la-primary { background: #16324A; border-color: #16324A; color: #fff; font-weight: 600; }
+[data-md-color-scheme="slate"] .la-btn.la-primary { background: #0E7490; border-color: #0E7490; }
+.la-btn.la-primary:hover { background: #0E7490; color: #fff; }
+.la-btn.la-mini { padding: .1em .55em; }
+.la-btn.la-ghost { color: var(--la-muted); }
+.la-select { border: 1px solid var(--la-line); border-radius: 999px; padding: .3em .7em; background: var(--md-default-bg-color); color: inherit; font: inherit; max-width: 100%; }
+
+/* messaggi */
+.la-msg:empty { display: none; }
+.la-err, .la-ok, .la-hint { border-radius: 10px; padding: .5em .9em; margin: .6em 0; }
+.la-err { background: color-mix(in srgb, var(--la-err) 12%, transparent); border-left: 3px solid var(--la-err); }
+.la-ok { background: color-mix(in srgb, var(--la-ok) 12%, transparent); border-left: 3px solid var(--la-ok); }
+.la-hint { background: color-mix(in srgb, var(--la-piv) 12%, transparent); border-left: 3px solid var(--la-piv); }
+.la-note { color: var(--la-muted); font-weight: 400; }
+.la-intro { color: var(--la-muted); }
+
+/* passi */
+.la-nav { display: flex; flex-wrap: wrap; gap: .4em; align-items: center; margin: .9em 0 .5em; }
+.la-count { color: var(--la-muted); margin: 0 .4em; }
+.la-step { border: 1px solid var(--la-line); border-radius: 12px; padding: .7em 1em; margin: .6em 0; background: color-mix(in srgb, var(--la-piv) 3%, transparent); }
+.la-step.la-final { border-color: var(--la-ok); background: color-mix(in srgb, var(--la-ok) 7%, transparent); }
+.la-step-title { font-weight: 600; display: flex; flex-wrap: wrap; align-items: baseline; gap: .6em; }
+.la-step-n { display: inline-flex; align-items: center; justify-content: center; min-width: 1.7em; height: 1.7em; border-radius: 999px; background: var(--la-piv); color: #fff; font-size: .85em; }
+.la-disp { overflow-x: auto; overflow-y: hidden; padding: .2em 0; }
+.la-effect { color: var(--la-muted); margin: .2em 0 0; }
+.la-history { margin-top: .8em; color: var(--la-muted); line-height: 2; }
+
+/* pivot ed elementi modificati (classi usate da \class{} in MathJax) */
+.la-piv { color: var(--la-piv) !important; font-weight: 700; }
+.la-mod { color: var(--la-mod) !important; }
+
+/* link ad altri strumenti */
+.la-usein { display: flex; flex-wrap: wrap; gap: .4em; align-items: center; margin-top: 1em; color: var(--la-muted); }
+.la-chip { border: 1px solid var(--la-line); border-radius: 999px; padding: .15em .8em; text-decoration: none !important; color: inherit !important; }
+.la-chip:hover { border-color: var(--la-piv); color: var(--la-piv) !important; }
+.la-share { display: flex; flex-wrap: wrap; gap: .4em; margin-top: .8em; }
+
+/* esercizi */
+.la-practice-head { display: flex; align-items: center; gap: 1em; flex-wrap: wrap; margin-bottom: .8em; }
+.la-score { color: var(--la-muted); }
+.la-prompt { margin-bottom: .6em; }
+.la-practice .la-input-head:empty { display: none; }
+
+/* fallo tu */
+.la-doit-mat { margin: .6em 0; }
+.la-doit-ctl { display: flex; flex-wrap: wrap; gap: .4em; align-items: center; margin: .6em 0; }
+.la-doit-form { display: inline-flex; flex-wrap: wrap; gap: .3em; align-items: center; }
+
+/* prodotto di matrici */
+.la-prod { display: flex; flex-wrap: wrap; gap: .8em; align-items: center; justify-content: center; margin: .8em 0; }
+.la-pwrap { text-align: center; }
+.la-pname { color: var(--la-muted); margin-bottom: .2em; }
+.la-ptab { border-collapse: collapse; margin: 0 auto; }
+.la-ptab td { border: 1px solid var(--la-line); padding: .25em .6em; text-align: center; min-width: 2.4em; }
+.la-pc td { cursor: pointer; }
+.la-ptab td.la-hl { background: color-mix(in srgb, var(--la-piv) 22%, transparent); }
+.la-ptab td.la-hl2 { background: color-mix(in srgb, var(--la-mod) 25%, transparent); font-weight: 700; }
+.la-op { font-size: 1.4em; color: var(--la-muted); }
+.la-explain { margin-top: .6em; }
+
+/* somme */
+.la-sumrow { display: flex; flex-wrap: wrap; gap: .5em; align-items: center; }
+
+/* pivoting: dimostrazione numerica */
+.la-pivdemo .la-range { width: 100%; max-width: 30em; }
+.la-range-lab { margin: .4em 0; color: var(--la-muted); }
+.la-pivtab { border-collapse: collapse; margin: .8em auto; font-size: .95em; }
+.la-pivtab th, .la-pivtab td { border: 1px solid var(--la-line); padding: .35em .7em; text-align: center; }
+.la-pivtab td:first-child { text-align: left; }
+.la-bad-val { color: var(--la-err); font-weight: 700; }
+.la-good-val { color: var(--la-ok); }
+
+/* le formule del laboratorio non devono traboccare su telefono */
+.la-tool .MathJax { max-width: 100%; }
+@media (max-width: 600px) {
+  .la-tool { font-size: .75rem; }
+  .la-pane { padding: .7em; }
+}

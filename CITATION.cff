@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this material, please cite it as follows."
+title: "Linear Algebra: online lecture notes with a computation lab"
+abstract: >-
+  The lecture notes of the Linear Algebra course — sums and products, vectors,
+  matrices and determinants, elementary operations, inverse matrix, LU
+  factorization, eigenvalues, norms and linear systems — with worked examples,
+  exercises and an interactive computation lab showing every step.
+authors:
+  - family-names: Furini
+    given-names: Fabio
+    email: fabio.furini@uniroma1.it
+    affiliation: "DIAG, Sapienza Università di Roma"
+url: "https://fabiofurini.github.io/linear-algebra/"
+repository-code: "https://github.com/fabiofurini/linear-algebra"
+license:
+  - CC-BY-4.0
+  - MIT
+date-released: 2026-10-07
+keywords:
+  - linear algebra
+  - matrices
+  - determinants
+  - linear systems
+  - LU factorization
+  - teaching material
