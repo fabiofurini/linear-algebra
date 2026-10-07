@@ -594,6 +594,12 @@ title: "Matrix operations"
 
     Indeed, by Laplace expansion along the first row: \(\det(\boldsymbol A) = 0\cdot(3-1) - 1\cdot(3-2) + 2\cdot(1-2) = -3\).
 
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="gauss" data-matrix="0,2,1;1,-1,0;2,1,3"></div>
+
 ## 4. Pivoting and partial pivoting
 
 - In numerical algorithms such as matrix factorizations and row reduction methods, pivoting is a technique used to improve numerical stability and avoid division by zero.
@@ -849,3 +855,10 @@ title: "Matrix operations"
 - Most modern numerical software (such as MATLAB, NumPy, CPLEX, Gurobi) automatically uses partial pivoting in Gaussian elimination and LU factorization.
 
 - The computational cost of partial pivoting is minimal compared to the benefit of improved numerical stability.
+
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="pivoting"></div>
+

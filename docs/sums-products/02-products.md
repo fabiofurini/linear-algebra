@@ -201,3 +201,10 @@ title: "Products"
     $$
     \frac{100!}{98!}= \frac{100!}{(100-2)!}=\prod_{j=1}^{2} (100-j+1)=100 \cdot 99  = 9.900
     $$
+
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="somme" data-f="k" data-tipo="prod"></div>
+

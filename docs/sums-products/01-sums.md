@@ -236,3 +236,10 @@ title: "Sums"
     \end{align*}
 
     <p class="qed-riga"><span class="qed">□</span></p>
+
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="somme" data-f="k^2" data-tipo="sum"></div>
+

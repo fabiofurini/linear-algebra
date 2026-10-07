@@ -497,6 +497,12 @@ title: "System of linear equations"
 
     hence the system is inconsistent and has <strong>no solution</strong>.
 
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="sistema" data-matrix="1,1,1;2,-1,1;1,2,-1" data-b="6,3,2"></div>
+
 ## 4. Homogeneous systems
 
 <a id="box-defHomogeneous-6"></a>
@@ -1207,3 +1213,10 @@ title: "System of linear equations"
 - For example, with $m=10$ we have $10! = 3\,628\,800$, while $\frac{2}{3} \cdot 10^3 \approx 667$; with $m=20$, $20!$ is larger than $2 \cdot 10^{18}$, while $\frac{2}{3}\cdot 20^3 \approx 5\,333$.
 
 - Even if the determinants are computed in a more efficient way (for instance with Gaussian elimination itself), Cramer's rule still needs $m+1$ of them, and it remains more expensive than solving the system directly with Gaussian elimination.
+
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="sistema" data-matrix="-1,1;8,2" data-b="2,19"></div>
+

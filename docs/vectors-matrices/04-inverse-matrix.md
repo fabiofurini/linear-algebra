@@ -632,3 +632,10 @@ title: "Inversion of matrices"
     which is the matrix obtained with the method of Gauss–Jordan in Example [Example 2](#box-ex_inv-gj-3x3-4).
 
 - For \(n=2\) (and often for \(n=3\)) the adjugate formula is convenient for computations by hand. For larger matrices, the method of Gauss–Jordan requires far fewer operations.
+
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="inversa" data-matrix="2,1;1,1"></div>
+

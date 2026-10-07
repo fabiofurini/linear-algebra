@@ -701,3 +701,10 @@ title: "Eigenvalues and eigenvectors"
     $$
 
     The principal minor \( q_{22}=-1 \) (which is not a leading one) detects this. In fact, the eigenvalues are \( 0 \) and \( -1 \), and \( \boldsymbol Q \) is negative semidefinite.
+
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="autovalori" data-matrix="2,-1;-1,2"></div>
+

@@ -418,6 +418,12 @@ title: "Factorization of matrices"
 
 - Without swapping the multipliers in Step 2 we would get the wrong matrix \(\widetilde{\boldsymbol L}\) with \(\tilde\ell_{21}=2\) and \(\tilde\ell_{31}=-1\), and \(\widetilde{\boldsymbol L}\boldsymbol U \neq \boldsymbol P\boldsymbol A\) (its second row would be \((4,\,6,\,4)\)).
 
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="lu" data-matrix="2,1,1;4,3,3;8,7,9"></div>
+
 ## 2. Determinant from the PLU factorization
 
 <a id="box-obsDetPLU-6"></a>

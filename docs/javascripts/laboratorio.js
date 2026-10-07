@@ -354,6 +354,7 @@
     }, "la-ghost"));
     bar.append(button(TXT.clear, () => { values = null; render(); }, "la-ghost"));
     render();
+    typeset(head);   // l'etichetta della matrice è una formula
     return { el: box, get: get, set: set, dims: () => [rows, cols], inputs: () => inputs };
   }
 
@@ -871,6 +872,7 @@
       const ui = el("div", { class: "la-inputs" });
       la.el.querySelector(".la-input-head").innerHTML = tex("\\boldsymbol L");
       ua.el.querySelector(".la-input-head").innerHTML = tex("\\boldsymbol U");
+      typeset(ui);
       ui.append(la.el, ua.el);
       return { prompt: `${TXT.exLU} ${disp("\\boldsymbol A = " + LA.texMatrix(g.A))}`, answerUI: ui,
         check: () => { const Lm = la.get(), Um = ua.get(); if (!Lm || !Um) return null; return M.eq(Lm, g.L) && M.eq(Um, g.U); },
@@ -945,6 +947,7 @@
       const s = LA.gen.system(n);
       const ans = matrixAnswer(n, 1);
       ans.el.querySelector(".la-input-head").innerHTML = tex("\\boldsymbol x");
+      typeset(ans.el);
       return { prompt: `${TXT.exSys} ${disp(systemTex(s.A, s.b))}`, answerUI: ans.el,
         check: () => { const x = ans.get(); if (!x) return null; return x.every((r, i) => r[0].eq(s.x[i])); },
         solution: () => solveCards(s.A, s.b, "first") };

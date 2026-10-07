@@ -18,9 +18,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      # le pagine e le figure SVG sono già generate dai sorgenti LaTeX (in locale):
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: pip install mkdocs-material sympy
+      # il motore di calcolo del laboratorio contro SymPy: ogni risultato e ogni
+      # passo intermedio. Se un controllo fallisce, il sito non si pubblica.
+      - run: python3 test/genera_casi.py
+      - run: node test/test_algebra.js
+      # le pagine e le figure sono già generate dai sorgenti LaTeX (in locale):
       # qui si controlla solo che il sito si costruisca senza errori
-      - run: pip install mkdocs-material
       - run: mkdocs build --strict
       - uses: actions/upload-pages-artifact@v3
         with:

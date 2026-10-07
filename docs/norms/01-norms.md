@@ -1358,3 +1358,10 @@ title: "Norms"
 - In two dimensions, the inequalities \(\|{\boldsymbol x}\|_\infty \le \|{\boldsymbol x}\|_2 \le \|{\boldsymbol x}\|_1\) mean that the three unit balls are nested: the \(\ell_1\) diamond lies inside the \(\ell_2\) unit circle, which in turn lies inside the \(\ell_\infty\) square.
 
 ![Figure 14](../img/norms-01-norms/fig14.svg){ .fig .ovale loading=lazy style="width:55%" }
+
+!!! interattivo "Try it in the lab"
+
+    the same computation step by step: change the matrix and watch the steps change.
+
+<div class="la-tool" data-tool="norme" data-x="3,-4,12"></div>
+
