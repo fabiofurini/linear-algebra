@@ -184,6 +184,9 @@
     return s ? s.src.replace(/javascripts\/laboratorio\.js.*$/, "") : "";
   })();
   const CARTELLA_LAB = IT ? "laboratorio/" : "lab/";
+  const SLUG_STRUMENTO = IT
+    ? { gauss: "gauss", rango: "rango", det: "determinante", inversa: "inversa", lu: "lu", sistema: "sistemi", autovalori: "autovalori", prodotto: "prodotto", somme: "somme", norme: "norme", pivoting: "pivoting" }
+    : { gauss: "gauss", rango: "rank", det: "determinant", inversa: "inverse", lu: "lu", sistema: "systems", autovalori: "eigenvalues", prodotto: "product", somme: "sums", norme: "norms", pivoting: "pivoting" };
 
   // pagine degli strumenti (per «Usa questa matrice in»)
   const PAGINE = IT
@@ -242,17 +245,28 @@
   const vecTex = (v) => "\\begin{pmatrix}" + v.map((x) => x.tex()).join("\\\\") + "\\end{pmatrix}";
   const X = (j, n) => (n <= 4 && false ? "xyzw"[j] : "x_{" + (j + 1) + "}");
 
-  function readHash() {
+  /** Lo strumento «possiede» l'indirizzo della pagina solo nelle pagine del
+   * laboratorio (data-url="1"). Nella home e nei capitoli non lo legge e non lo
+   * scrive: lì convivono più strumenti e la pagina deve restare pulita. */
+  const possiede = (root) => root && root.dataset.url === "1";
+  function readHash(root) {
     const h = {};
+    if (!possiede(root)) return h;
     location.hash.replace(/^#/, "").split("&").forEach((kv) => {
       const [k, v] = kv.split("=");
       if (k && v !== undefined) h[k] = decodeURIComponent(v);
     });
     return h;
   }
-  function writeHash(obj) {
+  function writeHash(root, obj) {
     const s = Object.entries(obj).filter(([, v]) => v !== undefined && v !== null && v !== "").map(([k, v]) => k + "=" + encodeURIComponent(v).replace(/%2C/g, ",").replace(/%3B/g, ";").replace(/%2F/g, "/")).join("&");
-    history.replaceState(null, "", "#" + s);
+    root.dataset.stato = s;   // per «Copia il link» anche fuori dal laboratorio
+    if (possiede(root)) history.replaceState(null, "", "#" + s);
+  }
+  /** link condivisibile: la pagina dello strumento nel laboratorio, con la matrice */
+  function linkStrumento(root) {
+    const slug = SLUG_STRUMENTO[root.dataset.tool] || root.dataset.tool;
+    return RADICE + CARTELLA_LAB + slug + "/" + (root.dataset.stato ? "#" + root.dataset.stato : "");
   }
   function copy(text, btn) {
     const done = () => { const o = btn.textContent; btn.textContent = TXT.copied; setTimeout(() => (btn.textContent = o), 1400); };
@@ -477,15 +491,15 @@
     });
     return box;
   }
-  function shareBar(extraLatex) {
+  function shareBar(root, extraLatex) {
     const b = el("div", { class: "la-share" });
-    b.append(button("🔗 " + TXT.copyLink, (e) => copy(location.href, e.currentTarget), "la-ghost"));
+    b.append(button("🔗 " + TXT.copyLink, (e) => copy(linkStrumento(root), e.currentTarget), "la-ghost"));
     if (extraLatex) b.append(button("𝐓𝐞𝐗 " + TXT.copyLatex, (e) => copy(extraLatex(), e.currentTarget), "la-ghost"));
     return b;
   }
   function err(msgBox, text) { msgBox.innerHTML = text ? `<div class="la-err">${text}</div>` : ""; if (text) typeset(msgBox); }
   function startMatrix(root, fallback) {
-    const h = readHash();
+    const h = readHash(root);
     const src = h.A || root.dataset.matrix || fallback;
     const A = parseMatrix(src);
     return A.every((r) => r.every((x) => x)) ? A : parseMatrix(fallback);
@@ -552,7 +566,7 @@
       const A = mi.get();
       if (!A) return err(L.msg, TXT.invalid);
       err(L.msg, "");
-      writeHash({ A: matStr(A) });
+      writeHash(root, { A: matStr(A) });
       const g = LA.gauss(A, { pivoting: piv, jordan: jordan });
       const cards = gaussCards(A, g.steps);
       cards.push({ final: true, title: jordan ? TXT.rrefDone : TXT.echelonDone(g.pivots.length),
@@ -560,7 +574,7 @@
           `<p>${TXT.rank}: <strong>${g.pivots.length}</strong> · ${TXT.pivotsAt} ${g.pivots.map((p) => p[1] + 1).join(", ") || "—"}</p>` });
       L.out.innerHTML = "";
       StepViewer(L.out, cards);
-      L.out.append(shareBar(() => latexSteps(A, g.steps, null, IT ? "Eliminazione di Gauss" : "Gaussian elimination")), useIn(A, "gauss"));
+      L.out.append(shareBar(root, () => latexSteps(A, g.steps, null, IT ? "Eliminazione di Gauss" : "Gaussian elimination")), useIn(A, "gauss"));
     }
     run();
     DoIt(F.panes.doit, () => mi.get() || parseMatrix("0,2,1;1,-1,0;2,1,3"));
@@ -654,7 +668,7 @@
       const A = mi.get();
       if (!A) return err(L.msg, TXT.invalid);
       err(L.msg, "");
-      writeHash({ A: matStr(A) });
+      writeHash(root, { A: matStr(A) });
       const g = LA.gauss(A);
       const cards = gaussCards(A, g.steps);
       cards.push({ final: true, title: TXT.echelonDone(g.pivots.length),
@@ -662,7 +676,7 @@
           disp(`\\operatorname{rank}(\\boldsymbol A) = ${g.pivots.length} \\le \\min\\{${A.length}, ${A[0].length}\\}`) });
       L.out.innerHTML = "";
       StepViewer(L.out, cards);
-      L.out.append(shareBar(() => latexSteps(A, g.steps, null, IT ? "rango di una matrice" : "rank of a matrix")), useIn(A, "rango"));
+      L.out.append(shareBar(root, () => latexSteps(A, g.steps, null, IT ? "rango di una matrice" : "rank of a matrix")), useIn(A, "rango"));
     }
     run();
     Practice(F.panes.practice, () => {
@@ -707,10 +721,10 @@
       if (!A) return err(L.msg, TXT.invalid);
       if (method === "sarrus" && A.length !== 3) return err(L.msg, TXT.sarrusOnly3);
       err(L.msg, "");
-      writeHash({ A: matStr(A), m: method });
+      writeHash(root, { A: matStr(A), m: method });
       L.out.innerHTML = "";
       StepViewer(L.out, detCards(A, method, line, piv));
-      L.out.append(shareBar(), useIn(A, "det"));
+      L.out.append(shareBar(root), useIn(A, "det"));
     }
     run();
     Practice(F.panes.practice, () => {
@@ -806,12 +820,12 @@
       const A = mi.get();
       if (!A) return err(L.msg, TXT.invalid);
       err(L.msg, "");
-      writeHash({ A: matStr(A), m: method });
+      writeHash(root, { A: matStr(A), m: method });
       L.out.innerHTML = "";
       const r = method === "gj" ? inverseCards(A, piv) : cofactorCards(A);
       last = r;
       StepViewer(L.out, r.cards);
-      L.out.append(shareBar(method === "gj" ? () => latexSteps(M.hcat(A, M.identity(A.length)), r.steps, A.length, IT ? "matrice inversa con il metodo di Gauss--Jordan" : "inverse matrix via Gauss--Jordan elimination") : null), useIn(A, "inversa"));
+      L.out.append(shareBar(root, method === "gj" ? () => latexSteps(M.hcat(A, M.identity(A.length)), r.steps, A.length, IT ? "matrice inversa con il metodo di Gauss--Jordan" : "inverse matrix via Gauss--Jordan elimination") : null), useIn(A, "inversa"));
     }
     run();
     Practice(F.panes.practice, () => {
@@ -869,10 +883,10 @@
       const A = mi.get();
       if (!A) return err(L.msg, TXT.invalid);
       err(L.msg, "");
-      writeHash({ A: matStr(A), p: piv });
+      writeHash(root, { A: matStr(A), p: piv });
       L.out.innerHTML = "";
       StepViewer(L.out, luCards(A, piv));
-      L.out.append(shareBar(), useIn(A, "lu"));
+      L.out.append(shareBar(root), useIn(A, "lu"));
     }
     run();
     Practice(F.panes.practice, () => {
@@ -914,7 +928,7 @@
     const F = Frame(root, { modes: ["compute", "practice"] });
     const L = ComputeLayout(F.panes.compute);
     let method = "gauss", piv = "first";
-    const h = readHash();
+    const h = readHash(root);
     const A0 = startMatrix(root, "1,1,1;2,-1,1;1,2,-1");
     let mi = null, bi = null;
     mi = MatrixInput({ rows: 3, cols: 3, label: "\\boldsymbol A", maxR: 6, maxC: 6, onEnter: run, examples: ESEMPI.quadrate.concat(ESEMPI.rettangolari),
@@ -942,14 +956,14 @@
       const b = B.map((r) => r[0]);
       if (b.length !== A.length) { syncB(); return; }
       err(L.msg, "");
-      writeHash({ A: matStr(A), b: b.map(String).join(","), m: method });
+      writeHash(root, { A: matStr(A), b: b.map(String).join(","), m: method });
       L.out.innerHTML = "";
       let cards;
       if (method === "cramer") cards = cramerCards(A, b);
       else if (method === "lu") cards = luSolveCards(A, b, piv === "first" ? "first" : "partial");
       else cards = solveCards(A, b, piv);
       StepViewer(L.out, cards);
-      L.out.append(shareBar(method === "gauss" ? () => latexSteps(M.hcat(A, b.map((x) => [x])), LA.solve(A, b, { pivoting: piv }).steps, A[0].length, IT ? "sistema lineare con l'eliminazione di Gauss" : "linear system via Gaussian elimination") : null), useIn(A, "sistema"));
+      L.out.append(shareBar(root, method === "gauss" ? () => latexSteps(M.hcat(A, b.map((x) => [x])), LA.solve(A, b, { pivoting: piv }).steps, A[0].length, IT ? "sistema lineare con l'eliminazione di Gauss" : "linear system via Gaussian elimination") : null), useIn(A, "sistema"));
     }
     run();
     Practice(F.panes.practice, () => {
@@ -1066,10 +1080,10 @@
       if (!A) return err(L.msg, TXT.invalid);
       if (A.length > 4) return err(L.msg, TXT.maxSize(4));
       err(L.msg, "");
-      writeHash({ A: matStr(A) });
+      writeHash(root, { A: matStr(A) });
       L.out.innerHTML = "";
       StepViewer(L.out, eigenCards(A));
-      L.out.append(shareBar(), useIn(A, "autovalori"));
+      L.out.append(shareBar(root), useIn(A, "autovalori"));
     }
     run();
     Practice(F.panes.practice, () => {
@@ -1143,7 +1157,7 @@
   TOOLS.prodotto = function (root) {
     const F = Frame(root, { modes: ["compute"] });
     const L = ComputeLayout(F.panes.compute);
-    const h = readHash();
+    const h = readHash(root);
     const a = MatrixInput({ rows: 2, cols: 3, label: "\\boldsymbol A", maxR: 5, maxC: 5, onEnter: run, random: (m, n) => LA.gen.det(Math.max(m, n)).slice(0, m).map((r) => r.slice(0, n)) });
     const b = MatrixInput({ rows: 3, cols: 2, label: "\\boldsymbol B", maxR: 5, maxC: 5, onEnter: run, random: (m, n) => LA.gen.det(Math.max(m, n)).slice(0, m).map((r) => r.slice(0, n)) });
     a.set(parseMatrix(h.A || root.dataset.matrix || "1,2,0;-1,3,1"));
@@ -1155,7 +1169,7 @@
       if (!A || !B) return err(L.msg, TXT.invalid);
       if (A[0].length !== B.length) return err(L.msg, TXT.dimMismatch(A[0].length, B.length));
       err(L.msg, "");
-      writeHash({ A: matStr(A), B: matStr(B) });
+      writeHash(root, { A: matStr(A), B: matStr(B) });
       const C = M.mul(A, B);
       L.out.innerHTML = "";
       const tavola = el("div", { class: "la-prod" });
@@ -1188,7 +1202,7 @@
         const BA = M.mul(B, A);
         L.out.append(el("div", { class: "la-explain" }, `<p>${TXT.commute}</p>` + disp(`\\boldsymbol B\\boldsymbol A = ${LA.texMatrix(BA)}\\in\\R^{${BA.length}\\times ${BA[0].length}}`) + `<p>${TXT.noCommute}</p>`));
       }
-      L.out.append(shareBar());
+      L.out.append(shareBar(root));
       typeset(L.out);
     }
     run();
@@ -1198,7 +1212,7 @@
   TOOLS.somme = function (root) {
     const F = Frame(root, { modes: ["compute"] });
     const L = ComputeLayout(F.panes.compute);
-    const h = readHash();
+    const h = readHash(root);
     let tipo = h.t || root.dataset.tipo || "sum";
     const expr = el("input", { type: "text", class: "la-cell la-wide", value: h.f || root.dataset.f || "k^2" });
     const a = el("input", { type: "text", class: "la-cell", value: h.a || "1" });
@@ -1221,7 +1235,7 @@
       if (!isFinite(A) || !isFinite(B)) return err(L.msg, TXT.exprError);
       if (B - A > 2000) return err(L.msg, TXT.tooMany);
       err(L.msg, "");
-      writeHash({ t: tipo, f: expr.value, a: A, b: B });
+      writeHash(root, { t: tipo, f: expr.value, a: A, b: B });
       const vals = [];
       try { for (let k = A; k <= B; k++) vals.push(f(k)); } catch (e) { return err(L.msg, TXT.exprError); }
       let tot = tipo === "sum" ? LA.ZERO : LA.ONE;
@@ -1248,7 +1262,7 @@
         if (!q.isOne()) html += `<p>${TXT.closedForm}</p>` + disp(`\\sum_{k=${A}}^{${B}} q^k = q^{${A}}\\,\\frac{1 - q^{${B - A + 1}}}{1 - q} = ${q.pow(Math.max(A, 0)).mul(LA.ONE.sub(q.pow(B - A + 1))).div(LA.ONE.sub(q)).tex()}\\quad (q = ${q.tex()})`);
       } else if (tipo === "prod" && expr.value.replace(/\s/g, "") === "k" && A === 1) html += disp(`\\prod_{k=1}^{n} k = n! = ${B}!`);
       L.out.innerHTML = "";
-      L.out.append(el("div", { class: "la-step la-final" }, html), shareBar());
+      L.out.append(el("div", { class: "la-step la-final" }, html), shareBar(root));
       typeset(L.out);
     }
     run();
@@ -1258,7 +1272,7 @@
   TOOLS.norme = function (root) {
     const F = Frame(root, { modes: ["compute"] });
     const L = ComputeLayout(F.panes.compute);
-    const h = readHash();
+    const h = readHash(root);
     let xi = null, qi = null;
     xi = MatrixInput({ rows: 3, cols: 1, vector: true, label: "\\boldsymbol x", maxR: 8, random: (m) => Array.from({ length: m }, () => [String(LA.rnd(-6, 6))]), onEnter: run });
     xi.set((h.x || root.dataset.x || "3,-4,12").split(",").map((v) => [v]));
@@ -1300,9 +1314,9 @@
         }
       }
       html += disp(`\\|\\boldsymbol x\\|_\\infty \\le \\|\\boldsymbol x\\|_2 \\le \\|\\boldsymbol x\\|_1:\\quad ${nn.linf.tex()} \\le ${Math.sqrt(nn.l2sq.toNumber()).toFixed(3).replace(/\.?0+$/, "")} \\le ${nn.l1.tex()}`);
-      writeHash(hashObj);
+      writeHash(root, hashObj);
       L.out.innerHTML = "";
-      L.out.append(el("div", { class: "la-step la-final" }, html), shareBar());
+      L.out.append(el("div", { class: "la-step la-final" }, html), shareBar(root));
       typeset(L.out);
     }
     run();
