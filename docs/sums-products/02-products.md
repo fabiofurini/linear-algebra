@@ -6,7 +6,7 @@ title: "Products"
 
 <div class="info-capitolo" markdown>
 
-**Sums and products · Chapter 2** · lecture notes by Fabio Furini · [:material-file-pdf-box: Chapter PDF](../pdf/sums-products-02-products.pdf)
+**Sums and products · Chapter 2** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
 </div>
 

@@ -16,6 +16,8 @@ build/
 # materiale interno, non pubblicato
 STILE_E_FORMATO.md
 dispensa/
+slides/
+notes/
 # varie
 .DS_Store
 test/casi.json

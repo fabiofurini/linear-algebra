@@ -6,7 +6,7 @@ title: "System of linear equations"
 
 <div class="info-capitolo" markdown>
 
-**Linear systems · Chapter 6** · lecture notes by Fabio Furini · [:material-file-pdf-box: Chapter PDF](../pdf/systems-01-linear-systems.pdf)
+**Linear systems · Chapter 6** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
 </div>
 

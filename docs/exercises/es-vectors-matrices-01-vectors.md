@@ -6,7 +6,7 @@ title: "Vectors"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Vectors and matrices** · chapter [3 · Vectors](../vectors-matrices/01-vectors.md) · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-vectors-matrices-01-vectors.pdf)
+**Exercises · Vectors and matrices** · chapter [3 · Vectors](../vectors-matrices/01-vectors.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
 </div>
 

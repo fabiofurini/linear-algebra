@@ -6,7 +6,7 @@ title: "Vectors"
 
 <div class="info-capitolo" markdown>
 
-**Vectors and matrices · Chapter 3** · lecture notes by Fabio Furini · [:material-file-pdf-box: Chapter PDF](../pdf/vectors-matrices-01-vectors.pdf)
+**Vectors and matrices · Chapter 3** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
 </div>
 

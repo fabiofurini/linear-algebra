@@ -6,7 +6,7 @@ title: "Matrix operations"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Vectors and matrices** · chapter [4.2 · Matrix operations](../vectors-matrices/03-elementary-operations.md) · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-vectors-matrices-03-elementary-operations.pdf)
+**Exercises · Vectors and matrices** · chapter [4.2 · Matrix operations](../vectors-matrices/03-elementary-operations.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
 </div>
 

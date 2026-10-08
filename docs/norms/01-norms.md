@@ -6,7 +6,7 @@ title: "Norms"
 
 <div class="info-capitolo" markdown>
 
-**Norms · Chapter 5** · lecture notes by Fabio Furini · [:material-file-pdf-box: Chapter PDF](../pdf/norms-01-norms.pdf)
+**Norms · Chapter 5** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
 </div>
 

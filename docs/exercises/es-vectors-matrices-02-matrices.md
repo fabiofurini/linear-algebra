@@ -6,7 +6,7 @@ title: "Matrices"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Vectors and matrices** · chapter [4.1 · Matrices](../vectors-matrices/02-matrices.md) · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-vectors-matrices-02-matrices.pdf)
+**Exercises · Vectors and matrices** · chapter [4.1 · Matrices](../vectors-matrices/02-matrices.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
 </div>
 

@@ -163,6 +163,7 @@ nav:
       - Sums and products: lab/sums.md
       - Norms: lab/norms.md
       - Why partial pivoting: lab/pivoting.md
+  - Downloads: downloads.md
   - The course:
       - organization.md
       - Full index: index-full.md

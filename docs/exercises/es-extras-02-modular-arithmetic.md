@@ -6,7 +6,7 @@ title: "Modular arithmetic"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Further topics** · chapter [A.2 · Modular arithmetic](../extras/02-modular-arithmetic.md) · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-extras-02-modular-arithmetic.pdf)
+**Exercises · Further topics** · chapter [A.2 · Modular arithmetic](../extras/02-modular-arithmetic.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
 </div>
 
