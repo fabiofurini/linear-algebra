@@ -21,3 +21,6 @@ notes/
 # varie
 .DS_Store
 test/casi.json
+
+# note rivedute da cui si generano dispense e sito (private: sul sito solo i PDF)
+note/
