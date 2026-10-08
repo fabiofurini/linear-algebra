@@ -175,6 +175,16 @@
     },
   }[IT ? "it" : "en"];
 
+  // Radice del sito, ricavata dall'indirizzo (assoluto) di questo script: i link
+  // fra gli strumenti partono da lì, perché il laboratorio compare anche nella
+  // home e dentro i capitoli, a profondità diverse. L'indirizzo assoluto regge
+  // anche la navigazione istantanea di Material (che non ricarica gli script).
+  const RADICE = (function () {
+    const s = document.querySelector('script[src*="javascripts/laboratorio.js"]');
+    return s ? s.src.replace(/javascripts\/laboratorio\.js.*$/, "") : "";
+  })();
+  const CARTELLA_LAB = IT ? "laboratorio/" : "lab/";
+
   // pagine degli strumenti (per «Usa questa matrice in»)
   const PAGINE = IT
     ? { gauss: ["gauss", "Gauss"], rango: ["rango", "Rango"], det: ["determinante", "Determinante"], inversa: ["inversa", "Inversa"], lu: ["lu", "LU"], sistema: ["sistemi", "Sistema"], autovalori: ["autovalori", "Autovalori"] }
@@ -462,7 +472,7 @@
     Object.entries(PAGINE).forEach(([k, [slug, label]]) => {
       if (k === current) return;
       if (A.length !== A[0].length && ["det", "inversa", "lu", "autovalori"].indexOf(k) >= 0) return;
-      const href = `../${slug}/#A=${matStr(A)}`;
+      const href = `${RADICE}${CARTELLA_LAB}${slug}/#A=${matStr(A)}`;
       box.append(el("a", { href: href, class: "la-chip" }, label));
     });
     return box;
