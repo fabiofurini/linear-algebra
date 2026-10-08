@@ -138,10 +138,12 @@
 .la-demo-op .la-demo-formula { display: inline-block; }
 .la-demo-mat { font-size: 1.35em; text-align: center; }
 .la-demo-punti { display: flex; align-items: center; gap: .35em; justify-content: center; flex-wrap: wrap; margin-top: .3em; }
-.la-demo-punti i { width: .55em; height: .55em; border-radius: 50%; background: var(--la-line); display: inline-block; transition: background .3s; }
+.la-demo-punti i { width: .55em; height: .55em; border-radius: 50%; background: var(--la-line); display: inline-block; }
 .la-demo-punti i.on { background: var(--la-piv); }
 .la-demo-punti .la-note { margin-left: .5em; }
 .la-demo-ctl { justify-content: center; }
 .la-demo-cta { text-align: center; margin-top: .8em; }
 .la-demo-cta .md-button { margin: 0; }
 @media (max-width: 600px) { .la-demo-mat { font-size: 1.15em; } .la-demo { padding: .8em; } }
+.la-demo-ctl .la-btn:disabled { opacity: .4; cursor: default; }
+.la-demo-play { min-width: 2.6em; font-size: 1.05em; }

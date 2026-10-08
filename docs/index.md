@@ -25,8 +25,9 @@ with the same notation as the notes.
 
 ## Matrices, step by step
 
-Watch how a matrix becomes upper triangular with simple row operations: the
-zeros appear below the diagonal one step at a time.
+Watch how a matrix becomes upper triangular with simple row operations: press
+«Next step» and the zeros appear below the diagonal, one step at a time (or ▶
+to let it run by itself).
 
 <div class="la-tool" data-tool="demo" data-matrix="2,4,2;4,10,6;2,6,8"></div>
 
@@ -138,4 +139,14 @@ same place.
     [:octicons-arrow-right-24: Organization](organization.md) · [Full index](index-full.md)
 
 </div>
+
+---
+
+Teaching material by **[Fabio Furini](https://sites.google.com/view/fabiofurini/home-page)** —
+[DIAG](https://www.diag.uniroma1.it/), Sapienza University of Rome. Part of the same
+series as the [Operations Research Lab](https://fabiofurini.github.io/operations-research-lab/),
+[MIP Modelling](https://fabiofurini.github.io/mip-modelling/) and
+[Mathematical Analysis 1](https://fabiofurini.github.io/mathematical-analysis-1/).
+
+*Questo sito è disponibile anche in [italiano](https://fabiofurini.github.io/algebra-lineare/).*
 
