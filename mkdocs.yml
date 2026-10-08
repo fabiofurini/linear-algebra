@@ -105,6 +105,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
+  - javascripts/cloudflare-analytics.js?v=913760528a
   - javascripts/mathjax.js?v=2617f92aed
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/algebra.js?v=351bd892dc
