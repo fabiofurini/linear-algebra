@@ -82,10 +82,8 @@ extra:
       lang: en
 
 extra_css:
-  - stylesheets/extra.css
-  - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
-  - stylesheets/interattivi.css
-  - stylesheets/laboratorio.css
+  - stylesheets/extra.css?v=6b95240421
+  - stylesheets/laboratorio.css?v=17741bc836
 
 markdown_extensions:
   - admonition
@@ -107,12 +105,10 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
-  - javascripts/mathjax.js
+  - javascripts/mathjax.js?v=7f7ddb8e83
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js
-  - javascripts/interattivi.js
-  - javascripts/algebra.js
-  - javascripts/laboratorio.js
+  - javascripts/algebra.js?v=58334e5a10
+  - javascripts/laboratorio.js?v=728637d24d
 
 nav:
   - Home: index.md
