@@ -1361,7 +1361,16 @@
   };
 
   // ------------------------------------------------------------------ avvio
+  /** Un #A=… (o #x=…, #b=…) rimasto nell'indirizzo di una pagina che non è del
+   * laboratorio — da un link vecchio, dalla cronologia, dal completamento della
+   * barra degli indirizzi — si toglie: lì non serve a niente. Le ancore normali
+   * (#1-definizione) non si toccano. */
+  function pulisciIndirizzo() {
+    if (document.querySelector('.la-tool[data-url="1"]')) return;
+    if (/^#(?:A|B|b|x|Q|t|f|a|m|p)=/.test(location.hash)) history.replaceState(history.state, "", location.pathname + location.search);
+  }
   function monta() {
+    pulisciIndirizzo();
     document.querySelectorAll(".la-tool:not([data-pronto])").forEach((root) => {
       root.dataset.pronto = "1";
       const t = TOOLS[root.dataset.tool];

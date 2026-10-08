@@ -841,15 +841,21 @@
       if (c === "-") { i++; return { t: "neg", a: factor() }; }
       if (c === varName) { i++; return { t: "v" }; }
       const n = num();
-      if (n) {
-        // moltiplicazione implicita: 2k, 3(k+1)
-        if (peek() === varName || peek() === "(") return { t: "*", a: n, b: factor() };
-        return n;
-      }
+      if (n) return n;
       throw new Error("unexpected " + c);
     }
     function factor() { let a = atom(); if (peek() === "^") { i++; const b = factor(); a = { t: "^", a: a, b: b }; } return a; }
-    function term() { let a = factor(); while (peek() === "*" || peek() === "/") { const op = s[i++]; a = { t: op, a: a, b: factor() }; } return a; }
+    function term() {
+      let a = factor();
+      for (;;) {
+        const c = peek();
+        if (c === "*" || c === "/") { i++; a = { t: c, a: a, b: factor() }; }
+        // moltiplicazione sottintesa, come si scrive a mano: 2k, k(k+1), (k+1)(k+2), 3(k-1)
+        else if (c === varName || c === "(" || (c !== undefined && c >= "0" && c <= "9")) a = { t: "*", a: a, b: factor() };
+        else break;
+      }
+      return a;
+    }
     function expr() { let a = term(); while (peek() === "+" || peek() === "-") { const op = s[i++]; a = { t: op, a: a, b: term() }; } return a; }
     const tree = expr();
     if (i !== s.length) throw new Error("unexpected " + s[i]);

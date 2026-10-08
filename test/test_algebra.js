@@ -193,6 +193,20 @@
     ok(sum.toString() === "385", "somma dei quadrati");
     ok(LA.parseExpr("2k+1")(3).toString() === "7", "moltiplicazione implicita");
     ok(LA.parseExpr("(1/2)^k")(3).toString() === "1/8", "potenza di frazione");
+    // moltiplicazione sottintesa dopo k e fra parentesi (pulsante «Σ 1/(k(k+1))»)
+    const tel = LA.parseExpr("1/(k(k+1))");
+    let st = LA.ZERO;
+    for (let k = 1; k <= 10; k++) st = st.add(tel(k));
+    ok(st.toString() === "10/11", "somma telescopica 1/(k(k+1)) = 10/11");
+    ok(LA.parseExpr("(k+1)(k+2)")(1).toString() === "6", "(k+1)(k+2)");
+    ok(LA.parseExpr("k(k+1)/2")(4).toString() === "10", "k(k+1)/2");
+    ok(LA.parseExpr("2k^2")(3).toString() === "18", "2k^2 = 2·(k^2)");
+    ok(LA.parseExpr("-k^2")(3).toString() === "-9", "-k^2 = -(k^2)");
+    ok(LA.parseExpr("3(k-1)")(5).toString() === "12", "3(k-1)");
+    ok(LA.parseExpr("2^k")(10).toString() === "1024", "2^k");
+    let errore = false;
+    try { LA.parseExpr("k+"); } catch (e) { errore = true; }
+    ok(errore, "espressione incompleta rifiutata");
 
     return { checks: checks, errors: errors };
   }

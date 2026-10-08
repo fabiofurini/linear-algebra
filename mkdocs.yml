@@ -107,8 +107,8 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js?v=7f7ddb8e83
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - javascripts/algebra.js?v=58334e5a10
-  - javascripts/laboratorio.js?v=728637d24d
+  - javascripts/algebra.js?v=351bd892dc
+  - javascripts/laboratorio.js?v=d8eb73e188
 
 nav:
   - Home: index.md
