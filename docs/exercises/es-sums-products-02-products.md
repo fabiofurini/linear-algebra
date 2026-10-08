@@ -6,7 +6,7 @@ title: "Products"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Sums and products** · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-sums-products-02-products.pdf)
+**Exercises · Sums and products** · chapter [2 · Products](../sums-products/02-products.md) · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-sums-products-02-products.pdf)
 
 </div>
 

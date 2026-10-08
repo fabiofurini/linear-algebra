@@ -6,7 +6,7 @@ title: "Factorization of matrices"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Vectors and matrices** · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-vectors-matrices-05-lu-factorization.pdf)
+**Exercises · Vectors and matrices** · chapter [4.4 · Factorization of matrices](../vectors-matrices/05-lu-factorization.md) · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-vectors-matrices-05-lu-factorization.pdf)
 
 </div>
 

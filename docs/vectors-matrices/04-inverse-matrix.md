@@ -639,3 +639,8 @@ title: "Inversion of matrices"
 
 <div class="la-tool" data-tool="inversa" data-matrix="2,1;1,1"></div>
 
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 10 exercises with worked solutions](../exercises/es-vectors-matrices-04-inverse-matrix.md)
+- :material-calculator-variant: **Lab** · [Inverse matrix](../lab/inverse.md) — Gauss–Jordan on \((\boldsymbol A \mid \boldsymbol I)\) or the cofactor formula.
+

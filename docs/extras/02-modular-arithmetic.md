@@ -126,3 +126,8 @@ title: "Modular arithmetic"
 !!! esempio "Example 1: congruence modulo $5$"
 
     For example, $23$ and $13$ are congruent modulo $5$ and we have $23 \equiv 13 \tpmod{5}$
+
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 8 exercises with worked solutions](../exercises/es-extras-02-modular-arithmetic.md)
+

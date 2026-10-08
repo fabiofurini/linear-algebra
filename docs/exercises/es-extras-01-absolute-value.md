@@ -6,7 +6,7 @@ title: "Absolute value"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Further topics** · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-extras-01-absolute-value.pdf)
+**Exercises · Further topics** · chapter [A.1 · Absolute value](../extras/01-absolute-value.md) · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-extras-01-absolute-value.pdf)
 
 </div>
 

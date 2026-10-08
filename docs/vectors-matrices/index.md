@@ -1,6 +1,6 @@
 # Vectors and matrices
 
-*Chapters 3–4 of the lecture notes.* Vectors, matrices and determinants; elementary operations, inverse, LU factorization, eigenvalues.
+*Chapters 3–4 of the lecture notes.* Vectors and linear independence, matrices, determinants and rank; elementary operations and Gaussian elimination, inverse matrix, LU factorization, eigenvalues and Sylvester's criterion.
 
 <div class="grid cards" markdown>
 

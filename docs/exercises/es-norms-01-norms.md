@@ -6,7 +6,7 @@ title: "Norms"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Norms** · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-norms-01-norms.pdf)
+**Exercises · Norms** · chapter [5 · Norms](../norms/01-norms.md) · with worked solutions · [:material-file-pdf-box: PDF](../pdf/es-norms-01-norms.pdf)
 
 </div>
 

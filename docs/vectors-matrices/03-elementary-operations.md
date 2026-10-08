@@ -862,3 +862,10 @@ title: "Matrix operations"
 
 <div class="la-tool" data-tool="pivoting"></div>
 
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 10 exercises with worked solutions](../exercises/es-vectors-matrices-03-elementary-operations.md)
+- :material-calculator-variant: **Lab** · [Gaussian elimination](../lab/gauss.md) — Bring a matrix to row echelon (or reduced) form showing every elementary operation.
+- :material-calculator-variant: **Lab** · [Determinant](../lab/determinant.md) — choose the «Gaussian elimination» method: the effect of each elementary operation on the determinant
+- :material-calculator-variant: **Lab** · [Why partial pivoting](../lab/pivoting.md) — The same system with and without partial pivoting, in floating point.
+

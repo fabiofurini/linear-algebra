@@ -635,3 +635,8 @@ $$
     +
     1\begin{pmatrix}1\\-1\end{pmatrix}.
     $$
+
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 10 exercises with worked solutions](../exercises/es-vectors-matrices-01-vectors.md)
+

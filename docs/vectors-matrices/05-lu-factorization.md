@@ -457,3 +457,10 @@ title: "Factorization of matrices"
     - Example [Example 3](#box-ex_plu-2x2-4): one row swap (\(s=1\)), so \(\det(\boldsymbol A) = -(1\cdot 1) = -1\). Indeed, \(\det(\boldsymbol A) = 0\cdot 1 - 1\cdot 1 = -1\).
 
     - Example [Example 4](#box-ex_plu-3x3-5): one row swap (\(s=1\)), so \(\det(\boldsymbol A) = -(2\cdot 4\cdot 1) = -8\). Indeed, by Laplace expansion along the first row, \(\det(\boldsymbol A) = 2\cdot(2-9) - 1\cdot(4+6) + 1\cdot(12+4) = -14 - 10 + 16 = -8\).
+
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 7 exercises with worked solutions](../exercises/es-vectors-matrices-05-lu-factorization.md)
+- :material-calculator-variant: **Lab** · [LU factorization](../lab/lu.md) — The multipliers that fill \(\boldsymbol L\), the swaps that fill \(\boldsymbol P\).
+- :material-calculator-variant: **Lab** · [Linear systems](../lab/systems.md) — choose «With the LU factorization»: forward and back substitution
+

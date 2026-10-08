@@ -1365,3 +1365,8 @@ title: "Norms"
 
 <div class="la-tool" data-tool="norme" data-x="3,-4,12"></div>
 
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 12 exercises with worked solutions](../exercises/es-norms-01-norms.md)
+- :material-calculator-variant: **Lab** · [Norms](../lab/norms.md) — The \(\ell_1\), \(\ell_2\), \(\ell_\infty\) norms and the one generalized by \(\boldsymbol Q\).
+

@@ -1220,3 +1220,9 @@ title: "System of linear equations"
 
 <div class="la-tool" data-tool="sistema" data-matrix="-1,1;8,2" data-b="2,19"></div>
 
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 11 exercises with worked solutions](../exercises/es-systems-01-linear-systems.md)
+- :material-calculator-variant: **Lab** · [Linear systems](../lab/systems.md) — Gauss and back substitution, Rouché–Capelli, Cramer, or the LU factorization.
+- :material-calculator-variant: **Lab** · [Rank](../lab/rank.md) — the rank of \(\boldsymbol A\) and of the augmented matrix \((\boldsymbol A\mid\boldsymbol b)\) for Rouché–Capelli
+

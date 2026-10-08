@@ -152,3 +152,8 @@ title: "Absolute value"
     |b\:c| = |b| \: |c|, \qquad \left| \frac{b}{c}\right|= \frac{|b|}{|c|}, \qquad |-b|=|b| \qquad \forall  b,c \in \mathbb{R} ~ (c \neq 0 {\rm ~in~the~quotient}).
     \label{ass_7}
     \end{equation}
+
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 8 exercises with worked solutions](../exercises/es-extras-01-absolute-value.md)
+

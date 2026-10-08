@@ -708,3 +708,8 @@ title: "Eigenvalues and eigenvectors"
 
 <div class="la-tool" data-tool="autovalori" data-matrix="2,-1;-1,2"></div>
 
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 10 exercises with worked solutions](../exercises/es-vectors-matrices-06-eigenvalues.md)
+- :material-calculator-variant: **Lab** · [Eigenvalues and definiteness](../lab/eigenvalues.md) — Characteristic polynomial, eigenvectors and Sylvester's criterion.
+

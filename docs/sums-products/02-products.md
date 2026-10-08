@@ -208,3 +208,8 @@ title: "Products"
 
 <div class="la-tool" data-tool="somme" data-f="k" data-tipo="prod"></div>
 
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 9 exercises with worked solutions](../exercises/es-sums-products-02-products.md)
+- :material-calculator-variant: **Lab** · [Sums and products](../lab/sums.md) — choose «Product Π»: for example \(\prod_{k=1}^{n} k = n!\)
+

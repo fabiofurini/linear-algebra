@@ -19,46 +19,123 @@ with the same notation as the notes.
 
 [Start with sums :material-arrow-right:](sums-products/index.md){ .md-button .md-button--primary }
 [Try the lab](lab/index.md){ .md-button }
+[:material-download: Download all the lecture notes (PDF)](pdf/lecture-notes-linear-algebra.pdf){ .md-button }
 
 </div>
 
-## Try it right now
+## Matrices, step by step
 
-Type a matrix and watch every row operation, in exact fractions.
+Watch how a matrix becomes upper triangular with simple row operations: the
+zeros appear below the diagonal one step at a time.
 
-<div class="la-tool" data-tool="gauss" data-matrix="0,2,1;1,-1,0;2,1,3"></div>
+<div class="la-tool" data-tool="demo" data-matrix="2,4,2;4,10,6;2,6,8"></div>
 
-## What you will find here
+## The parts of the course
 
 <div class="grid cards" markdown>
 
--   **The lecture notes**
+-   :material-sigma: **1–2 · Sums and products**
 
     ---
 
-    Every chapter of the course, with the same boxes and the same numbers as
-    the PDF: definitions, observations, proofs you can unfold, worked examples.
+    Summation and product notation, their properties, closed-form sums, the factorial.
 
--   **The computation lab**
+    [:octicons-arrow-right-24: The chapters](sums-products/index.md)
 
-    ---
-
-    Eleven tools that do not only give the answer: they show the steps, the way
-    you would write them by hand.
-
--   **Exercises with solutions**
+-   :material-matrix: **3–4 · Vectors and matrices**
 
     ---
 
-    One sheet per chapter, with the full solution one click away, plus endless
-    generated exercises in the lab's *Practice* tab.
+    Vectors and linear independence, matrices, determinants and rank; elementary operations and Gaussian elimination, inverse matrix, LU factorization, eigenvalues and Sylvester's criterion.
 
--   **It is a propaedeutic course**
+    [:octicons-arrow-right-24: The chapters](vectors-matrices/index.md)
+
+-   :material-vector-line: **5 · Norms**
 
     ---
 
-    Everything here is used in the [Operations Research Lab](https://fabiofurini.github.io/operations-research-lab/)
-    and in [MIP Modelling](https://fabiofurini.github.io/mip-modelling/).
+    The ℓ₁, ℓ₂, ℓ∞ and generalized ℓ₂ norms, the Cauchy–Schwarz inequality and the triangle inequality.
+
+    [:octicons-arrow-right-24: The chapter](norms/01-norms.md)
+
+-   :material-equal-box: **6 · Linear systems**
+
+    ---
+
+    Existence and uniqueness of solutions, the Rouché–Capelli theorem, Gaussian elimination, homogeneous systems, the LU method, Cramer's rule.
+
+    [:octicons-arrow-right-24: The chapter](systems/01-linear-systems.md)
+
+-   :material-plus-circle-outline: **A · Further topics**
+
+    ---
+
+    Absolute value and modular arithmetic.
+
+    [:octicons-arrow-right-24: The chapters](extras/index.md)
+
+</div>
+
+## How each chapter is organized
+
+Each chapter is one of the course notes, with the same numbers and the same
+colours as the PDF: on the website and on paper you find everything in the
+same place.
+
+<div class="grid" markdown>
+
+!!! definizione "Definition"
+    The precise meaning of a new concept.
+
+!!! teorema "Observation, Proposition, Theorem"
+    A result to remember, with its hypotheses. In these notes most results are
+    **Observations**: they share the theorems' red box and often come with a proof.
+
+!!! esempio "Example"
+    A computation worked out in full, one step at a time.
+
+!!! chiave ""
+    **In green** the key point to take away: rules, methods, summaries.
+
+</div>
+
+??? dimostrazione "Proof — opens with a click"
+    All proofs are there, but folded: first read the statement, then open the
+    proof when you want to study it.
+
+!!! interattivo "Try it in the lab"
+    In the chapters with computations, the same example can be redone step by
+    step in the lab: change the matrix and watch the steps change.
+
+## Don't miss
+
+<div class="grid cards" markdown>
+
+-   :material-calculator-variant: **The computation lab**
+
+    ---
+
+    Eleven tools that show the steps, the way you would write them by hand,
+    with exercises generated for you.
+
+    [:octicons-arrow-right-24: The tools](lab/index.md)
+
+-   :material-pencil-box-multiple: **Exercises with solutions**
+
+    ---
+
+    One sheet per chapter, with the full solution one click away.
+
+    [:octicons-arrow-right-24: The exercises](exercises/index.md)
+
+-   :material-school: **The course**
+
+    ---
+
+    How to use the site, where these topics come back in the Operations
+    Research courses, the full index of the chapters.
+
+    [:octicons-arrow-right-24: Organization](organization.md) · [Full index](index-full.md)
 
 </div>
 

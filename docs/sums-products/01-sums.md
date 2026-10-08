@@ -243,3 +243,8 @@ title: "Sums"
 
 <div class="la-tool" data-tool="somme" data-f="k^2" data-tipo="sum"></div>
 
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 12 exercises with worked solutions](../exercises/es-sums-products-01-sums.md)
+- :material-calculator-variant: **Lab** · [Sums and products](../lab/sums.md) — type the general term and compare with the closed-form sums of this chapter
+

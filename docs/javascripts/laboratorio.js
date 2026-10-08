@@ -1360,6 +1360,67 @@
     run();
   };
 
+  // ------------------------------------------------------------------ dimostrazione animata (home)
+  /** La riduzione a forma triangolare superiore che si svolge da sola, un passo
+   * alla volta: i passi sono quelli del motore (pivot come nelle dispense).
+   * Con «riduci le animazioni» attivo nel sistema non parte da sola. */
+  TOOLS.demo = function (root) {
+    root.innerHTML = "";
+    root.classList.add("la-mj", "la-demo");
+    const T = IT
+      ? { start: "Matrice di partenza", done: "Forma triangolare superiore: sotto la diagonale solo zeri.", step: (k, n) => `Passo ${k} di ${n}`,
+          pause: "Pausa", play: "Riprendi", again: "Ricomincia", next: "Passo successivo", try: "Prova tu con il metodo di Gauss" }
+      : { start: "Starting matrix", done: "Upper triangular form: only zeros below the diagonal.", step: (k, n) => `Step ${k} of ${n}`,
+          pause: "Pause", play: "Play", again: "Restart", next: "Next step", try: "Try it yourself with Gaussian elimination" };
+    const A = parseMatrix(root.dataset.matrix || "2,4,2;4,10,6;2,6,8");
+    const g = LA.gauss(A, { pivoting: "first" });
+    const passi = g.steps.filter((x) => x.op);
+    // zeri «nuovi» sotto la diagonale, da evidenziare
+    const zeri = (M0) => Object.fromEntries(M0.flatMap((r, i) => r.map((x, j) => [i + "," + j, j < i && x.isZero() ? "la-zero" : null])).filter((e) => e[1]));
+    const sintesi = el("div", { class: "la-disp la-demo-sintesi" }, `\\[${LA.texMatrix(A)}\\quad\\longrightarrow\\quad${LA.texMatrix(g.result, { cells: zeri(g.result) })}\\]`);
+    const scena = el("div", { class: "la-demo-scena" });
+    const op = el("div", { class: "la-demo-op", "aria-live": "polite" });
+    const mat = el("div", { class: "la-disp la-demo-mat" });
+    const punti = el("div", { class: "la-demo-punti" });
+    scena.append(op, mat, punti);
+    const ctl = el("div", { class: "la-actions la-demo-ctl" });
+    const ridotto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let k = 0, timer = null, inCorso = !ridotto;
+    const bPausa = button("", () => { inCorso = !inCorso; aggiorna(); if (inCorso) programma(); else clearTimeout(timer); }, "la-ghost");
+    const bAvanti = button(T.next + " ▶", () => { clearTimeout(timer); if (k < passi.length) { k++; disegna(); } }, "la-ghost");
+    const bDaCapo = button("↺ " + T.again, () => { clearTimeout(timer); k = 0; disegna(); if (inCorso) programma(); }, "la-ghost");
+    const prova = el("a", { class: "md-button md-button--primary la-demo-prova", href: `${RADICE}${CARTELLA_LAB}gauss/#A=${matStr(A)}` }, T.try + " →");
+    ctl.append(bPausa, bAvanti, bDaCapo);
+    root.append(sintesi, scena, ctl, el("div", { class: "la-demo-cta" }, ""));
+    root.lastChild.append(prova);
+    function aggiorna() { bPausa.textContent = inCorso ? "⏸ " + T.pause : "▶ " + T.play; bAvanti.hidden = inCorso; }
+    function disegna() {
+      const s = k === 0 ? null : passi[k - 1];
+      const M0 = s ? s.matrix : A;
+      const fine = k === passi.length;
+      op.innerHTML = s ? `<span class="la-step-n">${k}</span><span class="la-demo-formula">\\(${LA.texOp(s.op)}\\)</span>` : `<span class="la-note">${T.start}</span>`;
+      const celle = Object.assign({}, fine ? zeri(M0) : {});
+      if (s && !fine) { const i = s.op.i; for (let j = 0; j < M0[0].length; j++) celle[i + "," + j] = M0[i][j].isZero() && j < i ? "la-zero" : "la-mod"; }
+      mat.innerHTML = `\\[${LA.texMatrix(M0, { piv: s && !fine ? s.piv : null, cells: celle })}\\]`;
+      punti.innerHTML = Array.from({ length: passi.length + 1 }, (_, i) => `<i class="${i <= k ? "on" : ""}"></i>`).join("") +
+        `<span class="la-note">${fine ? T.done : T.step(k, passi.length)}</span>`;
+      aggiorna();
+      typeset(scena);
+    }
+    function programma() {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        if (!document.body.contains(root)) return;          // pagina cambiata (navigazione istantanea)
+        k = k < passi.length ? k + 1 : 0;                   // alla fine riparte da capo
+        disegna();
+        if (inCorso) programma();
+      }, k === passi.length ? 4500 : k === 0 ? 2200 : 2600);
+    }
+    typeset(sintesi);
+    disegna();
+    if (inCorso) programma();
+  };
+
   // ------------------------------------------------------------------ avvio
   /** Un #A=… (o #x=…, #b=…) rimasto nell'indirizzo di una pagina che non è del
    * laboratorio — da un link vecchio, dalla cronologia, dal completamento della

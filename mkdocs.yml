@@ -83,7 +83,7 @@ extra:
 
 extra_css:
   - stylesheets/extra.css?v=6b95240421
-  - stylesheets/laboratorio.css?v=17741bc836
+  - stylesheets/laboratorio.css?v=8761e2795e
 
 markdown_extensions:
   - admonition
@@ -108,7 +108,7 @@ extra_javascript:
   - javascripts/mathjax.js?v=7f7ddb8e83
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/algebra.js?v=351bd892dc
-  - javascripts/laboratorio.js?v=d8eb73e188
+  - javascripts/laboratorio.js?v=b10fd9cc89
 
 nav:
   - Home: index.md
@@ -124,12 +124,8 @@ nav:
       - "4.3. Inversion of matrices": vectors-matrices/04-inverse-matrix.md
       - "4.4. Factorization of matrices": vectors-matrices/05-lu-factorization.md
       - "4.5. Eigenvalues and eigenvectors": vectors-matrices/06-eigenvalues.md
-  - Norms:
-      - norms/index.md
-      - "5. Norms": norms/01-norms.md
-  - Linear systems:
-      - systems/index.md
-      - "6. System of linear equations": systems/01-linear-systems.md
+  - Norms: norms/01-norms.md
+  - Linear systems: systems/01-linear-systems.md
   - Further topics:
       - extras/index.md
       - "A.1. Absolute value": extras/01-absolute-value.md
@@ -137,22 +133,22 @@ nav:
   - Exercises:
       - exercises/index.md
       - Sums and products:
-          - "Sums": exercises/es-sums-products-01-sums.md
-          - "Products": exercises/es-sums-products-02-products.md
+          - "1. Sums": exercises/es-sums-products-01-sums.md
+          - "2. Products": exercises/es-sums-products-02-products.md
       - Vectors and matrices:
-          - "Vectors": exercises/es-vectors-matrices-01-vectors.md
-          - "Matrices": exercises/es-vectors-matrices-02-matrices.md
-          - "Matrix operations": exercises/es-vectors-matrices-03-elementary-operations.md
-          - "Inversion of matrices": exercises/es-vectors-matrices-04-inverse-matrix.md
-          - "Factorization of matrices": exercises/es-vectors-matrices-05-lu-factorization.md
-          - "Eigenvalues and eigenvectors": exercises/es-vectors-matrices-06-eigenvalues.md
+          - "3. Vectors": exercises/es-vectors-matrices-01-vectors.md
+          - "4.1. Matrices": exercises/es-vectors-matrices-02-matrices.md
+          - "4.2. Matrix operations": exercises/es-vectors-matrices-03-elementary-operations.md
+          - "4.3. Inversion of matrices": exercises/es-vectors-matrices-04-inverse-matrix.md
+          - "4.4. Factorization of matrices": exercises/es-vectors-matrices-05-lu-factorization.md
+          - "4.5. Eigenvalues and eigenvectors": exercises/es-vectors-matrices-06-eigenvalues.md
       - Norms:
-          - "Norms": exercises/es-norms-01-norms.md
+          - "5. Norms": exercises/es-norms-01-norms.md
       - Linear systems:
-          - "Systems of linear equations": exercises/es-systems-01-linear-systems.md
+          - "6. Systems of linear equations": exercises/es-systems-01-linear-systems.md
       - Further topics:
-          - "Absolute value": exercises/es-extras-01-absolute-value.md
-          - "Modular arithmetic": exercises/es-extras-02-modular-arithmetic.md
+          - "A.1. Absolute value": exercises/es-extras-01-absolute-value.md
+          - "A.2. Modular arithmetic": exercises/es-extras-02-modular-arithmetic.md
   - Lab:
       - lab/index.md
       - Gaussian elimination: lab/gauss.md

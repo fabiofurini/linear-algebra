@@ -1641,3 +1641,10 @@ $$
 
 <div class="la-tool" data-tool="rango" data-matrix="1,2,3;2,4,6"></div>
 
+## Exercises and lab
+
+- :material-pencil-box-multiple: **Exercises** · [the exercise sheet of this chapter: 12 exercises with worked solutions](../exercises/es-vectors-matrices-02-matrices.md)
+- :material-calculator-variant: **Lab** · [Matrix product](../lab/product.md) — Row by column, one entry at a time.
+- :material-calculator-variant: **Lab** · [Determinant](../lab/determinant.md) — Laplace expansion along the row or column you choose, or the Sarrus rule
+- :material-calculator-variant: **Lab** · [Rank](../lab/rank.md) — The rank as the number of pivots of the row echelon form.
+
