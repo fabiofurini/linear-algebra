@@ -232,13 +232,9 @@
   }
   function typeset(node) {
     marcaFormule(node);
-    const vai = (n) => {
-      if (window.MathJax && MathJax.typesetPromise && MathJax.startup && MathJax.startup.document) {
-        MathJax.typesetClear([node]);
-        MathJax.typesetPromise([node]).catch((e) => console.warn(e));
-      } else if (n > 0) setTimeout(() => vai(n - 1), 150);
-    };
-    vai(100);
+    // in coda con tutte le altre composizioni (mathjax.js): mai due insieme
+    if (window.componiFormule) window.componiFormule([node]);
+    else setTimeout(() => typeset(node), 150);
   }
   const parseMatrix = (s) => s.split(";").map((r) => r.split(",").map((x) => Frac.parse(x)));
   const matStr = (A) => A.map((r) => r.map((x) => x.toString()).join(",")).join(";");

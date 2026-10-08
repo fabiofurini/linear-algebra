@@ -105,10 +105,10 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
-  - javascripts/mathjax.js?v=7f7ddb8e83
+  - javascripts/mathjax.js?v=2617f92aed
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/algebra.js?v=351bd892dc
-  - javascripts/laboratorio.js?v=65b23206bc
+  - javascripts/laboratorio.js?v=d008e88260
 
 nav:
   - Home: index.md
