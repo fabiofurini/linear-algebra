@@ -6,7 +6,7 @@ title: "Modular arithmetic"
 
 <div class="info-capitolo" markdown>
 
-**Further topics · Chapter A.2** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+**Further topics · Chapter A.2** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-A2-modular-arithmetic.pdf)
 
 </div>
 

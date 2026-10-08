@@ -21,3 +21,20 @@ Text and figures are released under [CC BY 4.0](https://creativecommons.org/lice
 
 </div>
 
+## The slides
+
+One deck per chapter, with the same numbering as the lecture notes.
+
+- [:octicons-download-24: 1. Sums](pdf/slides-01-sums.pdf)
+- [:octicons-download-24: 2. Products](pdf/slides-02-products.pdf)
+- [:octicons-download-24: 3. Vectors](pdf/slides-03-vectors.pdf)
+- [:octicons-download-24: 4.1 Matrices](pdf/slides-04-1-matrices.pdf)
+- [:octicons-download-24: 4.2 Matrix operations](pdf/slides-04-2-operations.pdf)
+- [:octicons-download-24: 4.3 Inversion of matrices](pdf/slides-04-3-inverse.pdf)
+- [:octicons-download-24: 4.4 Factorization of matrices](pdf/slides-04-4-factorization.pdf)
+- [:octicons-download-24: 4.5 Eigenvalues and eigenvectors](pdf/slides-04-5-eigenvalues.pdf)
+- [:octicons-download-24: 5. Norms](pdf/slides-05-norms.pdf)
+- [:octicons-download-24: 6. Linear systems](pdf/slides-06-systems.pdf)
+- [:octicons-download-24: A.1 Absolute value](pdf/slides-A1-absolute-value.pdf)
+- [:octicons-download-24: A.2 Modular arithmetic](pdf/slides-A2-modular-arithmetic.pdf)
+

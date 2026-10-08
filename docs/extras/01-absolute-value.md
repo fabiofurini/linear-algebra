@@ -6,7 +6,7 @@ title: "Absolute value"
 
 <div class="info-capitolo" markdown>
 
-**Further topics · Chapter A.1** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+**Further topics · Chapter A.1** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-A1-absolute-value.pdf)
 
 </div>
 

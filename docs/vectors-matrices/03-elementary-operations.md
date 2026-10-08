@@ -6,7 +6,7 @@ title: "Matrix operations"
 
 <div class="info-capitolo" markdown>
 
-**Vectors and matrices · Chapter 4.2** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+**Vectors and matrices · Chapter 4.2** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-04-2-operations.pdf)
 
 </div>
 
