@@ -1,9 +1,9 @@
 <h3 align="center">Teaching material by
-<a href="https://sites.google.com/view/fabiofurini/home-page">Fabio Furini</a></h3>
+<a href="https://fabiofurini.github.io/">Fabio Furini</a></h3>
 <p align="center">
   Associate Professor of Operations Research ·
   <a href="https://www.diag.uniroma1.it/">DIAG</a>, Sapienza University of Rome ·
-  <a href="https://sites.google.com/view/fabiofurini/home-page">personal page</a>
+  <a href="https://fabiofurini.github.io/">personal page</a>
 </p>
 
 # Linear Algebra
@@ -60,4 +60,4 @@ The whole course is also available in Italian:
 
 ---
 
-Teaching material by **[Fabio Furini](https://sites.google.com/view/fabiofurini/home-page)** — [DIAG](https://www.diag.uniroma1.it/), Sapienza University of Rome.
+Teaching material by **[Fabio Furini](https://fabiofurini.github.io/)** — [DIAG](https://www.diag.uniroma1.it/), Sapienza University of Rome.
