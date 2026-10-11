@@ -38,4 +38,6 @@ under [CC BY 4.0](https://github.com/fabiofurini/linear-algebra/blob/main/LICENS
 - [Operations Research Lab](https://fabiofurini.github.io/operations-research-lab/)
 - [MIP Modelling](https://fabiofurini.github.io/mip-modelling/)
 - [Mathematical Analysis 1](https://fabiofurini.github.io/mathematical-analysis-1/)
+- [Linear Programming](https://fabiofurini.github.io/linear-programming/)
+- [Convex Optimization](https://fabiofurini.github.io/convex-optimization/)
 

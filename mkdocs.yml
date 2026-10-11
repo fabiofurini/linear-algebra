@@ -73,6 +73,12 @@ extra:
     - icon: material/function-variant
       link: https://fabiofurini.github.io/mathematical-analysis-1/
       name: Mathematical Analysis 1
+    - icon: material/vector-triangle
+      link: https://fabiofurini.github.io/linear-programming/
+      name: Linear Programming
+    - icon: material/chart-bell-curve
+      link: https://fabiofurini.github.io/convex-optimization/
+      name: Convex Optimization
   alternate:
     - name: Italiano
       link: https://fabiofurini.github.io/algebra-lineare/
