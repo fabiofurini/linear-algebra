@@ -1,11 +1,11 @@
-/* Test del motore di calcolo contro i risultati di SymPy (test/casi.json).
+/* Test del motore di calcolo contro i risultati di SymPy (python/test/casi.json).
  *
  * Non basta che il risultato finale sia giusto: per ogni algoritmo si
  * ripercorrono i PASSI mostrati allo studente (ogni operazione elementare
  * applicata alla matrice precedente deve dare la matrice stampata).
  *
- * Gira in Node (CI):      node test/test_algebra.js
- * e in Chrome (in locale): python3 test/esegui_test.py
+ * Gira in Node (CI):      node python/test/test_algebra.js
+ * e in Chrome (in locale): python3 python/test/esegui_test.py
  */
 (function (root) {
   "use strict";
@@ -215,7 +215,7 @@
     module.exports = runTests;
     if (require.main === module) {
       const path = require("path");
-      const LA = require(path.join(__dirname, "..", "docs", "javascripts", "algebra.js"));
+      const LA = require(path.join(__dirname, "..", "..", "docs", "javascripts", "algebra.js"));
       const casi = require(path.join(__dirname, "casi.json"));
       const r = runTests(LA, casi);
       console.log(`${r.checks} controlli, ${r.errors.length} errori`);

@@ -35,14 +35,14 @@ The lab lives in [`docs/javascripts/algebra.js`](docs/javascripts/algebra.js)
 Results **and every intermediate step** are checked against SymPy:
 
 ```bash
-python3 test/genera_casi.py     # the expected results, computed with SymPy
-node test/test_algebra.js       # more than 46 000 checks
+python3 python/test/genera_casi.py   # the expected results, computed with SymPy
+node python/test/test_algebra.js     # more than 46 000 checks
 ```
 
 ## Licence
 
 - **Text, figures and data** (`docs/`): [CC BY 4.0](LICENSE).
-- **Code** (`docs/javascripts/`, `python/`, `test/`): [MIT](LICENSE-CODE).
+- **Code** (`docs/javascripts/`, `python/test/`): [MIT](LICENSE-CODE).
 
 To cite the material see [`CITATION.cff`](CITATION.cff).
 

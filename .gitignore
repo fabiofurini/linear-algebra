@@ -5,7 +5,8 @@ __pycache__/
 site/
 # prodotti intermedi della conversione (si rigenerano)
 build/
-# LaTeX
+# LaTeX: nessun sorgente sul repository pubblico
+*.tex
 *.aux
 *.log
 *.out
@@ -13,14 +14,20 @@ build/
 *.fls
 *.fdb_latexmk
 *.synctex.gz
-# materiale interno, non pubblicato
-STILE_E_FORMATO.md
-dispensa/
+# materiale interno, non pubblicato (struttura comune dei moduli)
+note/
+volumes/
 slides/
-notes/
+STILE_E_FORMATO.md
 # varie
 .DS_Store
-test/casi.json
+*conflicted copy*
+# casi attesi dei test, generati da genera_casi.py
+python/test/casi.json
 
-# note rivedute da cui si generano dispense e sito (private: sul sito solo i PDF)
-note/
+# generatore delle dispense: resta privato (contiene LaTeX delle note)
+python/genera_dispensa.py
+python/dispense_config.py
+python/dispensa_preambolo_*.tex
+python/ritocchi_*.py
+python/overflow_dispensa.py

@@ -4,10 +4,10 @@ Per centinaia di matrici (quadrate e rettangolari, singolari, con zeri sul
 pivot, con frazioni) calcola con SymPy, in aritmetica esatta, i risultati
 attesi: determinante, rango, forma ridotta (RREF), inversa, polinomio
 caratteristico, autovalori razionali con molteplicità, dimensioni degli
-autospazi, sistemi lineari. Il test (test/test_algebra.js) li confronta
+autospazi, sistemi lineari. Il test (python/test/test_algebra.js) li confronta
 con il motore: se un solo risultato non coincide, la pubblicazione si ferma.
 
-Uso: python3 test/genera_casi.py   → test/casi.json
+Uso: python3 python/test/genera_casi.py   → python/test/casi.json
 """
 import json
 import random
