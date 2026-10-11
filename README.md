@@ -59,6 +59,7 @@ The whole course is also available in Italian:
 - [Mathematical Analysis 1](https://fabiofurini.github.io/mathematical-analysis-1/)
 - [Linear Programming](https://fabiofurini.github.io/linear-programming/)
 - [Convex Optimization](https://fabiofurini.github.io/convex-optimization/)
+- [Algorithms](https://fabiofurini.github.io/algorithms/)
 
 ---
 
