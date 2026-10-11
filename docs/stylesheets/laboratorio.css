@@ -147,3 +147,17 @@
 @media (max-width: 600px) { .la-demo-mat { font-size: 1.15em; } .la-demo { padding: .8em; } }
 .la-demo-ctl .la-btn:disabled { opacity: .4; cursor: default; }
 .la-demo-play { min-width: 2.6em; font-size: 1.05em; }
+
+/* Pagine delle singole app: l'app occupa tutta la pagina, grande */
+body:has(.gi-app-intera) .md-grid { max-width: none; }
+.la-tool.gi-app-intera {
+  width: 100%; box-sizing: border-box;
+  min-height: max(480px, calc(100vh - 230px));
+  margin: .8em 0 1.6em;
+  font-size: .85rem;
+}
+.la-tool.gi-app-intera .la-pane { padding: 1.2em 1.6em; }
+@media (max-width: 600px) {
+  .la-tool.gi-app-intera { min-height: 70vh; font-size: .8rem; }
+  .la-tool.gi-app-intera .la-pane { padding: .8em; }
+}

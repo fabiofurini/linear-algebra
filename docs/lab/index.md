@@ -7,104 +7,123 @@ title: Lab
 Here you do not only get the answer: you see **every step**, written the way
 you would write it by hand, with the notation of the lecture notes
 (\(R_2 \leftarrow R_2 - 2R_1\)). The arithmetic is **exact**: fractions, never
-rounded decimals.
-
-Each tool has three tabs: **Compute** (the full solution), **Practice**
-(exercises generated for you, with a check), and — for Gaussian elimination —
-**Do it yourself**, where you choose each row operation and the lab checks it.
+rounded decimals. Pick a tool: each one opens full page, with tabs to **compute**,
+to **practice** on exercises generated for you, and (for Gaussian elimination) to
+**do it yourself**, choosing each row operation.
 
 Everything runs in your browser: nothing to install, no account, and it works on
 a phone.
 
+## Sums and products (chapters 1–2)
+
 <div class="grid cards" markdown>
 
--   **Gaussian elimination**
-
-    ---
-
-    Bring a matrix to row echelon (or reduced) form showing every elementary operation.
-
-    [:octicons-arrow-right-24: Open the tool](gauss.md)
-
--   **Rank**
-
-    ---
-
-    The rank as the number of pivots of the row echelon form.
-
-    [:octicons-arrow-right-24: Open the tool](rank.md)
-
--   **Determinant**
-
-    ---
-
-    Laplace expansion, Sarrus rule or Gaussian elimination, your choice.
-
-    [:octicons-arrow-right-24: Open the tool](determinant.md)
-
--   **Inverse matrix**
-
-    ---
-
-    Gauss–Jordan on \((\boldsymbol A \mid \boldsymbol I)\) or the cofactor formula.
-
-    [:octicons-arrow-right-24: Open the tool](inverse.md)
-
--   **LU factorization**
-
-    ---
-
-    The multipliers that fill \(\boldsymbol L\), the swaps that fill \(\boldsymbol P\).
-
-    [:octicons-arrow-right-24: Open the tool](lu.md)
-
--   **Linear systems**
-
-    ---
-
-    Gauss and back substitution, Rouché–Capelli, Cramer, or the LU factorization.
-
-    [:octicons-arrow-right-24: Open the tool](systems.md)
-
--   **Eigenvalues and definiteness**
-
-    ---
-
-    Characteristic polynomial, eigenvectors and Sylvester's criterion.
-
-    [:octicons-arrow-right-24: Open the tool](eigenvalues.md)
-
--   **Matrix product**
-
-    ---
-
-    Row by column, one entry at a time.
-
-    [:octicons-arrow-right-24: Open the tool](product.md)
-
--   **Sums and products**
+-   :material-sigma: **Sums and products**
 
     ---
 
     Expands \(\sum\) and \(\prod\) and compares them with the closed formulas of the notes.
 
-    [:octicons-arrow-right-24: Open the tool](sums.md)
+    [Open the app →](sums.md)
 
--   **Norms**
+</div>
+
+## Vectors and matrices (chapters 3–4)
+
+<div class="grid cards" markdown>
+
+-   :material-table-large: **Matrix product**
 
     ---
 
-    The \(\ell_1\), \(\ell_2\), \(\ell_\infty\) norms and the one generalized by \(\boldsymbol Q\).
+    Row by column, one entry at a time.
 
-    [:octicons-arrow-right-24: Open the tool](norms.md)
+    [Open the app →](product.md)
 
--   **Why partial pivoting**
+-   :material-format-list-numbered: **Rank**
+
+    ---
+
+    The rank as the number of pivots of the row echelon form.
+
+    [Open the app →](rank.md)
+
+-   :material-matrix: **Determinant**
+
+    ---
+
+    Laplace expansion, Sarrus rule or Gaussian elimination, your choice.
+
+    [Open the app →](determinant.md)
+
+-   :material-table-row-plus-after: **Gaussian elimination**
+
+    ---
+
+    Bring a matrix to row echelon (or reduced) form showing every elementary operation.
+
+    [Open the app →](gauss.md)
+
+-   :material-alert-outline: **Why partial pivoting**
 
     ---
 
     The same system with and without partial pivoting, in floating point.
 
-    [:octicons-arrow-right-24: Open the tool](pivoting.md)
+    [Open the app →](pivoting.md)
+
+-   :material-flip-horizontal: **Inverse matrix**
+
+    ---
+
+    Gauss–Jordan on \((\boldsymbol A \mid \boldsymbol I)\) or the cofactor formula.
+
+    [Open the app →](inverse.md)
+
+-   :material-view-split-vertical: **LU factorization**
+
+    ---
+
+    The multipliers that fill \(\boldsymbol L\), the swaps that fill \(\boldsymbol P\).
+
+    [Open the app →](lu.md)
+
+-   :material-math-compass: **Eigenvalues and definiteness**
+
+    ---
+
+    Characteristic polynomial, eigenvectors and Sylvester's criterion.
+
+    [Open the app →](eigenvalues.md)
 
 </div>
+
+## Norms (chapter 5)
+
+<div class="grid cards" markdown>
+
+-   :material-vector-line: **Norms**
+
+    ---
+
+    The \(\ell_1\), \(\ell_2\), \(\ell_\infty\) norms and the one generalized by \(\boldsymbol Q\).
+
+    [Open the app →](norms.md)
+
+</div>
+
+## Linear systems (chapter 6)
+
+<div class="grid cards" markdown>
+
+-   :material-equal-box: **Linear systems**
+
+    ---
+
+    Gauss and back substitution, Rouché–Capelli, Cramer, or the LU factorization.
+
+    [Open the app →](systems.md)
+
+</div>
+
 

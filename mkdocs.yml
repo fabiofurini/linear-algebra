@@ -92,7 +92,7 @@ extra:
 
 extra_css:
   - stylesheets/extra.css?v=6b95240421
-  - stylesheets/laboratorio.css?v=4a485df5f4
+  - stylesheets/laboratorio.css?v=e07e0b1483
 
 markdown_extensions:
   - admonition
@@ -119,6 +119,11 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/algebra.js?v=351bd892dc
   - javascripts/laboratorio.js?v=d008e88260
+
+# le pagine delle singole app non stanno nel menu: si raggiungono dall'indice del laboratorio
+not_in_nav: |
+  /lab/*.md
+  !/lab/index.md
 
 nav:
   - Home: index.md
@@ -159,19 +164,7 @@ nav:
       - Further topics:
           - "A.1. Absolute value": exercises/es-extras-01-absolute-value.md
           - "A.2. Modular arithmetic": exercises/es-extras-02-modular-arithmetic.md
-  - Lab:
-      - lab/index.md
-      - Gaussian elimination: lab/gauss.md
-      - Rank: lab/rank.md
-      - Determinant: lab/determinant.md
-      - Inverse matrix: lab/inverse.md
-      - LU factorization: lab/lu.md
-      - Linear systems: lab/systems.md
-      - Eigenvalues and definiteness: lab/eigenvalues.md
-      - Matrix product: lab/product.md
-      - Sums and products: lab/sums.md
-      - Norms: lab/norms.md
-      - Why partial pivoting: lab/pivoting.md
+  - Lab: lab/index.md
   - Downloads: downloads.md
   - The course:
       - organization.md
