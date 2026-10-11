@@ -1,5 +1,7 @@
 ---
 title: Lab
+hide:
+  - navigation
 ---
 
 # The computation lab

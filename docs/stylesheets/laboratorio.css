@@ -161,3 +161,18 @@ body:has(.gi-app-intera) .md-grid { max-width: none; }
   .la-tool.gi-app-intera { min-height: 70vh; font-size: .8rem; }
   .la-tool.gi-app-intera .la-pane { padding: .8em; }
 }
+
+/* pagine delle app: titolo e descrizione in una testata blu attaccata allo strumento, niente spazio bianco in alto */
+body:has(.gi-app-intera) .md-main__inner { margin-top: 0; }
+body:has(.gi-app-intera) .md-content__inner { margin-top: 0; padding-top: .3rem; }
+body:has(.gi-app-intera) .md-content__inner::before { display: none; }
+body:has(.la-tool.gi-app-intera) .md-content__inner > h1 {
+  margin: .5em 0 0; padding: .55em 1.1rem .1em; color: #fff; font-size: 1.25em; font-weight: 700;
+  background: linear-gradient(120deg, #16324A, #0E7490 70%, #15AABF); border-radius: .5rem .5rem 0 0;
+}
+body:has(.la-tool.gi-app-intera) .md-content__inner > h1 .headerlink { display: none; }
+body:has(.la-tool.gi-app-intera) .md-content__inner > h1 + p {
+  margin: 0; padding: 0 1.1rem .7em; color: #fff; font-size: .72rem; opacity: .95;
+  background: linear-gradient(120deg, #16324A, #0E7490 70%, #15AABF);
+}
+body:has(.la-tool.gi-app-intera) .la-tool.gi-app-intera { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }

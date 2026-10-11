@@ -92,7 +92,7 @@ extra:
 
 extra_css:
   - stylesheets/extra.css?v=6b95240421
-  - stylesheets/laboratorio.css?v=e07e0b1483
+  - stylesheets/laboratorio.css?v=f93445efa7
 
 markdown_extensions:
   - admonition
