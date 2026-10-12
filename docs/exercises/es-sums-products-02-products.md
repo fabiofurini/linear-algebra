@@ -6,7 +6,7 @@ title: "Products"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Sums and products** · chapter [2 · Products](../sums-products/02-products.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+**Exercises · Sums and products** · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-book-open-variant: Chapter 2: Products](../sums-products/02-products.md)
 
 </div>
 

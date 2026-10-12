@@ -6,7 +6,7 @@ title: "Eigenvalues and eigenvectors"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Vectors and matrices** · chapter [4.5 · Eigenvalues and eigenvectors](../vectors-matrices/06-eigenvalues.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+**Exercises · Vectors and matrices** · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-book-open-variant: Chapter 4.5: Eigenvalues and eigenvectors](../vectors-matrices/06-eigenvalues.md)
 
 </div>
 

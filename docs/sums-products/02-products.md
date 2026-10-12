@@ -6,7 +6,7 @@ title: "Products"
 
 <div class="info-capitolo" markdown>
 
-**Sums and products · Chapter 2** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-02-products.pdf)
+**Sums and products · Chapter 2** · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-pencil: Exercises: Products](../exercises/es-sums-products-02-products.md) · [:material-presentation: Slides (PDF)](../pdf/slides-02-products.pdf) · [:material-calculator-variant: App: Sums and products](../lab/sums.md)
 
 </div>
 

@@ -6,7 +6,7 @@ title: "Matrices"
 
 <div class="info-capitolo" markdown>
 
-**Vectors and matrices · Chapter 4.1** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-04-1-matrices.pdf)
+**Vectors and matrices · Chapter 4.1** · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-pencil: Exercises: Matrices](../exercises/es-vectors-matrices-02-matrices.md) · [:material-presentation: Slides (PDF)](../pdf/slides-04-1-matrices.pdf) · [:material-calculator-variant: App: Matrix product](../lab/product.md) · [:material-calculator-variant: App: Determinant](../lab/determinant.md) · [:material-calculator-variant: App: Rank](../lab/rank.md)
 
 </div>
 

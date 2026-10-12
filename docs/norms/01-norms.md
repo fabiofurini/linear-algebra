@@ -6,7 +6,7 @@ title: "Norms"
 
 <div class="info-capitolo" markdown>
 
-**Norms · Chapter 5** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-05-norms.pdf)
+**Norms · Chapter 5** · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-pencil: Exercises: Norms](../exercises/es-norms-01-norms.md) · [:material-presentation: Slides (PDF)](../pdf/slides-05-norms.pdf) · [:material-calculator-variant: App: Norms](../lab/norms.md)
 
 </div>
 

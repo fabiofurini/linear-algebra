@@ -6,7 +6,7 @@ title: "Eigenvalues and eigenvectors"
 
 <div class="info-capitolo" markdown>
 
-**Vectors and matrices · Chapter 4.5** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-04-5-eigenvalues.pdf)
+**Vectors and matrices · Chapter 4.5** · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-pencil: Exercises: Eigenvalues and eigenvectors](../exercises/es-vectors-matrices-06-eigenvalues.md) · [:material-presentation: Slides (PDF)](../pdf/slides-04-5-eigenvalues.pdf) · [:material-calculator-variant: App: Eigenvalues and definiteness](../lab/eigenvalues.md)
 
 </div>
 

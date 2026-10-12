@@ -6,7 +6,7 @@ title: "Systems of linear equations"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Linear systems** · chapter [6 · System of linear equations](../systems/01-linear-systems.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+**Exercises · Linear systems** · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-book-open-variant: Chapter 6: System of linear equations](../systems/01-linear-systems.md)
 
 </div>
 

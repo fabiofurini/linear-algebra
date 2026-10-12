@@ -6,7 +6,7 @@ title: "Absolute value"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Further topics** · chapter [A.1 · Absolute value](../extras/01-absolute-value.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+**Exercises · Further topics** · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-book-open-variant: Chapter A.1: Absolute value](../extras/01-absolute-value.md)
 
 </div>
 

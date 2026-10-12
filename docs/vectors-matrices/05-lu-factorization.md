@@ -6,7 +6,7 @@ title: "Factorization of matrices"
 
 <div class="info-capitolo" markdown>
 
-**Vectors and matrices · Chapter 4.4** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-04-4-factorization.pdf)
+**Vectors and matrices · Chapter 4.4** · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-pencil: Exercises: Factorization of matrices](../exercises/es-vectors-matrices-05-lu-factorization.md) · [:material-presentation: Slides (PDF)](../pdf/slides-04-4-factorization.pdf) · [:material-calculator-variant: App: LU factorization](../lab/lu.md) · [:material-calculator-variant: App: Linear systems](../lab/systems.md)
 
 </div>
 

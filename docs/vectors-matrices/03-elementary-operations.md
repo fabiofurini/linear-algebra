@@ -6,7 +6,7 @@ title: "Matrix operations"
 
 <div class="info-capitolo" markdown>
 
-**Vectors and matrices · Chapter 4.2** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-04-2-operations.pdf)
+**Vectors and matrices · Chapter 4.2** · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-pencil: Exercises: Matrix operations](../exercises/es-vectors-matrices-03-elementary-operations.md) · [:material-presentation: Slides (PDF)](../pdf/slides-04-2-operations.pdf) · [:material-calculator-variant: App: Gaussian elimination](../lab/gauss.md) · [:material-calculator-variant: App: Determinant](../lab/determinant.md) · [:material-calculator-variant: App: Why partial pivoting](../lab/pivoting.md)
 
 </div>
 

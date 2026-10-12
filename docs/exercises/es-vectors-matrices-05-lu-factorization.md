@@ -6,7 +6,7 @@ title: "Factorization of matrices"
 
 <div class="info-capitolo" markdown>
 
-**Exercises · Vectors and matrices** · chapter [4.4 · Factorization of matrices](../vectors-matrices/05-lu-factorization.md) · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+**Exercises · Vectors and matrices** · with worked solutions · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-book-open-variant: Chapter 4.4: Factorization of matrices](../vectors-matrices/05-lu-factorization.md)
 
 </div>
 

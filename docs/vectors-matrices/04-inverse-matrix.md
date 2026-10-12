@@ -6,7 +6,7 @@ title: "Inversion of matrices"
 
 <div class="info-capitolo" markdown>
 
-**Vectors and matrices · Chapter 4.3** · lecture notes by Fabio Furini · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-presentation: Slides (PDF)](../pdf/slides-04-3-inverse.pdf)
+**Vectors and matrices · Chapter 4.3** · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf) · [:material-pencil: Exercises: Inversion of matrices](../exercises/es-vectors-matrices-04-inverse-matrix.md) · [:material-presentation: Slides (PDF)](../pdf/slides-04-3-inverse.pdf) · [:material-calculator-variant: App: Inverse matrix](../lab/inverse.md)
 
 </div>
 
