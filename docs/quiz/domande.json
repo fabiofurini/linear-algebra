@@ -461,7 +461,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Quanto vale $0!$?",
+    "testo": "Il fattoriale di un naturale $n$ è $n! = \\prod_{j=1}^{n} j$. Quanto vale $0!$?",
     "opzioni": [
      "$1$",
      "$0$",
@@ -471,7 +471,7 @@
     "spiegazione": "Per convenzione $0! = 1$, coerente con la convenzione che una produttoria senza fattori vale $1$."
    },
    "en": {
-    "testo": "What is $0!$?",
+    "testo": "The factorial of a natural number $n$ is $n! = \\prod_{j=1}^{n} j$. What is $0!$?",
     "opzioni": [
      "$1$",
      "$0$",
@@ -491,7 +491,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Quanto vale $\\frac{100!}{98!}$?",
+    "testo": "Il fattoriale di un naturale $n$ è $n! = \\prod_{j=1}^{n} j$. Quanto vale $\\frac{100!}{98!}$?",
     "opzioni": [
      "$2$",
      "$9702$",
@@ -501,7 +501,7 @@
     "spiegazione": "$\\frac{n!}{(n-k)!} = \\prod_{j=1}^{k}(n-j+1)$: con $n = 100$ e $k = 2$ restano i due fattori $100 \\cdot 99 = 9900$. $9702 = 99\\cdot 98$ parte dal fattore sbagliato."
    },
    "en": {
-    "testo": "What is $\\frac{100!}{98!}$?",
+    "testo": "The factorial of a natural number $n$ is $n! = \\prod_{j=1}^{n} j$. What is $\\frac{100!}{98!}$?",
     "opzioni": [
      "$2$",
      "$9702$",
@@ -551,7 +551,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Quale proprietà vale per tutte le produttorie?",
+    "testo": "Quale proprietà vale per tutte le produttorie $\\prod_{j=1}^{n} a_j$, $\\prod_{j=1}^{n} b_j$ e ogni $c \\in \\R$?",
     "opzioni": [
      "$\\prod_{j=1}^{n} (a_j + b_j) = \\prod_{j=1}^{n} a_j + \\prod_{j=1}^{n} b_j$",
      "$\\prod_{j=1}^{n+m} a_j = \\prod_{j=1}^{n} a_j + \\prod_{j=n+1}^{n+m} a_j$",
@@ -561,7 +561,7 @@
     "spiegazione": "È il prodotto di produttorie (proprietà commutativa e associativa). Nella scomposizione le due parti si moltiplicano, non si sommano; la costante esce come $c^n$."
    },
    "en": {
-    "testo": "Which property holds for all products?",
+    "testo": "Which property holds for all products $\\prod_{j=1}^{n} a_j$, $\\prod_{j=1}^{n} b_j$ and every $c \\in \\R$?",
     "opzioni": [
      "$\\prod_{j=1}^{n} (a_j + b_j) = \\prod_{j=1}^{n} a_j + \\prod_{j=1}^{n} b_j$",
      "$\\prod_{j=1}^{n+m} a_j = \\prod_{j=1}^{n} a_j + \\prod_{j=n+1}^{n+m} a_j$",
@@ -779,6 +779,36 @@
      "$9$"
     ],
     "spiegazione": "The factors are $2, 3, 4$: $2\\cdot 3\\cdot 4 = 24$. $9$ is their sum, $6 = 3!$ forgets the $+1$."
+   }
+  },
+  {
+   "id": "la-f-prod-14",
+   "livello": "facile",
+   "capitolo": "products",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/somme/02-produttorie/#box-def_product-1",
+    "en": "https://fabiofurini.github.io/linear-algebra/sums-products/02-products/#box-def_product-1"
+   },
+   "corretta": 2,
+   "it": {
+    "testo": "Quanto vale la produttoria $\\prod_{j=3}^{5} j^2$, in cui l'indice $j$ va da $3$ a $5$?",
+    "opzioni": [
+     "$225$",
+     "$144$",
+     "$3600$",
+     "$50$"
+    ],
+    "spiegazione": "I fattori sono $3^2, 4^2, 5^2$: $9\\cdot 16\\cdot 25 = 3600$. $50$ è la sommatoria $\\sum_{j=3}^{5} j^2$; $225 = (3\\cdot 5)^2$ dimentica il fattore $4^2$, $144 = (3\\cdot 4)^2$ il fattore $5^2$."
+   },
+   "en": {
+    "testo": "What is the product $\\prod_{j=3}^{5} j^2$, where the index $j$ goes from $3$ to $5$?",
+    "opzioni": [
+     "$225$",
+     "$144$",
+     "$3600$",
+     "$50$"
+    ],
+    "spiegazione": "The factors are $3^2, 4^2, 5^2$: $9\\cdot 16\\cdot 25 = 3600$. $50$ is the sum $\\sum_{j=3}^{5} j^2$; $225 = (3\\cdot 5)^2$ forgets the factor $4^2$, $144 = (3\\cdot 4)^2$ the factor $5^2$."
    }
   },
   {
@@ -1003,22 +1033,22 @@
    "it": {
     "testo": "I vettori $\\boldsymbol v_1, \\dots, \\boldsymbol v_k \\in \\R^n$ formano una base di $\\R^n$ se:",
     "opzioni": [
-     "$\\mathrm{span}(\\boldsymbol v_1, \\dots, \\boldsymbol v_k) = \\R^n$",
-     "sono linearmente indipendenti",
-     "sono $n$ vettori con tutte le componenti non nulle",
+     "generano $\\R^n$, cioè $\\mathrm{span}(\\boldsymbol v_1, \\dots, \\boldsymbol v_k) = \\R^n$",
+     "sono linearmente indipendenti e nessuno di essi è il vettore nullo",
+     "sono $n$ vettori, distinti tra loro e con tutte le componenti non nulle",
      "sono linearmente indipendenti e $\\mathrm{span}(\\boldsymbol v_1, \\dots, \\boldsymbol v_k) = \\R^n$"
     ],
-    "spiegazione": "Servono entrambe le condizioni: indipendenza lineare e generazione di tutto $\\R^n$."
+    "spiegazione": "Servono entrambe le condizioni: indipendenza lineare e generazione di tutto $\\R^n$. Per esempio $\\boldsymbol e_1$ da solo è indipendente ma non genera $\\R^2$; $\\boldsymbol e_1, \\boldsymbol e_2, \\boldsymbol e_1 + \\boldsymbol e_2$ generano $\\R^2$ ma sono dipendenti; $(1,1)'$ e $(2,2)'$ sono distinti, senza zeri, ma proporzionali."
    },
    "en": {
     "testo": "The vectors $\\boldsymbol v_1, \\dots, \\boldsymbol v_k \\in \\R^n$ form a basis of $\\R^n$ if:",
     "opzioni": [
-     "$\\mathrm{span}(\\boldsymbol v_1, \\dots, \\boldsymbol v_k) = \\R^n$",
-     "they are linearly independent",
-     "they are $n$ vectors with all entries nonzero",
+     "they span $\\R^n$, that is $\\mathrm{span}(\\boldsymbol v_1, \\dots, \\boldsymbol v_k) = \\R^n$",
+     "they are linearly independent and none of them is the zero vector",
+     "they are $n$ vectors, pairwise distinct and with all entries nonzero",
      "they are linearly independent and $\\mathrm{span}(\\boldsymbol v_1, \\dots, \\boldsymbol v_k) = \\R^n$"
     ],
-    "spiegazione": "Both conditions are needed: linear independence and spanning the whole $\\R^n$."
+    "spiegazione": "Both conditions are needed: linear independence and spanning the whole $\\R^n$. For instance $\\boldsymbol e_1$ alone is independent but does not span $\\R^2$; $\\boldsymbol e_1, \\boldsymbol e_2, \\boldsymbol e_1 + \\boldsymbol e_2$ span $\\R^2$ but are dependent; $(1,1)'$ and $(2,2)'$ are distinct, without zeros, but proportional."
    }
   },
   {
@@ -1061,7 +1091,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Come si scrive $\\boldsymbol x = (2,\\, -5,\\, 3)'$ rispetto alla base canonica di $\\R^3$?",
+    "testo": "Come si scrive $\\boldsymbol x = (2,\\, -5,\\, 3)'$ rispetto alla base canonica $\\boldsymbol e_1, \\boldsymbol e_2, \\boldsymbol e_3$ di $\\R^3$ ($\\boldsymbol e_i$ ha $1$ in posizione $i$ e $0$ altrove)?",
     "opzioni": [
      "$2\\boldsymbol e_1 - 5\\boldsymbol e_2 + 3\\boldsymbol e_3$",
      "$2\\boldsymbol e_1 + 5\\boldsymbol e_2 + 3\\boldsymbol e_3$",
@@ -1071,7 +1101,7 @@
     "spiegazione": "Rispetto alla base canonica le coordinate sono le componenti: $\\boldsymbol x = x_1\\boldsymbol e_1 + x_2\\boldsymbol e_2 + x_3\\boldsymbol e_3$."
    },
    "en": {
-    "testo": "How is $\\boldsymbol x = (2,\\, -5,\\, 3)'$ written with respect to the canonical basis of $\\R^3$?",
+    "testo": "How is $\\boldsymbol x = (2,\\, -5,\\, 3)'$ written with respect to the canonical basis $\\boldsymbol e_1, \\boldsymbol e_2, \\boldsymbol e_3$ of $\\R^3$ ($\\boldsymbol e_i$ has $1$ in position $i$ and $0$ elsewhere)?",
     "opzioni": [
      "$2\\boldsymbol e_1 - 5\\boldsymbol e_2 + 3\\boldsymbol e_3$",
      "$2\\boldsymbol e_1 + 5\\boldsymbol e_2 + 3\\boldsymbol e_3$",
@@ -1211,7 +1241,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Quali sono le coordinate di $\\boldsymbol x = (3,\\, 1)'$ rispetto alla base $\\boldsymbol v_1 = (1,\\, 1)'$, $\\boldsymbol v_2 = (1,\\, -1)'$?",
+    "testo": "Quali sono le coordinate di $\\boldsymbol x = (3,\\, 1)'$ rispetto alla base $\\boldsymbol v_1 = (1,\\, 1)'$, $\\boldsymbol v_2 = (1,\\, -1)'$, cioè i numeri $\\lambda_1, \\lambda_2$ con $\\boldsymbol x = \\lambda_1\\boldsymbol v_1 + \\lambda_2\\boldsymbol v_2$?",
     "opzioni": [
      "$\\lambda_1 = 1,\\ \\lambda_2 = 2$",
      "$\\lambda_1 = 3,\\ \\lambda_2 = 1$",
@@ -1221,7 +1251,7 @@
     "spiegazione": "$\\lambda_1 + \\lambda_2 = 3$ e $\\lambda_1 - \\lambda_2 = 1$ danno $\\lambda_1 = 2$, $\\lambda_2 = 1$: infatti $2(1,1)' + (1,-1)' = (3,1)'$."
    },
    "en": {
-    "testo": "What are the coordinates of $\\boldsymbol x = (3,\\, 1)'$ with respect to the basis $\\boldsymbol v_1 = (1,\\, 1)'$, $\\boldsymbol v_2 = (1,\\, -1)'$?",
+    "testo": "What are the coordinates of $\\boldsymbol x = (3,\\, 1)'$ with respect to the basis $\\boldsymbol v_1 = (1,\\, 1)'$, $\\boldsymbol v_2 = (1,\\, -1)'$, that is the numbers $\\lambda_1, \\lambda_2$ with $\\boldsymbol x = \\lambda_1\\boldsymbol v_1 + \\lambda_2\\boldsymbol v_2$?",
     "opzioni": [
      "$\\lambda_1 = 1,\\ \\lambda_2 = 2$",
      "$\\lambda_1 = 3,\\ \\lambda_2 = 1$",
@@ -1229,6 +1259,96 @@
      "$\\lambda_1 = 2,\\ \\lambda_2 = 1$"
     ],
     "spiegazione": "$\\lambda_1 + \\lambda_2 = 3$ and $\\lambda_1 - \\lambda_2 = 1$ give $\\lambda_1 = 2$, $\\lambda_2 = 1$: indeed $2(1,1)' + (1,-1)' = (3,1)'$."
+   }
+  },
+  {
+   "id": "la-f-vec-16",
+   "livello": "facile",
+   "capitolo": "vectors",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/01-vettori/#box-exTransposeVector-4",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/01-vectors/#box-exTransposeVector-4"
+   },
+   "corretta": 2,
+   "it": {
+    "testo": "Sia $\\boldsymbol a = (1,\\, -2,\\, 3)' \\in \\R^3$ un vettore colonna (l'apice $'$ indica la trasposta). Che cos'è $(\\boldsymbol a')'$?",
+    "opzioni": [
+     "il vettore colonna $-\\boldsymbol a$",
+     "il numero $\\boldsymbol a'\\boldsymbol a = 14$",
+     "il vettore colonna $\\boldsymbol a$",
+     "il vettore riga $\\boldsymbol a' = (1\\;\\; -2\\;\\; 3)$"
+    ],
+    "spiegazione": "Trasporre due volte riporta al vettore di partenza: $\\boldsymbol a'$ è un vettore riga ($1\\times 3$) e il suo trasposto è di nuovo la colonna $\\boldsymbol a$ ($3\\times 1$)."
+   },
+   "en": {
+    "testo": "Let $\\boldsymbol a = (1,\\, -2,\\, 3)' \\in \\R^3$ be a column vector (the prime $'$ denotes the transpose). What is $(\\boldsymbol a')'$?",
+    "opzioni": [
+     "the column vector $-\\boldsymbol a$",
+     "the number $\\boldsymbol a'\\boldsymbol a = 14$",
+     "the column vector $\\boldsymbol a$",
+     "the row vector $\\boldsymbol a' = (1\\;\\; -2\\;\\; 3)$"
+    ],
+    "spiegazione": "Transposing twice gives back the original vector: $\\boldsymbol a'$ is a row vector ($1\\times 3$) and its transpose is again the column $\\boldsymbol a$ ($3\\times 1$)."
+   }
+  },
+  {
+   "id": "la-f-vec-17",
+   "livello": "facile",
+   "capitolo": "vectors",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/01-vettori/#box-exSumScalarVector-5",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/01-vectors/#box-exSumScalarVector-5"
+   },
+   "corretta": 3,
+   "it": {
+    "testo": "Dati i vettori colonna $\\boldsymbol p = (1,\\, -2,\\, 3)'$ e $\\boldsymbol w = (2,\\, 0,\\, -1)'$ (l'apice $'$ indica la trasposta), quanto vale $\\boldsymbol p - 2\\boldsymbol w$?",
+    "opzioni": [
+     "$(5,\\, -2,\\, 1)'$",
+     "$(-3,\\, -2,\\, 1)'$",
+     "$(-1,\\, -2,\\, 4)'$",
+     "$(-3,\\, -2,\\, 5)'$"
+    ],
+    "spiegazione": "Componente per componente: $(1 - 4,\\, -2 - 0,\\, 3 + 2)' = (-3,\\, -2,\\, 5)'$. $(5,\\, -2,\\, 1)'$ è $\\boldsymbol p + 2\\boldsymbol w$; $(-1,\\, -2,\\, 4)'$ è $\\boldsymbol p - \\boldsymbol w$."
+   },
+   "en": {
+    "testo": "Given the column vectors $\\boldsymbol p = (1,\\, -2,\\, 3)'$ and $\\boldsymbol w = (2,\\, 0,\\, -1)'$ (the prime $'$ denotes the transpose), what is $\\boldsymbol p - 2\\boldsymbol w$?",
+    "opzioni": [
+     "$(5,\\, -2,\\, 1)'$",
+     "$(-3,\\, -2,\\, 1)'$",
+     "$(-1,\\, -2,\\, 4)'$",
+     "$(-3,\\, -2,\\, 5)'$"
+    ],
+    "spiegazione": "Entry by entry: $(1 - 4,\\, -2 - 0,\\, 3 + 2)' = (-3,\\, -2,\\, 5)'$. $(5,\\, -2,\\, 1)'$ is $\\boldsymbol p + 2\\boldsymbol w$; $(-1,\\, -2,\\, 4)'$ is $\\boldsymbol p - \\boldsymbol w$."
+   }
+  },
+  {
+   "id": "la-f-vec-18",
+   "livello": "teorema",
+   "capitolo": "vectors",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/01-vettori/#2-somma-di-vettori-e-prodotto-per-uno-scalare",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/01-vectors/#2-sum-of-vectors-and-scalar-multiplication"
+   },
+   "corretta": 0,
+   "it": {
+    "testo": "Quale proprietà della somma di vettori e del prodotto per uno scalare vale per ogni $\\boldsymbol p, \\boldsymbol w \\in \\R^n$ e $\\lambda, \\mu \\in \\R$?",
+    "opzioni": [
+     "$\\lambda(\\boldsymbol p + \\boldsymbol w) = \\lambda\\boldsymbol p + \\lambda\\boldsymbol w$",
+     "$\\lambda(\\boldsymbol p + \\boldsymbol w) = \\lambda\\boldsymbol p + \\boldsymbol w$",
+     "$(\\lambda\\mu)\\,\\boldsymbol p = \\lambda\\boldsymbol p + \\mu\\boldsymbol p$",
+     "$\\boldsymbol p + \\boldsymbol w = \\boldsymbol w - \\boldsymbol p$"
+    ],
+    "spiegazione": "Lo scalare si distribuisce su entrambi gli addendi. Vale $(\\lambda + \\mu)\\boldsymbol p = \\lambda\\boldsymbol p + \\mu\\boldsymbol p$ (con la somma, non il prodotto, degli scalari) e la somma è commutativa: $\\boldsymbol p + \\boldsymbol w = \\boldsymbol w + \\boldsymbol p$."
+   },
+   "en": {
+    "testo": "Which property of the sum of vectors and of the scalar multiplication holds for every $\\boldsymbol p, \\boldsymbol w \\in \\R^n$ and $\\lambda, \\mu \\in \\R$?",
+    "opzioni": [
+     "$\\lambda(\\boldsymbol p + \\boldsymbol w) = \\lambda\\boldsymbol p + \\lambda\\boldsymbol w$",
+     "$\\lambda(\\boldsymbol p + \\boldsymbol w) = \\lambda\\boldsymbol p + \\boldsymbol w$",
+     "$(\\lambda\\mu)\\,\\boldsymbol p = \\lambda\\boldsymbol p + \\mu\\boldsymbol p$",
+     "$\\boldsymbol p + \\boldsymbol w = \\boldsymbol w - \\boldsymbol p$"
+    ],
+    "spiegazione": "The scalar distributes over both terms. It holds $(\\lambda + \\mu)\\boldsymbol p = \\lambda\\boldsymbol p + \\mu\\boldsymbol p$ (with the sum, not the product, of the scalars) and the sum is commutative: $\\boldsymbol p + \\boldsymbol w = \\boldsymbol w + \\boldsymbol p$."
    }
   },
   {
@@ -1241,7 +1361,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Se $\\boldsymbol A \\in \\R^{2\\times 3}$, a quale insieme appartiene $\\boldsymbol A'$?",
+    "testo": "Se $\\boldsymbol A \\in \\R^{2\\times 3}$, a quale insieme appartiene la trasposta $\\boldsymbol A'$?",
     "opzioni": [
      "$\\R^{2\\times 2}$",
      "$\\R^{3\\times 2}$",
@@ -1251,7 +1371,7 @@
     "spiegazione": "La trasposta scambia righe e colonne: da $m\\times n$ si passa a $n\\times m$."
    },
    "en": {
-    "testo": "If $\\boldsymbol A \\in \\R^{2\\times 3}$, which set does $\\boldsymbol A'$ belong to?",
+    "testo": "If $\\boldsymbol A \\in \\R^{2\\times 3}$, which set does the transpose $\\boldsymbol A'$ belong to?",
     "opzioni": [
      "$\\R^{2\\times 2}$",
      "$\\R^{3\\times 2}$",
@@ -1742,6 +1862,96 @@
    }
   },
   {
+   "id": "la-f-mat-18",
+   "livello": "facile",
+   "capitolo": "matrices",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/02-matrici/#box-exTransposeMatrix-4",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/02-matrices/#box-exTransposeMatrix-4"
+   },
+   "corretta": 3,
+   "it": {
+    "testo": "Sia $\\boldsymbol A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix}$ e sia $\\boldsymbol A'$ la sua trasposta. Quanto vale l'elemento in riga $1$ e colonna $3$ di $\\boldsymbol A'$?",
+    "opzioni": [
+     "$2$",
+     "$6$",
+     "$3$",
+     "$5$"
+    ],
+    "spiegazione": "La trasposta scambia righe e colonne: $[\\boldsymbol A']_{13} = a_{31} = 5$. $\\boldsymbol A'$ è $2\\times 3$, con prima riga $(1\\;\\; 3\\;\\; 5)$."
+   },
+   "en": {
+    "testo": "Let $\\boldsymbol A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix}$ and let $\\boldsymbol A'$ be its transpose. What is the entry in row $1$ and column $3$ of $\\boldsymbol A'$?",
+    "opzioni": [
+     "$2$",
+     "$6$",
+     "$3$",
+     "$5$"
+    ],
+    "spiegazione": "The transpose interchanges rows and columns: $[\\boldsymbol A']_{13} = a_{31} = 5$. $\\boldsymbol A'$ is $2\\times 3$, with first row $(1\\;\\; 3\\;\\; 5)$."
+   }
+  },
+  {
+   "id": "la-f-mat-19",
+   "livello": "facile",
+   "capitolo": "matrices",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/02-matrici/#box-exSumScalarMatrix-6",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/02-matrices/#box-exSumScalarMatrix-6"
+   },
+   "corretta": 3,
+   "it": {
+    "testo": "Siano $\\boldsymbol A = \\begin{pmatrix} 1 & -1 \\\\ 0 & 2 \\end{pmatrix}$ e $\\boldsymbol B = \\begin{pmatrix} 3 & 1 \\\\ -2 & 1 \\end{pmatrix}$. Quanto vale $2\\boldsymbol A - \\boldsymbol B$?",
+    "opzioni": [
+     "$\\begin{pmatrix} 5 & -1 \\\\ -2 & 5 \\end{pmatrix}$",
+     "$\\begin{pmatrix} -4 & -4 \\\\ 4 & 2 \\end{pmatrix}$",
+     "$\\begin{pmatrix} -1 & -1 \\\\ 2 & 3 \\end{pmatrix}$",
+     "$\\begin{pmatrix} -1 & -3 \\\\ 2 & 3 \\end{pmatrix}$"
+    ],
+    "spiegazione": "Elemento per elemento: $2a_{ij} - b_{ij}$, per esempio $2\\cdot(-1) - 1 = -3$ e $2\\cdot 0 - (-2) = 2$. $\\begin{pmatrix} 5 & -1 \\\\ -2 & 5 \\end{pmatrix}$ è $2\\boldsymbol A + \\boldsymbol B$, $\\begin{pmatrix} -4 & -4 \\\\ 4 & 2 \\end{pmatrix}$ è $2(\\boldsymbol A - \\boldsymbol B)$."
+   },
+   "en": {
+    "testo": "Let $\\boldsymbol A = \\begin{pmatrix} 1 & -1 \\\\ 0 & 2 \\end{pmatrix}$ and $\\boldsymbol B = \\begin{pmatrix} 3 & 1 \\\\ -2 & 1 \\end{pmatrix}$. What is $2\\boldsymbol A - \\boldsymbol B$?",
+    "opzioni": [
+     "$\\begin{pmatrix} 5 & -1 \\\\ -2 & 5 \\end{pmatrix}$",
+     "$\\begin{pmatrix} -4 & -4 \\\\ 4 & 2 \\end{pmatrix}$",
+     "$\\begin{pmatrix} -1 & -1 \\\\ 2 & 3 \\end{pmatrix}$",
+     "$\\begin{pmatrix} -1 & -3 \\\\ 2 & 3 \\end{pmatrix}$"
+    ],
+    "spiegazione": "Entry by entry: $2a_{ij} - b_{ij}$, for instance $2\\cdot(-1) - 1 = -3$ and $2\\cdot 0 - (-2) = 2$. $\\begin{pmatrix} 5 & -1 \\\\ -2 & 5 \\end{pmatrix}$ is $2\\boldsymbol A + \\boldsymbol B$, $\\begin{pmatrix} -4 & -4 \\\\ 4 & 2 \\end{pmatrix}$ is $2(\\boldsymbol A - \\boldsymbol B)$."
+   }
+  },
+  {
+   "id": "la-f-mat-20",
+   "livello": "teorema",
+   "capitolo": "matrices",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/02-matrici/#21-proprieta",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/02-matrices/#21-properties"
+   },
+   "corretta": 3,
+   "it": {
+    "testo": "Quale proprietà della somma di matrici e del prodotto per uno scalare è corretta?",
+    "opzioni": [
+     "$\\boldsymbol A + \\boldsymbol B = \\boldsymbol B + \\boldsymbol A$ solo se $\\boldsymbol A, \\boldsymbol B$ sono matrici quadrate $n\\times n$",
+     "$\\boldsymbol A + \\boldsymbol B$ è definita per ogni $\\boldsymbol A \\in \\R^{m\\times n}$ e $\\boldsymbol B \\in \\R^{n\\times m}$",
+     "$(\\lambda + \\mu)\\boldsymbol A = \\lambda\\boldsymbol A + \\mu$ per ogni $\\lambda, \\mu \\in \\R$ e $\\boldsymbol A \\in \\R^{m\\times n}$",
+     "$\\lambda(\\boldsymbol A + \\boldsymbol B) = \\lambda\\boldsymbol A + \\lambda\\boldsymbol B$ per ogni $\\lambda \\in \\R$ e $\\boldsymbol A, \\boldsymbol B \\in \\R^{m\\times n}$"
+    ],
+    "spiegazione": "La somma si fa elemento per elemento, quindi richiede le stesse dimensioni ed è sempre commutativa; lo scalare si distribuisce sulla somma. Corretto è $(\\lambda + \\mu)\\boldsymbol A = \\lambda\\boldsymbol A + \\mu\\boldsymbol A$."
+   },
+   "en": {
+    "testo": "Which property of the sum of matrices and of the scalar multiplication is correct?",
+    "opzioni": [
+     "$\\boldsymbol A + \\boldsymbol B = \\boldsymbol B + \\boldsymbol A$ only if $\\boldsymbol A, \\boldsymbol B$ are square $n\\times n$ matrices",
+     "$\\boldsymbol A + \\boldsymbol B$ is defined for every $\\boldsymbol A \\in \\R^{m\\times n}$ and $\\boldsymbol B \\in \\R^{n\\times m}$",
+     "$(\\lambda + \\mu)\\boldsymbol A = \\lambda\\boldsymbol A + \\mu$ for every $\\lambda, \\mu \\in \\R$ and $\\boldsymbol A \\in \\R^{m\\times n}$",
+     "$\\lambda(\\boldsymbol A + \\boldsymbol B) = \\lambda\\boldsymbol A + \\lambda\\boldsymbol B$ for every $\\lambda \\in \\R$ and $\\boldsymbol A, \\boldsymbol B \\in \\R^{m\\times n}$"
+    ],
+    "spiegazione": "The sum is done entry by entry, hence it requires the same dimensions and it is always commutative; the scalar distributes over the sum. The correct rule is $(\\lambda + \\mu)\\boldsymbol A = \\lambda\\boldsymbol A + \\mu\\boldsymbol A$."
+   }
+  },
+  {
    "id": "la-f-elem-01",
    "livello": "facile",
    "capitolo": "elementary-operations",
@@ -1901,7 +2111,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Sia $\\boldsymbol U$ la forma a scala, con elementi diagonali $u_{11}, \\dots, u_{nn}$, ottenuta dall'eliminazione di Gauss su $\\boldsymbol A \\in \\R^{n\\times n}$ con $s$ scambi di righe. Quale formula è corretta?",
+    "testo": "Sia $\\boldsymbol U$ la forma a scala, con elementi diagonali $u_{11}, \\dots, u_{nn}$, ottenuta dall'eliminazione di Gauss su $\\boldsymbol A \\in \\R^{n\\times n}$ con $s$ scambi di righe e somme di multipli di righe (nessuna riga moltiplicata per uno scalare). Quale formula è corretta?",
     "opzioni": [
      "$\\det(\\boldsymbol A) = (-1)^{s}\\prod_{i=1}^{n} u_{ii}$",
      "$\\det(\\boldsymbol A) = \\prod_{i=1}^{n} u_{ii}$",
@@ -1911,7 +2121,7 @@
     "spiegazione": "Le somme di righe non cambiano il determinante, ogni scambio cambia il segno, e $\\boldsymbol U$ è triangolare. In particolare $\\det(\\boldsymbol A) = 0$ se e solo se $\\boldsymbol U$ ha uno zero sulla diagonale."
    },
    "en": {
-    "testo": "Let $\\boldsymbol U$ be the echelon form, with diagonal entries $u_{11}, \\dots, u_{nn}$, obtained by Gaussian elimination on $\\boldsymbol A \\in \\R^{n\\times n}$ with $s$ row swaps. Which formula is correct?",
+    "testo": "Let $\\boldsymbol U$ be the echelon form, with diagonal entries $u_{11}, \\dots, u_{nn}$, obtained by Gaussian elimination on $\\boldsymbol A \\in \\R^{n\\times n}$ with $s$ row swaps and additions of multiples of rows (no row multiplied by a scalar). Which formula is correct?",
     "opzioni": [
      "$\\det(\\boldsymbol A) = (-1)^{s}\\prod_{i=1}^{n} u_{ii}$",
      "$\\det(\\boldsymbol A) = \\prod_{i=1}^{n} u_{ii}$",
@@ -1931,7 +2141,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "L'eliminazione di Gauss su $\\boldsymbol A \\in \\R^{3\\times 3}$ usa $2$ scambi di righe e dà una forma a scala con diagonale $1, -2, 3$. Quanto vale $\\det(\\boldsymbol A)$?",
+    "testo": "L'eliminazione di Gauss su $\\boldsymbol A \\in \\R^{3\\times 3}$ usa $2$ scambi di righe e somme di multipli di righe (nessuna riga moltiplicata per uno scalare) e dà una forma a scala con diagonale $1, -2, 3$. Quanto vale $\\det(\\boldsymbol A)$?",
     "opzioni": [
      "$0$",
      "$-6$",
@@ -1941,7 +2151,7 @@
     "spiegazione": "$\\det(\\boldsymbol A) = (-1)^{2}\\cdot 1\\cdot(-2)\\cdot 3 = -6$: due scambi lasciano il segno invariato."
    },
    "en": {
-    "testo": "Gaussian elimination on $\\boldsymbol A \\in \\R^{3\\times 3}$ uses $2$ row swaps and gives an echelon form with diagonal $1, -2, 3$. What is $\\det(\\boldsymbol A)$?",
+    "testo": "Gaussian elimination on $\\boldsymbol A \\in \\R^{3\\times 3}$ uses $2$ row swaps and additions of multiples of rows (no row multiplied by a scalar) and gives an echelon form with diagonal $1, -2, 3$. What is $\\det(\\boldsymbol A)$?",
     "opzioni": [
      "$0$",
      "$-6$",
@@ -2099,6 +2309,36 @@
      "$R_i \\leftarrow R_i + \\lambda R_i$ with $\\lambda = -1$"
     ],
     "spiegazione": "The scalar must be nonzero: with $\\lambda = 0$ (or $R_i \\leftarrow R_i - R_i$) the row vanishes and the operation is not invertible. Row addition uses another row $R_k$, with $k \\neq i$."
+   }
+  },
+  {
+   "id": "la-f-elem-13",
+   "livello": "facile",
+   "capitolo": "elementary-operations",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/03-operazioni-elementari/#box-ex_row-addition-3",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/03-elementary-operations/#box-ex_row-addition-3"
+   },
+   "corretta": 2,
+   "it": {
+    "testo": "Sia $R_i$ la riga $i$. Applicando l'operazione $R_2 \\leftarrow R_2 + 2R_1$ alla matrice $\\boldsymbol A = \\begin{pmatrix} 1 & 3 \\\\ -2 & 1 \\end{pmatrix}$ si ottiene:",
+    "opzioni": [
+     "$\\begin{pmatrix} -3 & 5 \\\\ -2 & 1 \\end{pmatrix}$",
+     "$\\begin{pmatrix} 1 & 3 \\\\ 0 & 1 \\end{pmatrix}$",
+     "$\\begin{pmatrix} 1 & 3 \\\\ 0 & 7 \\end{pmatrix}$",
+     "$\\begin{pmatrix} 1 & 3 \\\\ -4 & -5 \\end{pmatrix}$"
+    ],
+    "spiegazione": "Cambia solo la riga $2$: $(-2 + 2\\cdot 1,\\; 1 + 2\\cdot 3) = (0,\\; 7)$. Sottrarre invece di sommare dà $(-4,\\; -5)$; $\\begin{pmatrix} -3 & 5 \\\\ -2 & 1 \\end{pmatrix}$ è $R_1 \\leftarrow R_1 + 2R_2$."
+   },
+   "en": {
+    "testo": "Let $R_i$ be row $i$. Applying the operation $R_2 \\leftarrow R_2 + 2R_1$ to the matrix $\\boldsymbol A = \\begin{pmatrix} 1 & 3 \\\\ -2 & 1 \\end{pmatrix}$ gives:",
+    "opzioni": [
+     "$\\begin{pmatrix} -3 & 5 \\\\ -2 & 1 \\end{pmatrix}$",
+     "$\\begin{pmatrix} 1 & 3 \\\\ 0 & 1 \\end{pmatrix}$",
+     "$\\begin{pmatrix} 1 & 3 \\\\ 0 & 7 \\end{pmatrix}$",
+     "$\\begin{pmatrix} 1 & 3 \\\\ -4 & -5 \\end{pmatrix}$"
+    ],
+    "spiegazione": "Only row $2$ changes: $(-2 + 2\\cdot 1,\\; 1 + 2\\cdot 3) = (0,\\; 7)$. Subtracting instead of adding gives $(-4,\\; -5)$; $\\begin{pmatrix} -3 & 5 \\\\ -2 & 1 \\end{pmatrix}$ is $R_1 \\leftarrow R_1 + 2R_2$."
    }
   },
   {
@@ -2951,7 +3191,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Una matrice $\\boldsymbol Q \\in \\R^{2\\times 2}$ ha autovalori $1$ e $3$. Quanto valgono $\\operatorname{tr}(\\boldsymbol Q)$ e $\\det(\\boldsymbol Q)$?",
+    "testo": "Una matrice $\\boldsymbol Q \\in \\R^{2\\times 2}$ ha autovalori $1$ e $3$. Quanto valgono la traccia $\\operatorname{tr}(\\boldsymbol Q)$ (somma degli elementi diagonali) e $\\det(\\boldsymbol Q)$?",
     "opzioni": [
      "non si possono determinare senza conoscere $\\boldsymbol Q$",
      "$\\operatorname{tr}(\\boldsymbol Q) = 4$, $\\det(\\boldsymbol Q) = 3$",
@@ -2961,7 +3201,7 @@
     "spiegazione": "La traccia è la somma degli autovalori, il determinante il loro prodotto: $1 + 3 = 4$ e $1\\cdot 3 = 3$."
    },
    "en": {
-    "testo": "A matrix $\\boldsymbol Q \\in \\R^{2\\times 2}$ has eigenvalues $1$ and $3$. What are $\\operatorname{tr}(\\boldsymbol Q)$ and $\\det(\\boldsymbol Q)$?",
+    "testo": "A matrix $\\boldsymbol Q \\in \\R^{2\\times 2}$ has eigenvalues $1$ and $3$. What are the trace $\\operatorname{tr}(\\boldsymbol Q)$ (sum of the diagonal entries) and $\\det(\\boldsymbol Q)$?",
     "opzioni": [
      "they cannot be determined without knowing $\\boldsymbol Q$",
      "$\\operatorname{tr}(\\boldsymbol Q) = 4$, $\\det(\\boldsymbol Q) = 3$",
@@ -2981,7 +3221,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Siano $\\lambda_1, \\dots, \\lambda_n \\in \\C$ le radici del polinomio caratteristico di $\\boldsymbol Q \\in \\R^{n\\times n}$, ripetute secondo la molteplicità. Quale affermazione è vera?",
+    "testo": "Siano $\\lambda_1, \\dots, \\lambda_n \\in \\C$ le radici del polinomio caratteristico di $\\boldsymbol Q \\in \\R^{n\\times n}$, ripetute secondo la molteplicità, e sia $\\operatorname{tr}(\\boldsymbol Q)$ la traccia (somma degli elementi diagonali). Quale affermazione è vera?",
     "opzioni": [
      "$\\operatorname{tr}(\\boldsymbol Q) = \\sum_{i=1}^{n}\\lambda_i$, ma solo se tutte le radici sono reali e distinte",
      "$\\det(\\boldsymbol Q) = \\prod_{i=1}^{n}\\lambda_i$ e $\\operatorname{tr}(\\boldsymbol Q) = \\sum_{i=1}^{n}\\lambda_i$",
@@ -2991,7 +3231,7 @@
     "spiegazione": "Vale per ogni matrice quadrata, contando le molteplicità e le radici complesse: per esempio $\\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$ ha radici $\\pm i$, traccia $0$ e determinante $1$."
    },
    "en": {
-    "testo": "Let $\\lambda_1, \\dots, \\lambda_n \\in \\C$ be the roots of the characteristic polynomial of $\\boldsymbol Q \\in \\R^{n\\times n}$, repeated according to multiplicity. Which statement is true?",
+    "testo": "Let $\\lambda_1, \\dots, \\lambda_n \\in \\C$ be the roots of the characteristic polynomial of $\\boldsymbol Q \\in \\R^{n\\times n}$, repeated according to multiplicity, and let $\\operatorname{tr}(\\boldsymbol Q)$ be the trace (sum of the diagonal entries). Which statement is true?",
     "opzioni": [
      "$\\operatorname{tr}(\\boldsymbol Q) = \\sum_{i=1}^{n}\\lambda_i$, but only if all the roots are real and distinct",
      "$\\det(\\boldsymbol Q) = \\prod_{i=1}^{n}\\lambda_i$ and $\\operatorname{tr}(\\boldsymbol Q) = \\sum_{i=1}^{n}\\lambda_i$",
@@ -3311,7 +3551,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Per concludere che una matrice simmetrica $\\boldsymbol Q$ è semidefinita positiva, basta verificare che:",
+    "testo": "Per concludere che una matrice simmetrica $\\boldsymbol Q$ è semidefinita positiva, basta verificare che (minore principale: determinante della sottomatrice con righe e colonne degli stessi indici; di guida: prime $k$ righe e colonne):",
     "opzioni": [
      "$\\det(\\boldsymbol Q) \\ge 0$",
      "gli elementi diagonali sono $\\ge 0$",
@@ -3321,7 +3561,7 @@
     "spiegazione": "Per la semidefinitezza servono tutti i minori principali: $\\begin{pmatrix} 0 & 0 \\\\ 0 & -1 \\end{pmatrix}$ ha minori di guida nulli ma non è semidefinita positiva."
    },
    "en": {
-    "testo": "To conclude that a symmetric matrix $\\boldsymbol Q$ is positive semidefinite, it is enough to check that:",
+    "testo": "To conclude that a symmetric matrix $\\boldsymbol Q$ is positive semidefinite, it is enough to check that (principal minor: determinant of the submatrix with rows and columns of the same indices; leading: first $k$ rows and columns):",
     "opzioni": [
      "$\\det(\\boldsymbol Q) \\ge 0$",
      "the diagonal entries are $\\ge 0$",
@@ -3329,6 +3569,66 @@
      "the leading principal minors are $\\ge 0$"
     ],
     "spiegazione": "Semidefiniteness requires all principal minors: $\\begin{pmatrix} 0 & 0 \\\\ 0 & -1 \\end{pmatrix}$ has zero leading minors but is not positive semidefinite."
+   }
+  },
+  {
+   "id": "la-f-eig-17",
+   "livello": "facile",
+   "capitolo": "eigenvalues",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/06-autovalori/#box-texexpboxEigen3x3-9",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/06-eigenvalues/#box-texexpboxEigen3x3-9"
+   },
+   "corretta": 1,
+   "it": {
+    "testo": "Quali sono gli autovalori, ripetuti secondo la molteplicità, di $\\boldsymbol Q = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$, cioè le radici di $\\det(\\boldsymbol Q - \\lambda\\boldsymbol I) = 0$?",
+    "opzioni": [
+     "$-1,\\ 3,\\ 3$",
+     "$1,\\ 3,\\ 3$",
+     "$2,\\ 2,\\ 3$",
+     "$1,\\ 2,\\ 3$"
+    ],
+    "spiegazione": "Sviluppando lungo la terza riga: $\\det(\\boldsymbol Q - \\lambda\\boldsymbol I) = (3 - \\lambda)\\big((2-\\lambda)^2 - 1\\big) = (3-\\lambda)(\\lambda - 1)(\\lambda - 3)$. La matrice non è triangolare: gli elementi diagonali $2, 2, 3$ non sono gli autovalori."
+   },
+   "en": {
+    "testo": "What are the eigenvalues, repeated according to multiplicity, of $\\boldsymbol Q = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$, i.e. the roots of $\\det(\\boldsymbol Q - \\lambda\\boldsymbol I) = 0$?",
+    "opzioni": [
+     "$-1,\\ 3,\\ 3$",
+     "$1,\\ 3,\\ 3$",
+     "$2,\\ 2,\\ 3$",
+     "$1,\\ 2,\\ 3$"
+    ],
+    "spiegazione": "Expanding along the third row: $\\det(\\boldsymbol Q - \\lambda\\boldsymbol I) = (3 - \\lambda)\\big((2-\\lambda)^2 - 1\\big) = (3-\\lambda)(\\lambda - 1)(\\lambda - 3)$. The matrix is not triangular: the diagonal entries $2, 2, 3$ are not the eigenvalues."
+   }
+  },
+  {
+   "id": "la-f-eig-18",
+   "livello": "facile",
+   "capitolo": "eigenvalues",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/vettori-matrici/06-autovalori/#box-texexpboxEigen3x3-9",
+    "en": "https://fabiofurini.github.io/linear-algebra/vectors-matrices/06-eigenvalues/#box-texexpboxEigen3x3-9"
+   },
+   "corretta": 1,
+   "it": {
+    "testo": "La matrice $\\boldsymbol Q = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$ ha autovalori $1$, $3$, $3$. Quale vettore $\\boldsymbol v \\neq \\boldsymbol 0$ soddisfa $\\boldsymbol Q\\boldsymbol v = 1\\cdot\\boldsymbol v$?",
+    "opzioni": [
+     "$(1,\\, 0,\\, -1)'$",
+     "$(1,\\, -1,\\, 0)'$",
+     "$(1,\\, 1,\\, 0)'$",
+     "$(0,\\, 0,\\, 1)'$"
+    ],
+    "spiegazione": "$(\\boldsymbol Q - \\boldsymbol I)\\boldsymbol v = \\boldsymbol 0$ dà $v_1 + v_2 = 0$ e $2v_3 = 0$: $\\boldsymbol v = (1,\\, -1,\\, 0)'$. $(1,\\, 1,\\, 0)'$ e $(0,\\, 0,\\, 1)'$ sono autovettori dell'autovalore $3$."
+   },
+   "en": {
+    "testo": "The matrix $\\boldsymbol Q = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$ has eigenvalues $1$, $3$, $3$. Which vector $\\boldsymbol v \\neq \\boldsymbol 0$ satisfies $\\boldsymbol Q\\boldsymbol v = 1\\cdot\\boldsymbol v$?",
+    "opzioni": [
+     "$(1,\\, 0,\\, -1)'$",
+     "$(1,\\, -1,\\, 0)'$",
+     "$(1,\\, 1,\\, 0)'$",
+     "$(0,\\, 0,\\, 1)'$"
+    ],
+    "spiegazione": "$(\\boldsymbol Q - \\boldsymbol I)\\boldsymbol v = \\boldsymbol 0$ gives $v_1 + v_2 = 0$ and $2v_3 = 0$: $\\boldsymbol v = (1,\\, -1,\\, 0)'$. $(1,\\, 1,\\, 0)'$ and $(0,\\, 0,\\, 1)'$ are eigenvectors of the eigenvalue $3$."
    }
   },
   {
@@ -3341,7 +3641,7 @@
    },
    "corretta": 3,
    "it": {
-    "testo": "Quanto vale $\\|\\boldsymbol p\\|_2$ per $\\boldsymbol p = (3,\\, -4,\\, 12)'$?",
+    "testo": "Quanto vale la norma euclidea $\\|\\boldsymbol p\\|_2 = \\sqrt{\\sum_j p_j^2}$ per $\\boldsymbol p = (3,\\, -4,\\, 12)'$?",
     "opzioni": [
      "$19$",
      "$12$",
@@ -3351,7 +3651,7 @@
     "spiegazione": "$\\|\\boldsymbol p\\|_2 = \\sqrt{9 + 16 + 144} = \\sqrt{169} = 13$. $19$ è la norma $\\ell_1$, $12$ la norma $\\ell_\\infty$, $169$ dimentica la radice."
    },
    "en": {
-    "testo": "What is $\\|\\boldsymbol p\\|_2$ for $\\boldsymbol p = (3,\\, -4,\\, 12)'$?",
+    "testo": "What is the Euclidean norm $\\|\\boldsymbol p\\|_2 = \\sqrt{\\sum_j p_j^2}$ for $\\boldsymbol p = (3,\\, -4,\\, 12)'$?",
     "opzioni": [
      "$19$",
      "$12$",
@@ -3371,7 +3671,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Quanto vale $\\|\\boldsymbol p\\|_1$ per $\\boldsymbol p = (3,\\, -4,\\, 12)'$?",
+    "testo": "Quanto vale la norma $\\|\\boldsymbol p\\|_1 = \\sum_j |p_j|$ per $\\boldsymbol p = (3,\\, -4,\\, 12)'$?",
     "opzioni": [
      "$13$",
      "$12$",
@@ -3381,7 +3681,7 @@
     "spiegazione": "$\\|\\boldsymbol p\\|_1 = |3| + |-4| + |12| = 19$: si sommano i valori assoluti. $11$ dimentica il valore assoluto."
    },
    "en": {
-    "testo": "What is $\\|\\boldsymbol p\\|_1$ for $\\boldsymbol p = (3,\\, -4,\\, 12)'$?",
+    "testo": "What is the norm $\\|\\boldsymbol p\\|_1 = \\sum_j |p_j|$ for $\\boldsymbol p = (3,\\, -4,\\, 12)'$?",
     "opzioni": [
      "$13$",
      "$12$",
@@ -3401,7 +3701,7 @@
    },
    "corretta": 2,
    "it": {
-    "testo": "Quanto vale $\\|\\boldsymbol p\\|_\\infty$ per $\\boldsymbol p = (3,\\, -14,\\, 12)'$?",
+    "testo": "Quanto vale la norma $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$ per $\\boldsymbol p = (3,\\, -14,\\, 12)'$?",
     "opzioni": [
      "$29$",
      "$3$",
@@ -3411,7 +3711,7 @@
     "spiegazione": "$\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j| = \\max\\{3, 14, 12\\} = 14$; il massimo senza valore assoluto darebbe $12$."
    },
    "en": {
-    "testo": "What is $\\|\\boldsymbol p\\|_\\infty$ for $\\boldsymbol p = (3,\\, -14,\\, 12)'$?",
+    "testo": "What is the norm $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$ for $\\boldsymbol p = (3,\\, -14,\\, 12)'$?",
     "opzioni": [
      "$29$",
      "$3$",
@@ -3461,7 +3761,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Quale disuguaglianza vale per ogni $\\boldsymbol p, \\boldsymbol w \\in \\R^n$ (Cauchy–Schwarz)?",
+    "testo": "Siano $\\boldsymbol p'\\boldsymbol w = \\sum_j p_j w_j$, $\\|\\boldsymbol p\\|_2 = \\sqrt{\\boldsymbol p'\\boldsymbol p}$ e $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$. Quale disuguaglianza vale per ogni $\\boldsymbol p, \\boldsymbol w \\in \\R^n$ (Cauchy–Schwarz)?",
     "opzioni": [
      "$\\|\\boldsymbol p + \\boldsymbol w\\|_2 \\ge \\|\\boldsymbol p\\|_2 + \\|\\boldsymbol w\\|_2$",
      "$|\\boldsymbol p'\\,\\boldsymbol w| \\le \\|\\boldsymbol p\\|_2\\,\\|\\boldsymbol w\\|_2$",
@@ -3471,7 +3771,7 @@
     "spiegazione": "È la disuguaglianza di Cauchy–Schwarz. Con $\\boldsymbol p = \\boldsymbol w = (1,1)'$ la terza dà $2 \\le 1$, falsa; l'ultima rovescia la disuguaglianza triangolare."
    },
    "en": {
-    "testo": "Which inequality holds for every $\\boldsymbol p, \\boldsymbol w \\in \\R^n$ (Cauchy–Schwarz)?",
+    "testo": "Let $\\boldsymbol p'\\boldsymbol w = \\sum_j p_j w_j$, $\\|\\boldsymbol p\\|_2 = \\sqrt{\\boldsymbol p'\\boldsymbol p}$ and $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$. Which inequality holds for every $\\boldsymbol p, \\boldsymbol w \\in \\R^n$ (Cauchy–Schwarz)?",
     "opzioni": [
      "$\\|\\boldsymbol p + \\boldsymbol w\\|_2 \\ge \\|\\boldsymbol p\\|_2 + \\|\\boldsymbol w\\|_2$",
      "$|\\boldsymbol p'\\,\\boldsymbol w| \\le \\|\\boldsymbol p\\|_2\\,\\|\\boldsymbol w\\|_2$",
@@ -3491,7 +3791,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Per ogni $\\boldsymbol p \\in \\R^n$ vale:",
+    "testo": "Siano $\\|\\boldsymbol p\\|_1 = \\sum_j |p_j|$, $\\|\\boldsymbol p\\|_2 = \\sqrt{\\sum_j p_j^2}$ e $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$. Per ogni $\\boldsymbol p \\in \\R^n$ vale:",
     "opzioni": [
      "$\\|\\boldsymbol p\\|_\\infty \\le \\|\\boldsymbol p\\|_2 \\le \\|\\boldsymbol p\\|_1 \\le n\\,\\|\\boldsymbol p\\|_\\infty$",
      "$\\|\\boldsymbol p\\|_1 \\le \\|\\boldsymbol p\\|_2 \\le \\|\\boldsymbol p\\|_\\infty$",
@@ -3501,7 +3801,7 @@
     "spiegazione": "Per esempio $\\boldsymbol p = (3, -4, 12)'$: $12 \\le 13 \\le 19 \\le 36$. Vale anche $\\|\\boldsymbol p\\|_1 \\le \\sqrt n\\,\\|\\boldsymbol p\\|_2$."
    },
    "en": {
-    "testo": "For every $\\boldsymbol p \\in \\R^n$:",
+    "testo": "Let $\\|\\boldsymbol p\\|_1 = \\sum_j |p_j|$, $\\|\\boldsymbol p\\|_2 = \\sqrt{\\sum_j p_j^2}$ and $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$. For every $\\boldsymbol p \\in \\R^n$:",
     "opzioni": [
      "$\\|\\boldsymbol p\\|_\\infty \\le \\|\\boldsymbol p\\|_2 \\le \\|\\boldsymbol p\\|_1 \\le n\\,\\|\\boldsymbol p\\|_\\infty$",
      "$\\|\\boldsymbol p\\|_1 \\le \\|\\boldsymbol p\\|_2 \\le \\|\\boldsymbol p\\|_\\infty$",
@@ -3521,7 +3821,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "In $\\R^2$, che forma ha l'insieme dei punti con $\\|\\boldsymbol x\\|_1 \\le 1$?",
+    "testo": "In $\\R^2$, che forma ha l'insieme dei punti con $\\|\\boldsymbol x\\|_1 = |x_1| + |x_2| \\le 1$?",
     "opzioni": [
      "un rombo (quadrato ruotato di $45°$) centrato nell'origine",
      "il cerchio unitario",
@@ -3531,7 +3831,7 @@
     "spiegazione": "$|x_1| + |x_2| \\le 1$ è un rombo con vertici $(\\pm 1, 0)$ e $(0, \\pm 1)$; il cerchio corrisponde a $\\ell_2$, il quadrato con lati paralleli agli assi a $\\ell_\\infty$."
    },
    "en": {
-    "testo": "In $\\R^2$, what shape is the set of points with $\\|\\boldsymbol x\\|_1 \\le 1$?",
+    "testo": "In $\\R^2$, what shape is the set of points with $\\|\\boldsymbol x\\|_1 = |x_1| + |x_2| \\le 1$?",
     "opzioni": [
      "a diamond (square rotated by $45°$) centered at the origin",
      "the unit circle",
@@ -3779,6 +4079,66 @@
      "$2$ and $1$"
     ],
     "spiegazione": "The semi-axes have length $1/\\sqrt{\\lambda_i}$, with $\\lambda_i$ the eigenvalues of $\\boldsymbol Q$: $1/\\sqrt 4 = \\frac{1}{2}$ and $1/\\sqrt 1 = 1$. Indeed $4x_1^2 + x_2^2 \\le 1$."
+   }
+  },
+  {
+   "id": "la-f-norm-16",
+   "livello": "teorema",
+   "capitolo": "norms",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/norme/01-norme/#1-introduzione-alle-norme",
+    "en": "https://fabiofurini.github.io/linear-algebra/norms/01-norms/#1-introduction-to-norms"
+   },
+   "corretta": 2,
+   "it": {
+    "testo": "Una funzione $\\|\\cdot\\|: \\R^n \\rightarrow \\R$ è una norma se, per ogni $\\boldsymbol p, \\boldsymbol w \\in \\R^n$ e $\\lambda \\in \\R$, vale $\\|\\boldsymbol p\\| \\ge 0$ con $\\|\\boldsymbol p\\| = 0 \\Leftrightarrow \\boldsymbol p = \\boldsymbol 0$, vale $\\|\\lambda\\boldsymbol p\\| = |\\lambda|\\,\\|\\boldsymbol p\\|$ e inoltre:",
+    "opzioni": [
+     "$\\|\\boldsymbol p + \\boldsymbol w\\| \\ge \\|\\boldsymbol p\\| + \\|\\boldsymbol w\\|$",
+     "$|\\boldsymbol p'\\,\\boldsymbol w| \\le \\|\\boldsymbol p\\|\\,\\|\\boldsymbol w\\|$",
+     "$\\|\\boldsymbol p + \\boldsymbol w\\| \\le \\|\\boldsymbol p\\| + \\|\\boldsymbol w\\|$",
+     "$\\|\\boldsymbol p + \\boldsymbol w\\| = \\|\\boldsymbol p\\| + \\|\\boldsymbol w\\|$"
+    ],
+    "spiegazione": "Il terzo assioma è la disuguaglianza triangolare. L'uguaglianza vale solo in casi particolari (per esempio $\\boldsymbol w = \\boldsymbol p$); Cauchy–Schwarz è una proprietà della norma $\\ell_2$, non un assioma."
+   },
+   "en": {
+    "testo": "A function $\\|\\cdot\\|: \\R^n \\rightarrow \\R$ is a norm if, for every $\\boldsymbol p, \\boldsymbol w \\in \\R^n$ and $\\lambda \\in \\R$, $\\|\\boldsymbol p\\| \\ge 0$ with $\\|\\boldsymbol p\\| = 0 \\Leftrightarrow \\boldsymbol p = \\boldsymbol 0$, $\\|\\lambda\\boldsymbol p\\| = |\\lambda|\\,\\|\\boldsymbol p\\|$ and moreover:",
+    "opzioni": [
+     "$\\|\\boldsymbol p + \\boldsymbol w\\| \\ge \\|\\boldsymbol p\\| + \\|\\boldsymbol w\\|$",
+     "$|\\boldsymbol p'\\,\\boldsymbol w| \\le \\|\\boldsymbol p\\|\\,\\|\\boldsymbol w\\|$",
+     "$\\|\\boldsymbol p + \\boldsymbol w\\| \\le \\|\\boldsymbol p\\| + \\|\\boldsymbol w\\|$",
+     "$\\|\\boldsymbol p + \\boldsymbol w\\| = \\|\\boldsymbol p\\| + \\|\\boldsymbol w\\|$"
+    ],
+    "spiegazione": "The third axiom is the triangle inequality. Equality holds only in special cases (for instance $\\boldsymbol w = \\boldsymbol p$); Cauchy–Schwarz is a property of the $\\ell_2$ norm, not an axiom."
+   }
+  },
+  {
+   "id": "la-f-norm-17",
+   "livello": "facile",
+   "capitolo": "norms",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/norme/01-norme/#box-obsLinftri-29",
+    "en": "https://fabiofurini.github.io/linear-algebra/norms/01-norms/#box-obsLinftri-29"
+   },
+   "corretta": 0,
+   "it": {
+    "testo": "La norma $\\ell_\\infty$ è $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$. Per $\\boldsymbol p = (1,\\, -2)'$ e $\\boldsymbol w = (3,\\, 2)'$, quanto valgono $\\|\\boldsymbol p + \\boldsymbol w\\|_\\infty$ e $\\|\\boldsymbol p\\|_\\infty + \\|\\boldsymbol w\\|_\\infty$?",
+    "opzioni": [
+     "$4$ e $5$",
+     "$4$ e $4$",
+     "$5$ e $5$",
+     "$3$ e $5$"
+    ],
+    "spiegazione": "$\\boldsymbol p + \\boldsymbol w = (4,\\, 0)'$, quindi $\\|\\boldsymbol p + \\boldsymbol w\\|_\\infty = 4$, mentre $\\|\\boldsymbol p\\|_\\infty + \\|\\boldsymbol w\\|_\\infty = 2 + 3 = 5$: la disuguaglianza triangolare qui vale in senso stretto."
+   },
+   "en": {
+    "testo": "The $\\ell_\\infty$ norm is $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$. For $\\boldsymbol p = (1,\\, -2)'$ and $\\boldsymbol w = (3,\\, 2)'$, what are $\\|\\boldsymbol p + \\boldsymbol w\\|_\\infty$ and $\\|\\boldsymbol p\\|_\\infty + \\|\\boldsymbol w\\|_\\infty$?",
+    "opzioni": [
+     "$4$ and $5$",
+     "$4$ and $4$",
+     "$5$ and $5$",
+     "$3$ and $5$"
+    ],
+    "spiegazione": "$\\boldsymbol p + \\boldsymbol w = (4,\\, 0)'$, hence $\\|\\boldsymbol p + \\boldsymbol w\\|_\\infty = 4$, while $\\|\\boldsymbol p\\|_\\infty + \\|\\boldsymbol w\\|_\\infty = 2 + 3 = 5$: here the triangle inequality is strict."
    }
   },
   {
@@ -4151,7 +4511,7 @@
    },
    "corretta": 0,
    "it": {
-    "testo": "Quale risultato serve per dimostrare che $\\boldsymbol A\\boldsymbol x = \\boldsymbol 0$ ha soluzioni non banali se e solo se $\\text{rank}(\\boldsymbol A) < n$?",
+    "testo": "Sia $\\boldsymbol A \\in \\R^{m\\times n}$. Quale risultato serve per dimostrare che $\\boldsymbol A\\boldsymbol x = \\boldsymbol 0$ ha soluzioni non banali se e solo se $\\text{rank}(\\boldsymbol A) < n$?",
     "opzioni": [
      "il teorema di Rouché–Capelli, osservando che $\\text{rank}(\\boldsymbol A | \\boldsymbol 0) = \\text{rank}(\\boldsymbol A)$",
      "la regola di Cramer",
@@ -4161,7 +4521,7 @@
     "spiegazione": "Il sistema è sempre compatibile (la colonna nulla non aumenta il rango); la soluzione è unica, quindi solo quella banale, se e solo se il rango vale $n$."
    },
    "en": {
-    "testo": "Which result is needed to prove that $\\boldsymbol A\\boldsymbol x = \\boldsymbol 0$ has nontrivial solutions if and only if $\\text{rank}(\\boldsymbol A) < n$?",
+    "testo": "Let $\\boldsymbol A \\in \\R^{m\\times n}$. Which result is needed to prove that $\\boldsymbol A\\boldsymbol x = \\boldsymbol 0$ has nontrivial solutions if and only if $\\text{rank}(\\boldsymbol A) < n$?",
     "opzioni": [
      "the Rouché–Capelli theorem, noting that $\\text{rank}(\\boldsymbol A | \\boldsymbol 0) = \\text{rank}(\\boldsymbol A)$",
      "Cramer's rule",
@@ -4289,6 +4649,36 @@
      "cannot have a unique solution"
     ],
     "spiegazione": "$\\text{rank}(\\boldsymbol A) \\le m < n$: if it is consistent it has infinitely many solutions, otherwise none. Uniqueness is possible only with $m \\ge n$."
+   }
+  },
+  {
+   "id": "la-f-sys-18",
+   "livello": "facile",
+   "capitolo": "linear-systems",
+   "link": {
+    "it": "https://fabiofurini.github.io/algebra-lineare/sistemi/01-sistemi-lineari/#2-metodo-di-eliminazione-di-gauss",
+    "en": "https://fabiofurini.github.io/linear-algebra/systems/01-linear-systems/#2-gaussian-elimination-method"
+   },
+   "corretta": 0,
+   "it": {
+    "testo": "Si risolve $\\boldsymbol A\\boldsymbol x = \\boldsymbol b$ con l'eliminazione di Gauss (eliminazione in avanti, poi sostituzione all'indietro). A che cosa si applicano le operazioni di riga dell'eliminazione in avanti?",
+    "opzioni": [
+     "a tutta la matrice completa $(\\boldsymbol A | \\boldsymbol b)$, colonna dei termini noti compresa",
+     "solo alla matrice $\\boldsymbol A$: il vettore $\\boldsymbol b$ resta invariato fino alla fine",
+     "solo al vettore $\\boldsymbol b$: la matrice $\\boldsymbol A$ si usa per scegliere i moltiplicatori",
+     "alle colonne di $\\boldsymbol A$, scambiando le variabili e lasciando invariato $\\boldsymbol b$"
+    ],
+    "spiegazione": "Ogni operazione di riga trasforma un'equazione in una equivalente, quindi va applicata a entrambi i membri: si lavora sulla matrice completa e si ottiene un sistema triangolare $\\tilde{\\boldsymbol A}\\boldsymbol x = \\tilde{\\boldsymbol b}$ con le stesse soluzioni."
+   },
+   "en": {
+    "testo": "$\\boldsymbol A\\boldsymbol x = \\boldsymbol b$ is solved by Gaussian elimination (forward elimination, then backward substitution). What are the row operations of forward elimination applied to?",
+    "opzioni": [
+     "the whole augmented matrix $(\\boldsymbol A | \\boldsymbol b)$, right-hand side column included",
+     "only the matrix $\\boldsymbol A$: the vector $\\boldsymbol b$ is unchanged until the end",
+     "only the vector $\\boldsymbol b$: the matrix $\\boldsymbol A$ is used to choose the multipliers",
+     "the columns of $\\boldsymbol A$, swapping variables and leaving $\\boldsymbol b$ unchanged"
+    ],
+    "spiegazione": "Each row operation turns an equation into an equivalent one, so it must be applied to both sides: one works on the augmented matrix and gets a triangular system $\\tilde{\\boldsymbol A}\\boldsymbol x = \\tilde{\\boldsymbol b}$ with the same solutions."
    }
   },
   {
@@ -4691,7 +5081,7 @@
    },
    "corretta": 1,
    "it": {
-    "testo": "Quale congruenza è vera?",
+    "testo": "$n \\equiv k \\pmod{m}$ significa che $n$ e $k$ hanno lo stesso resto nella divisione euclidea per $m$. Quale congruenza è vera?",
     "opzioni": [
      "$23 \\equiv 13 \\pmod{6}$",
      "$23 \\equiv 13 \\pmod{5}$",
@@ -4701,7 +5091,7 @@
     "spiegazione": "$23 - 13 = 10$, divisibile per $5$ ma non per $3$, $4$ o $6$; infatti $23$ e $13$ hanno entrambi resto $3$ nella divisione per $5$."
    },
    "en": {
-    "testo": "Which congruence is true?",
+    "testo": "$n \\equiv k \\pmod{m}$ means that $n$ and $k$ have the same remainder in Euclid's division by $m$. Which congruence is true?",
     "opzioni": [
      "$23 \\equiv 13 \\pmod{6}$",
      "$23 \\equiv 13 \\pmod{5}$",

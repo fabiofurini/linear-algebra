@@ -27,6 +27,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
     eigen: ["vectors-matrices/06-eigenvalues/", "vettori-matrici/06-autovalori/"],
     norms: ["norms/01-norms/", "norme/01-norme/"],
     systems: ["systems/01-linear-systems/", "sistemi/01-sistemi-lineari/"],
+    abs: ["extras/01-absolute-value/", "approfondimenti/01-valore-assoluto/"],
     mod: ["extras/02-modular-arithmetic/", "approfondimenti/02-aritmetica-modulare/"]
   };
   /** link a una sezione: ancora EN e (se diversa) IT */
@@ -214,8 +215,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var d3 = p.map(function (x, i) { return mu * x + la * w[i]; });
         var e = lc([[la, "\\boldsymbol p"], [mu, "\\boldsymbol w"]]);
         return out(
-          L2(l, "Dati $\\boldsymbol p = " + vt(p) + "$ e $\\boldsymbol w = " + vt(w) + "$ in $\\R^3$, quanto vale $" + e + "$?",
-            "Given $\\boldsymbol p = " + vt(p) + "$ and $\\boldsymbol w = " + vt(w) + "$ in $\\R^3$, what is $" + e + "$?"),
+          L2(l, "Dati i vettori colonna $\\boldsymbol p = " + vt(p) + "$ e $\\boldsymbol w = " + vt(w) + "$ di $\\R^3$ (l'apice $'$ indica la trasposta), quanto vale la combinazione lineare $" + e + "$?",
+            "Given the column vectors $\\boldsymbol p = " + vt(p) + "$ and $\\boldsymbol w = " + vt(w) + "$ of $\\R^3$ (the prime $'$ denotes the transpose), what is the linear combination $" + e + "$?"),
           [c, d1, d2, d3], function (v) { return M$(vt(v)); },
           L2(l, "Si moltiplica ogni componente per il proprio scalare e si sommano le componenti corrispondenti: $" + e + " = " + vt(c) + "$. Attenzione al segno del secondo coefficiente: lo scalare moltiplica solo il proprio vettore.",
             "Multiply each entry by its scalar and add the corresponding entries: $" + e + " = " + vt(c) + "$. Watch the sign of the second coefficient: each scalar multiplies only its own vector."),
@@ -235,8 +236,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var c = 0, d1 = 0, d2 = 0, d3 = 0;
         for (var j = 0; j < n; j++) { c += p[j] * w[j]; d1 += Math.abs(p[j] * w[j]); d2 += p[j] * w[n - 1 - j]; d3 += p[j] + w[j]; }
         return out(
-          L2(l, "Calcolare il prodotto scalare $\\boldsymbol p'\\,\\boldsymbol w$ di $\\boldsymbol p = " + vt(p) + "$ e $\\boldsymbol w = " + vt(w) + "$.",
-            "Compute the scalar product $\\boldsymbol p'\\,\\boldsymbol w$ of $\\boldsymbol p = " + vt(p) + "$ and $\\boldsymbol w = " + vt(w) + "$."),
+          L2(l, "Calcolare il prodotto scalare $\\boldsymbol p'\\,\\boldsymbol w$ dei vettori colonna $\\boldsymbol p = " + vt(p) + "$ e $\\boldsymbol w = " + vt(w) + "$ (l'apice $'$ indica la trasposta).",
+            "Compute the scalar product $\\boldsymbol p'\\,\\boldsymbol w$ of the column vectors $\\boldsymbol p = " + vt(p) + "$ and $\\boldsymbol w = " + vt(w) + "$ (the prime $'$ denotes the transpose)."),
           [c, d1, d2, d3], function (v) { return M$(tex(v)); },
           L2(l, "$\\boldsymbol p'\\,\\boldsymbol w = \\sum_{j=1}^{" + n + "} p_j w_j = " + c + "$: si moltiplicano le componenti con lo stesso indice (con il loro segno) e si sommano i prodotti.",
             "$\\boldsymbol p'\\,\\boldsymbol w = \\sum_{j=1}^{" + n + "} p_j w_j = " + c + "$: multiply the entries with the same index (with their signs) and add the products."),
@@ -258,12 +259,12 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         if (!(p.some(function (x) { return x < 0; }) && p.some(function (x) { return x > 0; }))) return null;
         var n1 = Math.abs(p[0]) + Math.abs(p[1]) + Math.abs(p[2]);
         var ninf = Math.max(Math.abs(p[0]), Math.abs(p[1]), Math.abs(p[2]));
-        var vals, nome;
-        if (tipo === "1") { vals = [n1, n2, ninf, Math.abs(p[0] + p[1] + p[2])]; nome = "\\|\\boldsymbol p\\|_1"; }
-        else if (tipo === "2") { vals = [n2, n1, ninf, s]; nome = "\\|\\boldsymbol p\\|_2"; }
-        else { vals = [ninf, n1, n2, Math.min(Math.abs(p[0]), Math.abs(p[1]), Math.abs(p[2]))]; nome = "\\|\\boldsymbol p\\|_\\infty"; }
+        var vals, nome, nIt, nEn;
+        if (tipo === "1") { vals = [n1, n2, ninf, Math.abs(p[0] + p[1] + p[2])]; nome = "\\|\\boldsymbol p\\|_1"; nIt = "la norma $\\ell_1$ (somma dei valori assoluti delle componenti)"; nEn = "the $\\ell_1$ norm (sum of the absolute values of the entries)"; }
+        else if (tipo === "2") { vals = [n2, n1, ninf, s]; nome = "\\|\\boldsymbol p\\|_2"; nIt = "la norma euclidea ($\\ell_2$, radice quadrata della somma dei quadrati delle componenti)"; nEn = "the Euclidean ($\\ell_2$) norm (square root of the sum of the squared entries)"; }
+        else { vals = [ninf, n1, n2, Math.min(Math.abs(p[0]), Math.abs(p[1]), Math.abs(p[2]))]; nome = "\\|\\boldsymbol p\\|_\\infty"; nIt = "la norma $\\ell_\\infty$ (massimo valore assoluto delle componenti)"; nEn = "the $\\ell_\\infty$ norm (largest absolute value of the entries)"; }
         return out(
-          L2(l, "Sia $\\boldsymbol p = " + vt(p) + "$. Quanto vale $" + nome + "$?", "Let $\\boldsymbol p = " + vt(p) + "$. What is $" + nome + "$?"),
+          L2(l, "Sia $\\boldsymbol p = " + vt(p) + "$ (vettore colonna). Quanto vale " + nIt + " $" + nome + "$?", "Let $\\boldsymbol p = " + vt(p) + "$ (a column vector). What is " + nEn + " $" + nome + "$?"),
           vals, function (v) { return M$(tex(v)); },
           L2(l, "$\\|\\boldsymbol p\\|_1 = " + n1 + "$ (somma dei valori assoluti), $\\|\\boldsymbol p\\|_2 = \\sqrt{" + s + "} = " + n2 + "$, $\\|\\boldsymbol p\\|_\\infty = " + ninf + "$ (massimo valore assoluto). Vale $\\|\\boldsymbol p\\|_\\infty \\le \\|\\boldsymbol p\\|_2 \\le \\|\\boldsymbol p\\|_1$.",
             "$\\|\\boldsymbol p\\|_1 = " + n1 + "$ (sum of the absolute values), $\\|\\boldsymbol p\\|_2 = \\sqrt{" + s + "} = " + n2 + "$, $\\|\\boldsymbol p\\|_\\infty = " + ninf + "$ (largest absolute value). Indeed $\\|\\boldsymbol p\\|_\\infty \\le \\|\\boldsymbol p\\|_2 \\le \\|\\boldsymbol p\\|_1$."),
@@ -394,8 +395,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var k = v3[2];
         var vals = [k, -k, a * v1[2] - b * v2[2], b * v1[2] + a * v2[2]];
         return out(
-          L2(l, "Per quale valore di $k$ i vettori $\\boldsymbol v_1 = " + vt(v1) + "$, $\\boldsymbol v_2 = " + vt(v2) + "$, $\\boldsymbol v_3 = (" + v3[0] + ",\\, " + v3[1] + ",\\, k)'$ sono linearmente dipendenti?",
-            "For which value of $k$ are the vectors $\\boldsymbol v_1 = " + vt(v1) + "$, $\\boldsymbol v_2 = " + vt(v2) + "$, $\\boldsymbol v_3 = (" + v3[0] + ",\\, " + v3[1] + ",\\, k)'$ linearly dependent?"),
+          L2(l, "Per quale valore del parametro reale $k$ i vettori colonna $\\boldsymbol v_1 = " + vt(v1) + "$, $\\boldsymbol v_2 = " + vt(v2) + "$, $\\boldsymbol v_3 = (" + v3[0] + ",\\, " + v3[1] + ",\\, k)'$ sono linearmente dipendenti?",
+            "For which value of the real parameter $k$ are the column vectors $\\boldsymbol v_1 = " + vt(v1) + "$, $\\boldsymbol v_2 = " + vt(v2) + "$, $\\boldsymbol v_3 = (" + v3[0] + ",\\, " + v3[1] + ",\\, k)'$ linearly dependent?"),
           vals, function (x) { return M$("k = " + tex(x)); },
           L2(l, "Dalle prime due componenti $\\boldsymbol v_3 = " + lc([[a, "\\boldsymbol v_1"], [b, "\\boldsymbol v_2"]]) + "$ è l'unica combinazione possibile; la terza componente dà $k = " + k + "$. Per gli altri valori il determinante della matrice con colonne $\\boldsymbol v_1, \\boldsymbol v_2, \\boldsymbol v_3$ è non nullo.",
             "From the first two entries, $\\boldsymbol v_3 = " + lc([[a, "\\boldsymbol v_1"], [b, "\\boldsymbol v_2"]]) + "$ is the only possible combination; the third entry gives $k = " + k + "$. For the other values the determinant of the matrix with columns $\\boldsymbol v_1, \\boldsymbol v_2, \\boldsymbol v_3$ is nonzero."),
@@ -417,8 +418,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var x = [l1 * v1[0] + l2 * v2[0], l1 * v1[1] + l2 * v2[1]];
         var vals = [[l1, l2], [l2, l1], x, [l1, -l2]];
         return out(
-          L2(l, "I vettori $\\boldsymbol v_1 = " + vt(v1) + "$ e $\\boldsymbol v_2 = " + vt(v2) + "$ formano una base di $\\R^2$. Quali sono le coordinate $(\\lambda_1, \\lambda_2)$ di $\\boldsymbol x = " + vt(x) + "$, cioè $\\boldsymbol x = \\lambda_1 \\boldsymbol v_1 + \\lambda_2 \\boldsymbol v_2$?",
-            "The vectors $\\boldsymbol v_1 = " + vt(v1) + "$ and $\\boldsymbol v_2 = " + vt(v2) + "$ form a basis of $\\R^2$. What are the coordinates $(\\lambda_1, \\lambda_2)$ of $\\boldsymbol x = " + vt(x) + "$, i.e. $\\boldsymbol x = \\lambda_1 \\boldsymbol v_1 + \\lambda_2 \\boldsymbol v_2$?"),
+          L2(l, "I vettori colonna ($'$ indica la trasposta) $\\boldsymbol v_1 = " + vt(v1) + "$ e $\\boldsymbol v_2 = " + vt(v2) + "$ formano una base di $\\R^2$. Quali sono le coordinate $(\\lambda_1, \\lambda_2)$ di $\\boldsymbol x = " + vt(x) + "$, cioè $\\boldsymbol x = \\lambda_1 \\boldsymbol v_1 + \\lambda_2 \\boldsymbol v_2$?",
+            "The column vectors (the prime $'$ denotes the transpose) $\\boldsymbol v_1 = " + vt(v1) + "$ and $\\boldsymbol v_2 = " + vt(v2) + "$ form a basis of $\\R^2$. What are the coordinates $(\\lambda_1, \\lambda_2)$ of $\\boldsymbol x = " + vt(x) + "$, i.e. $\\boldsymbol x = \\lambda_1 \\boldsymbol v_1 + \\lambda_2 \\boldsymbol v_2$?"),
           vals, function (v) { return M$("(" + tex(v[0]) + ",\\, " + tex(v[1]) + ")"); },
           L2(l, "Si risolve il sistema $\\lambda_1 \\boldsymbol v_1 + \\lambda_2 \\boldsymbol v_2 = \\boldsymbol x$ (i vettori della base sono le colonne): $\\lambda_1 = " + l1 + "$, $\\lambda_2 = " + l2 + "$. Le coordinate sono uniche perché $\\boldsymbol v_1, \\boldsymbol v_2$ sono linearmente indipendenti.",
             "Solve $\\lambda_1 \\boldsymbol v_1 + \\lambda_2 \\boldsymbol v_2 = \\boldsymbol x$ (the basis vectors are the columns): $\\lambda_1 = " + l1 + "$, $\\lambda_2 = " + l2 + "$. The coordinates are unique because $\\boldsymbol v_1, \\boldsymbol v_2$ are linearly independent."),
@@ -455,7 +456,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var e = L2(l, " e ", " and ");
         var tr = a + d, dt = a * d - Q[0][1] * Q[1][0];
         return out(
-          L2(l, "Quali sono gli autovalori di $\\boldsymbol Q = " + pm(Q) + "$?", "What are the eigenvalues of $\\boldsymbol Q = " + pm(Q) + "$?"),
+          L2(l, "Quali sono gli autovalori di $\\boldsymbol Q = " + pm(Q) + "$, cioè le radici di $\\det(\\boldsymbol Q - \\lambda\\boldsymbol I) = 0$?", "What are the eigenvalues of $\\boldsymbol Q = " + pm(Q) + "$, i.e. the roots of $\\det(\\boldsymbol Q - \\lambda\\boldsymbol I) = 0$?"),
           vals, function (v) { return M$(tex(v[0])) + e + M$(tex(v[1])); },
           L2(l, "$\\det(\\boldsymbol Q - \\lambda\\boldsymbol I) = " + lc([[1, "\\lambda^2"], [-tr, "\\lambda"], [dt, ""]]) + " = (" + lc([[1, "\\lambda"], [-m.l1, ""]]) + ")(" + lc([[1, "\\lambda"], [-m.l2, ""]]) + ")$. Controllo: la somma degli autovalori è la traccia, il prodotto è il determinante. Gli elementi diagonali sono gli autovalori solo per matrici triangolari.",
             "$\\det(\\boldsymbol Q - \\lambda\\boldsymbol I) = " + lc([[1, "\\lambda^2"], [-tr, "\\lambda"], [dt, ""]]) + " = (" + lc([[1, "\\lambda"], [-m.l1, ""]]) + ")(" + lc([[1, "\\lambda"], [-m.l2, ""]]) + ")$. Check: the eigenvalues add up to the trace and multiply to the determinant. The diagonal entries are the eigenvalues only for triangular matrices."),
@@ -479,8 +480,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         ]);
         var vals = [-c * d, c * d, -d, -c * la * d];
         return out(
-          L2(l, "Sia $\\boldsymbol A \\in \\R^{3\\times 3}$ con $\\det(\\boldsymbol A) = " + d + "$. Si applicano nell'ordine le operazioni $" + ops.join("$, $") + "$. Quanto vale il determinante della matrice ottenuta?",
-            "Let $\\boldsymbol A \\in \\R^{3\\times 3}$ with $\\det(\\boldsymbol A) = " + d + "$. The operations $" + ops.join("$, $") + "$ are applied in this order. What is the determinant of the resulting matrix?"),
+          L2(l, "Sia $\\boldsymbol A \\in \\R^{3\\times 3}$ con $\\det(\\boldsymbol A) = " + d + "$. Indicando con $R_i$ la riga $i$, si applicano nell'ordine le operazioni elementari $" + ops.join("$, $") + "$. Quanto vale il determinante della matrice ottenuta?",
+            "Let $\\boldsymbol A \\in \\R^{3\\times 3}$ with $\\det(\\boldsymbol A) = " + d + "$. Denoting by $R_i$ row $i$, the elementary operations $" + ops.join("$, $") + "$ are applied in this order. What is the determinant of the resulting matrix?"),
           vals, function (x) { return M$(tex(x)); },
           L2(l, "Lo scambio cambia il segno, la moltiplicazione di una riga per $" + c + "$ moltiplica il determinante per $" + c + "$, la somma di un multiplo di un'altra riga non lo cambia: $(-1)\\cdot " + (c < 0 ? "(" + c + ")" : c) + "\\cdot " + (d < 0 ? "(" + d + ")" : d) + " = " + (-c * d) + "$.",
             "The swap changes the sign, multiplying a row by $" + c + "$ multiplies the determinant by $" + c + "$, adding a multiple of another row does not change it: $(-1)\\cdot " + (c < 0 ? "(" + c + ")" : c) + "\\cdot " + (d < 0 ? "(" + d + ")" : d) + " = " + (-c * d) + "$."),
@@ -521,7 +522,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
           var n = ri(r, 6, 12), k = ri(r, 2, 4);
           var vals = [prod(n - k + 1, n), prod(n - k, n), prod(n - k + 2, n), Math.pow(n, k)];
           return out(
-            L2(l, "Quanto vale $\\dfrac{" + n + "!}{" + (n - k) + "!}$?", "What is $\\dfrac{" + n + "!}{" + (n - k) + "!}$?"),
+            L2(l, "Il fattoriale è $n! = \\prod_{j=1}^{n} j$. Quanto vale $\\dfrac{" + n + "!}{" + (n - k) + "!}$?", "The factorial is $n! = \\prod_{j=1}^{n} j$. What is $\\dfrac{" + n + "!}{" + (n - k) + "!}$?"),
             vals, function (x) { return M$(tex(x)); },
             L2(l, "$\\frac{n!}{(n-k)!} = \\prod_{j=n-k+1}^{n} j$ è il prodotto di $k = " + k + "$ fattori, da $n = " + n + "$ scendendo di uno: risultato $" + vals[0] + "$.",
               "$\\frac{n!}{(n-k)!} = \\prod_{j=n-k+1}^{n} j$ is the product of $k = " + k + "$ factors, from $n = " + n + "$ decreasing by one: result $" + vals[0] + "$."),
@@ -552,8 +553,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         if (rr === 0) return null;
         var vals = neg ? [rr, Math.abs(n) % m, rr - m, qq] : [rr, qq, m - rr, rr + 1];
         return out(
-          L2(l, "Quanto vale $" + n + " \\text{ mod } " + m + "$, cioè il resto $r$ della divisione euclidea di $" + n + "$ per $" + m + "$?",
-            "What is $" + n + " \\text{ mod } " + m + "$, i.e. the remainder $r$ of the Euclidean division of $" + n + "$ by $" + m + "$?"),
+          L2(l, "Quanto vale $" + n + " \\text{ mod } " + m + "$, cioè il resto $r$ della divisione euclidea $" + n + " = q \\cdot " + m + " + r$ con $q$ intero e $0 \\le r < " + m + "$?",
+            "What is $" + n + " \\text{ mod } " + m + "$, i.e. the remainder $r$ of Euclid's division $" + n + " = q \\cdot " + m + " + r$ with $q$ an integer and $0 \\le r < " + m + "$?"),
           vals, function (x) { return M$(tex(x)); },
           L2(l, "$" + n + " = (" + qq + ")\\cdot " + m + " + " + rr + "$ con $0 \\le " + rr + " < " + m + "$: il resto è sempre non negativo e minore di $|m|$" + (n < 0 ? ", anche se il dividendo è negativo." : "."),
             "$" + n + " = (" + qq + ")\\cdot " + m + " + " + rr + "$ with $0 \\le " + rr + " < " + m + "$: the remainder is always non-negative and smaller than $|m|$" + (n < 0 ? ", even when the dividend is negative." : ".")),
@@ -579,8 +580,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         if (Dj === 0) return null;
         var vals = [F(Dj, D), F(det2(Ar)[0], D), F(det2(Ao)[0], D), F(D, Dj)];
         return out(
-          L2(l, "Con la regola di Cramer, quanto vale $\\tilde x_" + (j + 1) + "$ nella soluzione del sistema $" + sistema(A, b) + "$?",
-            "By Cramer's rule, what is $\\tilde x_" + (j + 1) + "$ in the solution of the system $" + sistema(A, b) + "$?"),
+          L2(l, "Con la regola di Cramer, quanto vale la componente $\\tilde x_" + (j + 1) + "$ (valore di $x_" + (j + 1) + "$) della soluzione del sistema $" + sistema(A, b) + "$?",
+            "By Cramer's rule, what is the entry $\\tilde x_" + (j + 1) + "$ (value of $x_" + (j + 1) + "$) of the solution of the system $" + sistema(A, b) + "$?"),
           vals, function (x) { return M$(tex(x)); },
           L2(l, "$\\det(\\boldsymbol A) = " + D + "$ e $\\boldsymbol A_" + (j + 1) + "$ si ottiene sostituendo la colonna $" + (j + 1) + "$ (non la riga) con $\\boldsymbol b$: $\\det(\\boldsymbol A_" + (j + 1) + ") = " + Dj + "$, quindi $\\tilde x_" + (j + 1) + " = " + tex(F(Dj, D)) + "$.",
             "$\\det(\\boldsymbol A) = " + D + "$ and $\\boldsymbol A_" + (j + 1) + "$ is obtained by replacing column $" + (j + 1) + "$ (not the row) with $\\boldsymbol b$: $\\det(\\boldsymbol A_" + (j + 1) + ") = " + Dj + "$, hence $\\tilde x_" + (j + 1) + " = " + tex(F(Dj, D)) + "$."),
@@ -617,7 +618,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var keys = ["pd", "nd", "ind", cat === "nsd" ? "nsd" : "psd"], corr = keys.indexOf(cat);
         var Q = [[a, b], [b, c]];
         return out(
-          L2(l, "Come è la matrice simmetrica $\\boldsymbol Q = " + pm(Q) + "$?", "How is the symmetric matrix $\\boldsymbol Q = " + pm(Q) + "$ classified?"),
+          L2(l, "Come si classifica la matrice simmetrica $\\boldsymbol Q = " + pm(Q) + "$ in base al segno della forma quadratica $\\boldsymbol x'\\boldsymbol Q\\,\\boldsymbol x$?", "How is the symmetric matrix $\\boldsymbol Q = " + pm(Q) + "$ classified according to the sign of the quadratic form $\\boldsymbol x'\\boldsymbol Q\\,\\boldsymbol x$?"),
           keys, function (x) { return lab(x, l); },
           L2(l, "$\\Delta_1 = " + a + "$, $\\Delta_2 = \\det(\\boldsymbol Q) = " + D2 + "$" + (D2 === 0 ? "; con $\\Delta_2 = 0$ servono tutti i minori principali: $q_{11} = " + a + "$, $q_{22} = " + c + "$" : "") + ". Quindi $\\boldsymbol Q$ è " + lab(cat, l) + " (criterio di Sylvester; equivalentemente, dal segno degli autovalori).",
             "$\\Delta_1 = " + a + "$, $\\Delta_2 = \\det(\\boldsymbol Q) = " + D2 + "$" + (D2 === 0 ? "; with $\\Delta_2 = 0$ all principal minors are needed: $q_{11} = " + a + "$, $q_{22} = " + c + "$" : "") + ". Hence $\\boldsymbol Q$ is " + lab(cat, l) + " (Sylvester's criterion; equivalently, by the signs of the eigenvalues)."),
@@ -713,8 +714,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var mu = intM([inv(T(V)).map(function (rw) { return rw.reduce(function (s, v, k) { return fadd(s, fmul(v, x[k])); }, F(0)); })])[0];
         var vals = [la, x, mu, [la[2], la[1], la[0]]];
         return out(
-          L2(l, "I vettori $\\boldsymbol v_1 = " + vt(cols[0]) + "$, $\\boldsymbol v_2 = " + vt(cols[1]) + "$, $\\boldsymbol v_3 = " + vt(cols[2]) + "$ formano una base di $\\R^3$. Quali sono le coordinate $(\\lambda_1, \\lambda_2, \\lambda_3)$ di $\\boldsymbol x = " + vt(x) + "$ rispetto a questa base?",
-            "The vectors $\\boldsymbol v_1 = " + vt(cols[0]) + "$, $\\boldsymbol v_2 = " + vt(cols[1]) + "$, $\\boldsymbol v_3 = " + vt(cols[2]) + "$ form a basis of $\\R^3$. What are the coordinates $(\\lambda_1, \\lambda_2, \\lambda_3)$ of $\\boldsymbol x = " + vt(x) + "$ with respect to this basis?"),
+          L2(l, "I vettori colonna ($'$ indica la trasposta) $\\boldsymbol v_1 = " + vt(cols[0]) + "$, $\\boldsymbol v_2 = " + vt(cols[1]) + "$, $\\boldsymbol v_3 = " + vt(cols[2]) + "$ formano una base di $\\R^3$. Quali sono le coordinate $(\\lambda_1, \\lambda_2, \\lambda_3)$ di $\\boldsymbol x = " + vt(x) + "$ rispetto a questa base, cioè $\\boldsymbol x = \\lambda_1\\boldsymbol v_1 + \\lambda_2\\boldsymbol v_2 + \\lambda_3\\boldsymbol v_3$?",
+            "The column vectors (the prime $'$ denotes the transpose) $\\boldsymbol v_1 = " + vt(cols[0]) + "$, $\\boldsymbol v_2 = " + vt(cols[1]) + "$, $\\boldsymbol v_3 = " + vt(cols[2]) + "$ form a basis of $\\R^3$. What are the coordinates $(\\lambda_1, \\lambda_2, \\lambda_3)$ of $\\boldsymbol x = " + vt(x) + "$ with respect to this basis, that is $\\boldsymbol x = \\lambda_1\\boldsymbol v_1 + \\lambda_2\\boldsymbol v_2 + \\lambda_3\\boldsymbol v_3$?"),
           vals, function (v) { return M$("(" + v.map(tex).join(",\\, ") + ")"); },
           L2(l, "Si risolve $\\lambda_1 \\boldsymbol v_1 + \\lambda_2 \\boldsymbol v_2 + \\lambda_3 \\boldsymbol v_3 = \\boldsymbol x$, un sistema la cui matrice ha i vettori della base come colonne (non come righe): $(\\lambda_1, \\lambda_2, \\lambda_3) = (" + la.join(",\\, ") + ")$. Verifica: $" + lc([[la[0], "\\boldsymbol v_1"], [la[1], "\\boldsymbol v_2"], [la[2], "\\boldsymbol v_3"]]) + " = \\boldsymbol x$.",
             "Solve $\\lambda_1 \\boldsymbol v_1 + \\lambda_2 \\boldsymbol v_2 + \\lambda_3 \\boldsymbol v_3 = \\boldsymbol x$, a system whose matrix has the basis vectors as columns (not as rows): $(\\lambda_1, \\lambda_2, \\lambda_3) = (" + la.join(",\\, ") + ")$. Check: $" + lc([[la[0], "\\boldsymbol v_1"], [la[1], "\\boldsymbol v_2"], [la[2], "\\boldsymbol v_3"]]) + " = \\boldsymbol x$."),
@@ -741,8 +742,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var sw = [[1, 0, 0], [L[2][0], 1, 0], [L[1][0], L[2][1], 1]];
         var vals = [L, neg, orig, sw];
         return out(
-          L2(l, "Calcolare la fattorizzazione $\\boldsymbol A = \\boldsymbol L\\boldsymbol U$ (eliminazione di Gauss senza scambi di righe) di $\\boldsymbol A = " + pm(A) + "$. Quale è la matrice $\\boldsymbol L$?",
-            "Compute the factorization $\\boldsymbol A = \\boldsymbol L\\boldsymbol U$ (Gaussian elimination without row swaps) of $\\boldsymbol A = " + pm(A) + "$. Which is the matrix $\\boldsymbol L$?"),
+          L2(l, "Calcolare la fattorizzazione $\\boldsymbol A = \\boldsymbol L\\boldsymbol U$ di $\\boldsymbol A = " + pm(A) + "$ con l'eliminazione di Gauss senza scambi di righe ($\\boldsymbol L$ triangolare inferiore con diagonale di uni, $\\boldsymbol U$ triangolare superiore). Quale è la matrice $\\boldsymbol L$?",
+            "Compute the factorization $\\boldsymbol A = \\boldsymbol L\\boldsymbol U$ of $\\boldsymbol A = " + pm(A) + "$ by Gaussian elimination without row swaps ($\\boldsymbol L$ lower triangular with ones on the diagonal, $\\boldsymbol U$ upper triangular). Which is the matrix $\\boldsymbol L$?"),
           vals, function (m) { return M$("\\boldsymbol L = " + pm(m)); },
           L2(l, "I moltiplicatori del passo $R_i \\leftarrow R_i - \\ell_{ij} R_j$ vanno in posizione $(i,j)$ di $\\boldsymbol L$, con il loro segno; $\\ell_{32}$ si calcola sulla matrice già aggiornata dal primo passo. Si ottiene $\\boldsymbol U = " + pm(U) + "$ e $\\boldsymbol L\\boldsymbol U = \\boldsymbol A$.",
             "The multipliers of the steps $R_i \\leftarrow R_i - \\ell_{ij} R_j$ go in position $(i,j)$ of $\\boldsymbol L$, with their sign; $\\ell_{32}$ is computed on the matrix already updated by the first step. We get $\\boldsymbol U = " + pm(U) + "$ and $\\boldsymbol L\\boldsymbol U = \\boldsymbol A$."),
@@ -764,8 +765,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         if (vals.some(function (w) { return w.every(function (x) { return x === 0; }); })) return null;
         if (vals.some(function (w) { return w.some(function (x) { return Math.abs(x) > 12; }); })) return null;
         return out(
-          L2(l, "Gli autovalori di $\\boldsymbol Q = " + pm(Q) + "$ sono $" + ln + "$ e $" + lm + "$. Quale vettore è un autovettore associato all'autovalore $\\lambda = " + lm + "$?",
-            "The eigenvalues of $\\boldsymbol Q = " + pm(Q) + "$ are $" + ln + "$ and $" + lm + "$. Which vector is an eigenvector associated with the eigenvalue $\\lambda = " + lm + "$?"),
+          L2(l, "Gli autovalori di $\\boldsymbol Q = " + pm(Q) + "$ sono $" + ln + "$ e $" + lm + "$. Quale vettore colonna ($'$: trasposta) è un autovettore associato all'autovalore $\\lambda = " + lm + "$?",
+            "The eigenvalues of $\\boldsymbol Q = " + pm(Q) + "$ are $" + ln + "$ and $" + lm + "$. Which column vector ($'$: transpose) is an eigenvector associated with the eigenvalue $\\lambda = " + lm + "$?"),
           vals, function (w) { return M$("\\boldsymbol v = " + vt(w)); },
           L2(l, "Gli autovettori sono le soluzioni non nulle di $(\\boldsymbol Q - " + (lm < 0 ? "(" + lm + ")" : lm) + "\\boldsymbol I)\\boldsymbol v = \\boldsymbol 0$, con $\\boldsymbol Q - " + (lm < 0 ? "(" + lm + ")" : lm) + "\\boldsymbol I = " + pm([[a - lm, b], [c, d - lm]]) + "$: per esempio $\\boldsymbol v = " + vt(v) + "$. Verifica: $\\boldsymbol Q\\boldsymbol v = " + lm + "\\,\\boldsymbol v$.",
             "The eigenvectors are the nonzero solutions of $(\\boldsymbol Q - " + (lm < 0 ? "(" + lm + ")" : lm) + "\\boldsymbol I)\\boldsymbol v = \\boldsymbol 0$, with $\\boldsymbol Q - " + (lm < 0 ? "(" + lm + ")" : lm) + "\\boldsymbol I = " + pm([[a - lm, b], [c, d - lm]]) + "$: for example $\\boldsymbol v = " + vt(v) + "$. Check: $\\boldsymbol Q\\boldsymbol v = " + lm + "\\,\\boldsymbol v$."),
@@ -813,8 +814,8 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         if (trip.some(function (t) { return t.some(function (x) { return x === 0; }); })) return null;
         var vals = trip.map(function (t) { return { minori: t, esito: sylv(t) }; });
         return out(
-          L2(l, "Calcolare i minori principali di guida $\\Delta_1, \\Delta_2, \\Delta_3$ della matrice simmetrica $\\boldsymbol Q = " + pm(Q) + "$ e classificarla con il criterio di Sylvester.",
-            "Compute the leading principal minors $\\Delta_1, \\Delta_2, \\Delta_3$ of the symmetric matrix $\\boldsymbol Q = " + pm(Q) + "$ and classify it with Sylvester's criterion."),
+          L2(l, "Calcolare i minori principali di guida $\\Delta_1, \\Delta_2, \\Delta_3$ ($\\Delta_k$: determinante delle prime $k$ righe e colonne) della matrice simmetrica $\\boldsymbol Q = " + pm(Q) + "$ e classificarla con il criterio di Sylvester.",
+            "Compute the leading principal minors $\\Delta_1, \\Delta_2, \\Delta_3$ ($\\Delta_k$: determinant of the first $k$ rows and columns) of the symmetric matrix $\\boldsymbol Q = " + pm(Q) + "$ and classify it with Sylvester's criterion."),
           vals, function (v) { return "$(\\Delta_1, \\Delta_2, \\Delta_3) = (" + v.minori.join(",\\, ") + ")$: " + lab(v.esito, l); },
           L2(l, "$\\Delta_1 = q_{11} = " + D1 + "$, $\\Delta_2 = q_{11}q_{22} - q_{12}^2 = " + D2 + "$, $\\Delta_3 = \\det(\\boldsymbol Q) = " + D3 + "$ (minori di testa: prime $k$ righe e colonne). Quindi $\\boldsymbol Q$ è " + lab(cat, l) + ".",
             "$\\Delta_1 = q_{11} = " + D1 + "$, $\\Delta_2 = q_{11}q_{22} - q_{12}^2 = " + D2 + "$, $\\Delta_3 = \\det(\\boldsymbol Q) = " + D3 + "$ (leading minors: first $k$ rows and columns). Hence $\\boldsymbol Q$ is " + lab(cat, l) + "."),
@@ -942,12 +943,258 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
         var vals = [{ L: Lc, det: D }, { L: Ln, det: D }, { L: Lc, det: -D }, { L: Ln, det: -D }];
         var P = [[1, 0, 0], [0, 0, 1], [0, 1, 0]], U = [R1, [0, t, w], [0, 0, s]];
         return out(
-          L2(l, "Si calcola la fattorizzazione $\\boldsymbol P\\boldsymbol A = \\boldsymbol L\\boldsymbol U$ di $\\boldsymbol A = " + pm(A) + "$ con l'eliminazione di Gauss, scambiando due righe solo quando il pivot è nullo; risulta $\\boldsymbol P = " + pm(P) + "$. Quali sono $\\boldsymbol L$ e $\\det(\\boldsymbol A)$?",
-            "The factorization $\\boldsymbol P\\boldsymbol A = \\boldsymbol L\\boldsymbol U$ of $\\boldsymbol A = " + pm(A) + "$ is computed by Gaussian elimination, swapping two rows only when the pivot is zero; it turns out that $\\boldsymbol P = " + pm(P) + "$. What are $\\boldsymbol L$ and $\\det(\\boldsymbol A)$?"),
+          L2(l, "Si calcola la fattorizzazione $\\boldsymbol P\\boldsymbol A = \\boldsymbol L\\boldsymbol U$ di $\\boldsymbol A = " + pm(A) + "$ con l'eliminazione di Gauss ($\\boldsymbol P$ di permutazione, $\\boldsymbol L$ triangolare inferiore con diagonale di uni, $\\boldsymbol U$ triangolare superiore), scambiando due righe solo quando il pivot è nullo; risulta $\\boldsymbol P = " + pm(P) + "$. Quali sono $\\boldsymbol L$ e $\\det(\\boldsymbol A)$?",
+            "The factorization $\\boldsymbol P\\boldsymbol A = \\boldsymbol L\\boldsymbol U$ of $\\boldsymbol A = " + pm(A) + "$ is computed by Gaussian elimination ($\\boldsymbol P$ a permutation matrix, $\\boldsymbol L$ lower triangular with ones on the diagonal, $\\boldsymbol U$ upper triangular), swapping two rows only when the pivot is zero; it turns out that $\\boldsymbol P = " + pm(P) + "$. What are $\\boldsymbol L$ and $\\det(\\boldsymbol A)$?"),
           vals, function (o) { return "$\\boldsymbol L = " + pm(o.L) + "$, $\\det(\\boldsymbol A) = " + o.det + "$"; },
           L2(l, "Primo passo: $\\ell_{21} = " + l21 + "$, $\\ell_{31} = " + l31 + "$; la posizione $(2,2)$ diventa nulla e si scambiano $R_2 \\leftrightarrow R_3$, scambiando anche i moltiplicatori già calcolati; poi $\\ell_{32} = 0$. Si ottiene $\\boldsymbol U = " + pm(U) + "$ e, con $s = 1$ scambio, $\\det(\\boldsymbol A) = (-1)^1 \\prod_i u_{ii} = " + D + "$.",
             "First step: $\\ell_{21} = " + l21 + "$, $\\ell_{31} = " + l31 + "$; position $(2,2)$ becomes zero and $R_2 \\leftrightarrow R_3$ is performed, swapping also the multipliers already computed; then $\\ell_{32} = 0$. We get $\\boldsymbol U = " + pm(U) + "$ and, with $s = 1$ swap, $\\det(\\boldsymbol A) = (-1)^1 \\prod_i u_{ii} = " + D + "$."),
           { A: A, P: P });
+      });
+    }
+  });
+  // ======================================================================
+  // ARRICCHIMENTO (6 nov 2026): almeno due generatori per capitolo con calcoli
+  // ======================================================================
+
+  /** a con parentesi se negativo, per i prodotti scritti nelle spiegazioni */
+  function par(x) { x = q(x); return x[0] < 0 ? "(" + tex(x) + ")" : tex(x); }
+  /** x - a scritto bene: x - 3, x + 2, x */
+  function xmeno(a) { return a === 0 ? "x" : (a > 0 ? "x - " + a : "x + " + (-a)); }
+
+  // N1. somma di numeri dispari consecutivi (media)
+  add({
+    id: "la-g-sum-odd", livello: "media", capitolo: "sums",
+    link: LK("sums", "box-obs_sum-first-n-odd-12"),
+    genera: function (r, l) {
+      return retry(function () {
+        var k = ri(r, 2, 7), n = ri(r, k + 3, 16);
+        var vals = [n * n - (k - 1) * (k - 1), n * n - k * k, (n - k + 1) * (n - k + 1), n * n];
+        if (!distinct(vals.map(String))) return null;
+        return out(
+          L2(l, "Quanto vale $\\sum_{j=" + k + "}^{" + n + "} (2j-1)$, cioè la somma dei numeri dispari da $" + (2 * k - 1) + "$ a $" + (2 * n - 1) + "$?",
+            "What is $\\sum_{j=" + k + "}^{" + n + "} (2j-1)$, i.e. the sum of the odd numbers from $" + (2 * k - 1) + "$ to $" + (2 * n - 1) + "$?"),
+          vals, function (x) { return M$(tex(x)); },
+          L2(l, "Per la scomposizione, $\\sum_{j=" + k + "}^{" + n + "} (2j-1) = \\sum_{j=1}^{" + n + "} (2j-1) - \\sum_{j=1}^{" + (k - 1) + "} (2j-1)$, e la somma dei primi $m$ dispari è $m^2$: $" + n + "^2 - " + (k - 1) + "^2 = " + vals[0] + "$. Togliere $" + k + "^2$ invece di $" + (k - 1) + "^2$ scarta anche il termine $j = " + k + "$.",
+            "By decomposition, $\\sum_{j=" + k + "}^{" + n + "} (2j-1) = \\sum_{j=1}^{" + n + "} (2j-1) - \\sum_{j=1}^{" + (k - 1) + "} (2j-1)$, and the sum of the first $m$ odd numbers is $m^2$: $" + n + "^2 - " + (k - 1) + "^2 = " + vals[0] + "$. Subtracting $" + k + "^2$ instead of $" + (k - 1) + "^2$ also drops the term $j = " + k + "$."),
+          { k: k, n: n });
+      });
+    }
+  });
+
+  // N2. produttoria di c j (facile)
+  add({
+    id: "la-g-prod-cj", livello: "facile", capitolo: "products",
+    link: LK("products", "box-obs_prod-product-constant-4"),
+    genera: function (r, l) {
+      return retry(function () {
+        var n = ri(r, 3, 5), c = pick(r, [2, 3, -2, -3]);
+        var fatt = 1; for (var j = 2; j <= n; j++) fatt *= j;
+        var cn = Math.pow(c, n);
+        var vals = [cn * fatt, c * fatt, cn * fatt / n, cn * n];
+        if (!distinct(vals.map(String))) return null;
+        return out(
+          L2(l, "Quanto vale la produttoria $\\prod_{j=1}^{" + n + "} (" + c + "\\, j)$?", "What is the product $\\prod_{j=1}^{" + n + "} (" + c + "\\, j)$?"),
+          vals, function (x) { return M$(tex(x)); },
+          L2(l, "La costante compare in ciascuno dei $" + n + "$ fattori: $\\prod_{j=1}^{" + n + "} (" + c + "\\, j) = " + par(c) + "^{" + n + "} \\prod_{j=1}^{" + n + "} j = " + par(c) + "^{" + n + "}\\cdot " + n + "! = " + cn + "\\cdot " + fatt + " = " + vals[0] + "$. Portare fuori $" + c + "$ una sola volta è l'errore tipico (vale per le sommatorie).",
+            "The constant appears in each of the $" + n + "$ factors: $\\prod_{j=1}^{" + n + "} (" + c + "\\, j) = " + par(c) + "^{" + n + "} \\prod_{j=1}^{" + n + "} j = " + par(c) + "^{" + n + "}\\cdot " + n + "! = " + cn + "\\cdot " + fatt + " = " + vals[0] + "$. Taking $" + c + "$ out only once is the typical mistake (it holds for sums)."),
+          { n: n, c: c });
+      });
+    }
+  });
+
+  // N3. primo passo dell'eliminazione con pivoting parziale (media)
+  add({
+    id: "la-g-pivot-step", livello: "media", capitolo: "elementary-operations",
+    link: LK("elem", "box-ex_partial-pivoting-17"),
+    genera: function (r, l) {
+      return retry(function () {
+        var p = pick(r, [4, -4, 2, -2, 3, -3]), i = ri(r, 1, 2);
+        var col = [0, 0, 0];
+        col[i] = p;
+        var altri = [0, 1, 2].filter(function (k) { return k !== i; });
+        col[altri[0]] = rnz(r, -(Math.abs(p) - 1), Math.abs(p) - 1);
+        col[altri[1]] = ri(r, -(Math.abs(p) - 1), Math.abs(p) - 1);
+        if (col[0] === 0) return null;
+        var A = [0, 1, 2].map(function (k) { return [col[k], ri(r, -4, 4), ri(r, -4, 4)]; });
+        var elim = function (M, sgn) {   // azzera la prima colonna sotto il pivot M[0][0]
+          var B = M.map(function (rw) { return rw.map(q); });
+          for (var k = 1; k < 3; k++) {
+            var f = fdiv(B[k][0], B[0][0]);
+            B[k] = B[k].map(function (x, c) { return sgn > 0 ? fsub(x, fmul(f, B[0][c])) : fadd(x, fmul(f, B[0][c])); });
+          }
+          return B;
+        };
+        var S = A.map(function (rw) { return rw.slice(); }); var t = S[0]; S[0] = S[i]; S[i] = t;
+        var c = elim(S, 1), d1 = elim(A, 1), d2 = elim(S, -1), d3 = S.map(function (rw) { return rw.map(q); });
+        var big = [c, d1, d2].some(function (M) { return M.some(function (rw) { return rw.some(function (x) { return Math.abs(x[0]) > 30 || x[1] > 4; }); }); });
+        if (big) return null;
+        var vals = [c, d1, d2, d3];
+        return out(
+          L2(l, "Sia $\\boldsymbol A = " + pm(A) + "$ e sia $R_i$ la riga $i$. Si esegue il primo passo dell'eliminazione di Gauss con pivoting parziale: si porta in posizione $(1,1)$, con uno scambio di righe, l'elemento della prima colonna di valore assoluto massimo, poi si annullano gli elementi sotto di esso. Quale matrice si ottiene?",
+            "Let $\\boldsymbol A = " + pm(A) + "$ and let $R_i$ be row $i$. The first step of Gaussian elimination with partial pivoting is performed: the entry of the first column with the largest absolute value is brought to position $(1,1)$ by a row swap, then the entries below it are cancelled. Which matrix is obtained?"),
+          vals, function (M) { return M$(pm(M)); },
+          L2(l, "Il valore assoluto massimo nella prima colonna è $|" + p + "|$, in riga $" + (i + 1) + "$: si scambia $R_1 \\leftrightarrow R_" + (i + 1) + "$, poi $R_k \\leftarrow R_k - \\frac{a_{k1}}{a_{11}} R_1$ per $k = 2, 3$ (con il pivot $" + p + "$). Si ottiene $" + pm(c) + "$. Senza scambio si userebbe il pivot $" + col[0] + "$; con il segno sbagliato del moltiplicatore la prima colonna non si annulla.",
+            "The largest absolute value in the first column is $|" + p + "|$, in row $" + (i + 1) + "$: swap $R_1 \\leftrightarrow R_" + (i + 1) + "$, then $R_k \\leftarrow R_k - \\frac{a_{k1}}{a_{11}} R_1$ for $k = 2, 3$ (with pivot $" + p + "$). We get $" + pm(c) + "$. Without the swap the pivot would be $" + col[0] + "$; with the wrong sign of the multiplier the first column is not cancelled."),
+          { A: A });
+      });
+    }
+  });
+
+  // N4. determinante 4x4 con l'eliminazione di Gauss (complessa)
+  add({
+    id: "la-g-det4", livello: "complessa", capitolo: "elementary-operations",
+    link: LK("elem", "box-obsDetGauss-14"),
+    genera: function (r, l) {
+      return retry(function () {
+        var L = [[1, 0, 0, 0], [ri(r, -2, 2), 1, 0, 0], [ri(r, -2, 2), ri(r, -2, 2), 1, 0], [ri(r, -2, 2), ri(r, -2, 2), ri(r, -2, 2), 1]];
+        var dg = [pick(r, [1, -1, 2]), pick(r, [1, -1, 2, -2]), pick(r, [1, -1, 3]), pick(r, [1, 2, -2, 3])];
+        var U = [0, 1, 2, 3].map(function (i) { return [0, 1, 2, 3].map(function (j) { return j < i ? 0 : (j === i ? dg[i] : ri(r, -2, 2)); }); });
+        var A = intM(mmul(L, U));
+        var s = ri(r, 0, 1), a = ri(r, 0, 2), b = ri(r, a + 1, 3);
+        if (s) { var t = A[a]; A[a] = A[b]; A[b] = t; }
+        if (A.some(function (rw) { return rw.some(function (v) { return Math.abs(v) > 9; }); })) return null;
+        var nz = 0; A.forEach(function (rw) { rw.forEach(function (v) { if (v === 0) nz++; }); });
+        if (nz > 6) return null;
+        var D = (s ? -1 : 1) * dg[0] * dg[1] * dg[2] * dg[3];
+        var pd = A[0][0] * A[1][1] * A[2][2] * A[3][3];
+        var vals = [D, -D, pd, -pd];
+        if (D === 0 || !distinct(vals.map(String))) return null;
+        return out(
+          L2(l, "Calcolare $\\det(\\boldsymbol A)$ per $\\boldsymbol A = " + pm(A) + "$ (per esempio riducendo $\\boldsymbol A$ a forma triangolare con l'eliminazione di Gauss).",
+            "Compute $\\det(\\boldsymbol A)$ for $\\boldsymbol A = " + pm(A) + "$ (for instance by reducing $\\boldsymbol A$ to triangular form with Gaussian elimination)."),
+          vals, function (x) { return M$(tex(x)); },
+          L2(l, "Le somme di multipli di righe non cambiano il determinante, ogni scambio cambia il segno. " + (s ? "Scambiando $R_" + (a + 1) + " \\leftrightarrow R_" + (b + 1) + "$ e poi eliminando senza altri scambi" : "Eliminando senza scambi") + " si arriva alla forma triangolare con diagonale $" + dg.join(",\\ ") + "$: $\\det(\\boldsymbol A) = " + (s ? "-" : "") + "(" + dg.map(par).join("\\cdot ") + ") = " + D + "$. Il prodotto della diagonale di $\\boldsymbol A$ dà il determinante solo per matrici triangolari.",
+            "Adding multiples of rows does not change the determinant, each swap changes its sign. " + (s ? "Swapping $R_" + (a + 1) + " \\leftrightarrow R_" + (b + 1) + "$ and then eliminating without further swaps" : "Eliminating without swaps") + " we reach the triangular form with diagonal $" + dg.join(",\\ ") + "$: $\\det(\\boldsymbol A) = " + (s ? "-" : "") + "(" + dg.map(par).join("\\cdot ") + ") = " + D + "$. The product of the diagonal of $\\boldsymbol A$ gives the determinant only for triangular matrices."),
+          { A: A });
+      });
+    }
+  });
+
+  // N5. determinante 4x4 con lo sviluppo di Laplace (media)
+  add({
+    id: "la-g-laplace4", livello: "media", capitolo: "matrices",
+    link: LK("matrices", "51-laplace-expansion", "51-sviluppo-di-laplace"),
+    genera: function (r, l) {
+      return retry(function () {
+        var a = rnz(r, -3, 3), b = rnz(r, -3, 3);
+        var A = [[a, b, 0, 0]];
+        for (var i = 0; i < 3; i++) A.push([ri(r, -2, 3), ri(r, -2, 3), ri(r, -2, 3), ri(r, -2, 3)]);
+        var M11 = det3(minore(A, 0, 0))[0], M12 = det3(minore(A, 0, 1))[0];
+        if (M11 === 0 || M12 === 0) return null;
+        var D = a * M11 - b * M12;
+        var vals = [D, a * M11 + b * M12, a * M11, -D];
+        if (D === 0 || !distinct(vals.map(String))) return null;
+        return out(
+          L2(l, "Calcolare $\\det(\\boldsymbol A)$ per $\\boldsymbol A = " + pm(A) + "$ con lo sviluppo di Laplace lungo la prima riga (cofattore di $a_{ij}$: $(-1)^{i+j}$ per il determinante della sottomatrice senza riga $i$ e colonna $j$).",
+            "Compute $\\det(\\boldsymbol A)$ for $\\boldsymbol A = " + pm(A) + "$ by Laplace expansion along the first row (cofactor of $a_{ij}$: $(-1)^{i+j}$ times the determinant of the submatrix without row $i$ and column $j$)."),
+          vals, function (x) { return M$(tex(x)); },
+          L2(l, "Solo $a_{11} = " + a + "$ e $a_{12} = " + b + "$ sono non nulli: $\\det(\\boldsymbol A) = a_{11}\\det(\\boldsymbol A_{11}) - a_{12}\\det(\\boldsymbol A_{12}) = " + a + "\\cdot " + par(M11) + " - " + par(b) + "\\cdot " + par(M12) + " = " + D + "$. Il segno del cofattore $(1,2)$ è $(-1)^{1+2} = -1$: dimenticarlo dà $" + vals[1] + "$.",
+            "Only $a_{11} = " + a + "$ and $a_{12} = " + b + "$ are nonzero: $\\det(\\boldsymbol A) = a_{11}\\det(\\boldsymbol A_{11}) - a_{12}\\det(\\boldsymbol A_{12}) = " + a + "\\cdot " + par(M11) + " - " + par(b) + "\\cdot " + par(M12) + " = " + D + "$. The sign of the $(1,2)$ cofactor is $(-1)^{1+2} = -1$: forgetting it gives $" + vals[1] + "$."),
+          { A: A });
+      });
+    }
+  });
+
+  // N6. norma l2 generalizzata con Q 3x3 (media)
+  add({
+    id: "la-g-norm-q", livello: "media", capitolo: "norms",
+    link: LK("norms", "box-defXX-17"),
+    genera: function (r, l) {
+      return retry(function () {
+        var o = [ri(r, -1, 1), ri(r, -1, 1), ri(r, -1, 1)];
+        if (o.filter(function (x) { return x !== 0; }).length < 2) return null;
+        var Q = [[ri(r, 3, 5), o[0], o[1]], [o[0], ri(r, 3, 5), o[2]], [o[1], o[2], ri(r, 3, 5)]];
+        var p = [ri(r, -2, 2), ri(r, -2, 2), ri(r, -2, 2)];
+        if (p.filter(function (x) { return x !== 0; }).length < 2) return null;
+        var dia = Q[0][0] * p[0] * p[0] + Q[1][1] * p[1] * p[1] + Q[2][2] * p[2] * p[2];
+        var off = o[0] * p[0] * p[1] + o[1] * p[0] * p[2] + o[2] * p[1] * p[2];
+        if (off === 0) return null;
+        var vals = [dia + 2 * off, dia + off, dia, dia - 2 * off];
+        var quad = function (v) { var s = Math.round(Math.sqrt(v)); return s * s === v; };
+        if (vals.some(function (v) { return v <= 0 || quad(v); }) || !distinct(vals.map(String))) return null;
+        return out(
+          L2(l, "Sia $\\boldsymbol Q = " + pm(Q) + "$ (simmetrica definita positiva) e sia $\\|\\boldsymbol p\\|_{\\boldsymbol Q} = \\sqrt{\\boldsymbol p'\\boldsymbol Q\\,\\boldsymbol p}$ la norma $\\ell_2$ generalizzata. Quanto vale $\\|\\boldsymbol p\\|_{\\boldsymbol Q}$ per $\\boldsymbol p = " + vt(p) + "$?",
+            "Let $\\boldsymbol Q = " + pm(Q) + "$ (symmetric positive definite) and let $\\|\\boldsymbol p\\|_{\\boldsymbol Q} = \\sqrt{\\boldsymbol p'\\boldsymbol Q\\,\\boldsymbol p}$ be the generalized $\\ell_2$ norm. What is $\\|\\boldsymbol p\\|_{\\boldsymbol Q}$ for $\\boldsymbol p = " + vt(p) + "$?"),
+          vals, function (v) { return M$("\\sqrt{" + v + "}"); },
+          L2(l, "$\\boldsymbol p'\\boldsymbol Q\\,\\boldsymbol p = \\sum_i q_{ii}p_i^2 + 2\\sum_{i<j} q_{ij}p_ip_j = " + dia + " + 2\\cdot " + par(off) + " = " + vals[0] + "$, quindi $\\|\\boldsymbol p\\|_{\\boldsymbol Q} = \\sqrt{" + vals[0] + "}$. Ogni termine fuori diagonale compare due volte ($q_{ij} = q_{ji}$).",
+            "$\\boldsymbol p'\\boldsymbol Q\\,\\boldsymbol p = \\sum_i q_{ii}p_i^2 + 2\\sum_{i<j} q_{ij}p_ip_j = " + dia + " + 2\\cdot " + par(off) + " = " + vals[0] + "$, hence $\\|\\boldsymbol p\\|_{\\boldsymbol Q} = \\sqrt{" + vals[0] + "}$. Each off-diagonal term appears twice ($q_{ij} = q_{ji}$)."),
+          { Q: Q, p: p });
+      });
+    }
+  });
+
+  // N7. disequazione |a x + b| <= c (facile)
+  add({
+    id: "la-g-abs-ineq", livello: "facile", capitolo: "absolute-value",
+    link: LK("abs", "box-def_absolute-value-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var x0 = rnz(r, -4, 4), rr = ri(r, 1, 4), a = pick(r, [2, 3]), stretta = r() < 0.5;
+        var b = -a * x0, c = a * rr, lo = x0 - rr, hi = x0 + rr;
+        var le = stretta ? " < " : " \\le ", ge = stretta ? " > " : " \\ge ";
+        var vals = [{ t: "in", v: [lo, hi] }, { t: "out", v: [lo, hi] }, { t: "in", v: [-x0 - rr, -x0 + rr] }, { t: "in", v: [x0 - a * rr, x0 + a * rr] }];
+        var oppure = L2(l, " oppure ", " or ");
+        var fmt = function (o) {
+          return o.t === "in" ? M$(o.v[0] + le + "x" + le + o.v[1]) : M$("x" + (stretta ? " \\le " : " < ") + o.v[0]) + oppure + M$("x" + (stretta ? " \\ge " : " > ") + o.v[1]);
+        };
+        var e = lc([[a, "x"], [b, ""]]);
+        var o2 = out(
+          L2(l, "Quali $x \\in \\R$ soddisfano $|" + e + "|" + le + c + "$? (Ricordare: $|y|" + le + "\\varepsilon \\Leftrightarrow -\\varepsilon" + le + "y" + le + "\\varepsilon$.)",
+            "Which $x \\in \\R$ satisfy $|" + e + "|" + le + c + "$? (Recall: $|y|" + le + "\\varepsilon \\Leftrightarrow -\\varepsilon" + le + "y" + le + "\\varepsilon$.)"),
+          vals, fmt,
+          L2(l, "$-" + c + le + e + le + c + "$, cioè $" + (-c - b) + le + a + "x" + le + (c - b) + "$; dividendo per $" + a + "$ si ottiene $" + lo + le + "x" + le + hi + "$. L'insieme esterno risolve la disequazione opposta; dimenticare di dividere per $" + a + "$ allarga l'intervallo.",
+            "$-" + c + le + e + le + c + "$, i.e. $" + (-c - b) + le + a + "x" + le + (c - b) + "$; dividing by $" + a + "$ we get $" + lo + le + "x" + le + hi + "$. The outer set solves the opposite inequality; forgetting to divide by $" + a + "$ widens the interval."),
+          { a: a, b: b, c: c, stretta: stretta });
+        return o2;
+      });
+    }
+  });
+
+  // N8. |x - a| <= |x - b|: i punti più vicini ad a che a b (media)
+  add({
+    id: "la-g-abs-dist", livello: "media", capitolo: "absolute-value",
+    link: LK("abs", "1-definition", "1-definizione"),
+    genera: function (r, l) {
+      return retry(function () {
+        var a = ri(r, -6, 5), b = ri(r, a + 1, 7), m = F(a + b, 2);
+        var vals = [{ t: "le", v: [m] }, { t: "ge", v: [m] }, { t: "le", v: [F(a)] }, { t: "in", v: [F(a), F(b)] }];
+        var fmt = function (o) {
+          if (o.t === "in") return M$(tex(o.v[0]) + " \\le x \\le " + tex(o.v[1]));
+          return M$("x" + (o.t === "le" ? " \\le " : " \\ge ") + tex(o.v[0]));
+        };
+        if (!distinct(vals.map(fmt))) return null;
+        return out(
+          L2(l, "Quali $x \\in \\R$ soddisfano $|" + xmeno(a) + "| \\le |" + xmeno(b) + "|$, cioè sono almeno tanto vicini a $" + a + "$ quanto a $" + b + "$?",
+            "Which $x \\in \\R$ satisfy $|" + xmeno(a) + "| \\le |" + xmeno(b) + "|$, i.e. are at least as close to $" + a + "$ as to $" + b + "$?"),
+          vals, fmt,
+          L2(l, "Entrambi i membri sono $\\ge 0$, quindi si può elevare al quadrato: $(" + xmeno(a) + ")^2 \\le (" + xmeno(b) + ")^2$ dà $2(" + (b - a) + ")\\,x \\le " + (b * b - a * a) + "$, cioè $x \\le " + tex(m) + "$, il punto medio fra $" + a + "$ e $" + b + "$.",
+            "Both sides are $\\ge 0$, so we can square: $(" + xmeno(a) + ")^2 \\le (" + xmeno(b) + ")^2$ gives $2(" + (b - a) + ")\\,x \\le " + (b * b - a * a) + "$, i.e. $x \\le " + tex(m) + "$, the midpoint between $" + a + "$ and $" + b + "$."),
+          { a: a, b: b });
+      });
+    }
+  });
+
+  // N9. quoziente e resto con dividendo o divisore negativo (media)
+  add({
+    id: "la-g-mod-qr", livello: "media", capitolo: "modular-arithmetic",
+    link: LK("mod", "box-lem_euclid-division-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var n = ri(r, 10, 60) * (r() < 0.5 ? -1 : 1), m = ri(r, 3, 9) * (r() < 0.6 ? -1 : 1);
+        if (n > 0 && m > 0) return null;
+        var M = Math.abs(m), rr = ((n % M) + M) % M, qq = (n - rr) / m;
+        if (rr === 0 || qq === 0) return null;
+        var qt = Math.trunc(n / m), rt = n - qt * m;
+        var vals = [[qq, rr], [qt, rt], [-qq, rr], [qq, M - rr]];
+        var giusta = function (v) { return v[0] * m + v[1] === n && v[1] >= 0 && v[1] < M; };
+        if (vals.slice(1).some(giusta) || !distinct(vals.map(String))) return null;
+        return out(
+          L2(l, "Nella divisione euclidea di $n = " + n + "$ per $m = " + m + "$, cioè $n = q\\,m + r$ con $q$ intero e $0 \\le r < |m|$, quali sono $q$ e $r$?",
+            "In Euclid's division of $n = " + n + "$ by $m = " + m + "$, i.e. $n = q\\,m + r$ with $q$ an integer and $0 \\le r < |m|$, what are $q$ and $r$?"),
+          vals, function (v) { return M$("q = " + v[0]) + ", " + M$("r = " + v[1]); },
+          L2(l, "$" + par(qq) + "\\cdot " + par(m) + " + " + rr + " = " + n + "$ con $0 \\le " + rr + " < " + M + "$. Troncare $n/m$ verso lo zero dà $q = " + qt + "$ e $r = " + rt + "$, un resto negativo: con la convenzione euclidea il resto non è mai negativo.",
+            "$" + par(qq) + "\\cdot " + par(m) + " + " + rr + " = " + n + "$ with $0 \\le " + rr + " < " + M + "$. Truncating $n/m$ towards zero gives $q = " + qt + "$ and $r = " + rt + "$, a negative remainder: with the Euclidean convention the remainder is never negative."),
+          { n: n, m: m });
       });
     }
   });
