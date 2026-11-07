@@ -91,6 +91,7 @@ extra:
       lang: en
 
 extra_css:
+  - stylesheets/collana.css
   - stylesheets/extra.css?v=6b95240421
   - stylesheets/laboratorio.css?v=f93445efa7
   - stylesheets/quiz.css?v=9e3792b41c
