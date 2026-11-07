@@ -357,7 +357,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
   // 8. rango di una matrice 3x4
   add({
     id: "la-g-rank", livello: "facile", capitolo: "matrices",
-    link: LK("matrices", "6-rank", "6-rango"),
+    link: LK("matrices", "box-defRank-35"),
     genera: function (r, l) {
       return retry(function () {
         var k = pick(r, [1, 2, 3]);
@@ -408,7 +408,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
   // 10. coordinate rispetto a una base di R^2
   add({
     id: "la-g-coord2", livello: "facile", capitolo: "vectors",
-    link: LK("vectors", "41-span-and-basis", "41-span-e-base"),
+    link: LK("vectors", "box-defBasis-18"),
     genera: function (r, l) {
       return retry(function () {
         var v1 = [ri(r, -3, 3), ri(r, -3, 3)], v2 = [ri(r, -3, 3), ri(r, -3, 3)];
@@ -447,7 +447,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
   // 11. autovalori 2x2
   add({
     id: "la-g-eig2", livello: "facile", capitolo: "eigenvalues",
-    link: LK("eigen", "1-eigenvalues", "1-autovalori"),
+    link: LK("eigen", "box-defEigen-1"),
     genera: function (r, l) {
       return retry(function () {
         var m = mat2eig(r), Q = m.Q, a = Q[0][0], d = Q[1][1];
@@ -602,7 +602,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
   // 17. classificazione di una matrice simmetrica 2x2
   add({
     id: "la-g-definite2", livello: "facile", capitolo: "eigenvalues",
-    link: LK("eigen", "4-sylvesters-criterion", "4-criterio-di-sylvester"),
+    link: LK("eigen", "box-theoSylvester-11"),
     genera: function (r, l) {
       var cat = pick(r, ["pd", "nd", "ind", "psd", "nsd"]);
       return retry(function () {
@@ -702,7 +702,7 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
   // M2. coordinate rispetto a una base di R^3
   add({
     id: "la-g-coord3", livello: "media", capitolo: "vectors",
-    link: LK("vectors", "box-obsUniqueCoordinates-19"),
+    link: LK("vectors", "box-defBasis-18"),
     genera: function (r, l) {
       return retry(function () {
         var V = intM(mmul(triL(r, -2, 2), triU(r, [1, -1], -2, 2)));
@@ -1195,6 +1195,337 @@ window.QUIZ_GEN = window.QUIZ_GEN || {};
           L2(l, "$" + par(qq) + "\\cdot " + par(m) + " + " + rr + " = " + n + "$ con $0 \\le " + rr + " < " + M + "$. Troncare $n/m$ verso lo zero dà $q = " + qt + "$ e $r = " + rt + "$, un resto negativo: con la convenzione euclidea il resto non è mai negativo.",
             "$" + par(qq) + "\\cdot " + par(m) + " + " + rr + " = " + n + "$ with $0 \\le " + rr + " < " + M + "$. Truncating $n/m$ towards zero gives $q = " + qt + "$ and $r = " + rt + "$, a negative remainder: with the Euclidean convention the remainder is never negative."),
           { n: n, m: m });
+      });
+    }
+  });
+  // ======================================================================
+  // COPERTURA DETTAGLIATA (7 novembre 2026): 18 generatori nuovi, gemelli in verifica/verifica_generatori.py
+  // ======================================================================
+  function absv(v) { return v.map(Math.abs); }
+  function sum(v) { return v.reduce(function (s, x) { return s + x; }, 0); }
+  function maxv(v) { return Math.max.apply(null, v); }
+  var PITAG = [[1, 2, 2, 3], [2, 3, 6, 7], [1, 4, 8, 9], [4, 4, 7, 9], [2, 6, 9, 11], [6, 6, 7, 11], [3, 4, 12, 13], [2, 10, 11, 15]];
+  function vecPit(r) { var t = pick(r, PITAG), s = shuffle(r, t.slice(0, 3)); return { p: s.map(function (x) { return r() < 0.5 ? -x : x; }), n2: t[3] }; }
+
+  // F1. distanza l1
+  add({
+    id: "la-g-norm-l1-dist", livello: "facile", capitolo: "norms", link: LK("norms", "box-defL1-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var p = [ri(r, -6, 6), ri(r, -6, 6), ri(r, -6, 6)], w = [ri(r, -6, 6), ri(r, -6, 6), ri(r, -6, 6)];
+        var dd = p.map(function (x, i) { return x - w[i]; });
+        var c = sum(absv(dd)), a = sum(absv(p)) - sum(absv(w)), b = sum(absv(p.map(function (x, i) { return x + w[i]; }))), e = Math.abs(sum(dd));
+        return out(L2(l, "Con la norma $\\|\\boldsymbol p\\|_1 = \\sum_j |p_j|$, quanto vale la distanza $\\|\\boldsymbol p - \\boldsymbol w\\|_1$ fra $\\boldsymbol p = " + vt(p) + "$ e $\\boldsymbol w = " + vt(w) + "$?",
+            "With the norm $\\|\\boldsymbol p\\|_1 = \\sum_j |p_j|$, what is the distance $\\|\\boldsymbol p - \\boldsymbol w\\|_1$ between $\\boldsymbol p = " + vt(p) + "$ and $\\boldsymbol w = " + vt(w) + "$?"),
+          [c, a, b, e], function (v) { return M$(String(v)); },
+          L2(l, "$\\boldsymbol p - \\boldsymbol w = " + vt(dd) + "$ e si sommano i valori assoluti: $" + c + "$.", "$\\boldsymbol p - \\boldsymbol w = " + vt(dd) + "$ and the absolute values are added: $" + c + "$."),
+          { p: p, w: w });
+      });
+    }
+  });
+  // F2. distanza l_inf
+  add({
+    id: "la-g-norm-linf-dist", livello: "facile", capitolo: "norms", link: LK("norms", "box-defLinf-25"),
+    genera: function (r, l) {
+      return retry(function () {
+        var p = [ri(r, -7, 7), ri(r, -7, 7), ri(r, -7, 7)], w = [ri(r, -7, 7), ri(r, -7, 7), ri(r, -7, 7)];
+        var dd = p.map(function (x, i) { return x - w[i]; });
+        var c = maxv(absv(dd)), a = Math.abs(maxv(absv(p)) - maxv(absv(w))), b = maxv(dd), e = sum(absv(dd));
+        if (b === c) b = Math.min.apply(null, dd);
+        return out(L2(l, "Con la norma $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$, quanto vale $\\|\\boldsymbol p - \\boldsymbol w\\|_\\infty$ per $\\boldsymbol p = " + vt(p) + "$ e $\\boldsymbol w = " + vt(w) + "$?",
+            "With the norm $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$, what is $\\|\\boldsymbol p - \\boldsymbol w\\|_\\infty$ for $\\boldsymbol p = " + vt(p) + "$ and $\\boldsymbol w = " + vt(w) + "$?"),
+          [c, a, b, e], function (v) { return M$(String(v)); },
+          L2(l, "$\\boldsymbol p - \\boldsymbol w = " + vt(dd) + "$: il massimo dei valori assoluti è $" + c + "$.", "$\\boldsymbol p - \\boldsymbol w = " + vt(dd) + "$: the largest absolute value is $" + c + "$."),
+          { p: p, w: w });
+      });
+    }
+  });
+  // F3. normalizzazione euclidea
+  add({
+    id: "la-g-norm-unit", livello: "facile", capitolo: "norms", link: LK("norms", "box-defL2-6"),
+    genera: function (r, l) {
+      return retry(function () {
+        var t = vecPit(r), p = t.p, n1 = sum(absv(p)), ni = maxv(absv(p));
+        return out(L2(l, "Per $\\boldsymbol p = " + vt(p) + "$ e la norma euclidea $\\|\\boldsymbol p\\|_2 = \\sqrt{\\sum_j p_j^2}$, quale $\\alpha > 0$ rende $\\|\\alpha\\boldsymbol p\\|_2 = 1$?",
+            "For $\\boldsymbol p = " + vt(p) + "$ and the Euclidean norm $\\|\\boldsymbol p\\|_2 = \\sqrt{\\sum_j p_j^2}$, which $\\alpha > 0$ makes $\\|\\alpha\\boldsymbol p\\|_2 = 1$?"),
+          [F(1, t.n2), F(1, n1), F(1, ni), F(1, t.n2 * t.n2)], function (v) { return M$("\\alpha = " + tex(v)); },
+          L2(l, "$\\|\\boldsymbol p\\|_2 = " + t.n2 + "$ e per l'omogeneità $\\alpha = 1/\\|\\boldsymbol p\\|_2$.", "$\\|\\boldsymbol p\\|_2 = " + t.n2 + "$ and by homogeneity $\\alpha = 1/\\|\\boldsymbol p\\|_2$."),
+          { p: p });
+      });
+    }
+  });
+  // M1. le tre norme
+  add({
+    id: "la-g-norm-tre", livello: "media", capitolo: "norms", link: LK("norms", "box-defL1-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var t = vecPit(r), p = t.p, n1 = sum(absv(p)), ni = maxv(absv(p));
+        if (n1 === t.n2 || ni === t.n2) return null;
+        var f = function (v) { return M$("\\|\\boldsymbol p\\|_1 = " + v[0]) + ", " + M$("\\|\\boldsymbol p\\|_2 = " + v[1]) + ", " + M$("\\|\\boldsymbol p\\|_\\infty = " + v[2]); };
+        return out(L2(l, "Per $\\boldsymbol p = " + vt(p) + "$, con $\\|\\boldsymbol p\\|_1 = \\sum_j |p_j|$, $\\|\\boldsymbol p\\|_2 = \\sqrt{\\sum_j p_j^2}$ e $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$, quanto valgono le tre norme?",
+            "For $\\boldsymbol p = " + vt(p) + "$, with $\\|\\boldsymbol p\\|_1 = \\sum_j |p_j|$, $\\|\\boldsymbol p\\|_2 = \\sqrt{\\sum_j p_j^2}$ and $\\|\\boldsymbol p\\|_\\infty = \\max_j |p_j|$, what are the three norms?"),
+          [[n1, t.n2, ni], [t.n2, n1, ni], [n1, ni, t.n2], [Math.abs(sum(p)), t.n2, ni]], f,
+          L2(l, "$" + n1 + " \\ge " + t.n2 + " \\ge " + ni + "$, come prevede $\\|\\boldsymbol p\\|_\\infty \\le \\|\\boldsymbol p\\|_2 \\le \\|\\boldsymbol p\\|_1$.", "$" + n1 + " \\ge " + t.n2 + " \\ge " + ni + "$, as predicted by $\\|\\boldsymbol p\\|_\\infty \\le \\|\\boldsymbol p\\|_2 \\le \\|\\boldsymbol p\\|_1$."),
+          { p: p });
+      });
+    }
+  });
+  // X1. palle unitarie
+  add({
+    id: "la-g-norm-palle", livello: "complessa", capitolo: "norms", link: LK("norms", "box-defLinf-25"),
+    genera: function (r, l) {
+      return retry(function () {
+        var R = ri(r, 4, 9), x = [ri(r, -R, R), ri(r, -R, R)];
+        var n1 = Math.abs(x[0]) + Math.abs(x[1]), n22 = x[0] * x[0] + x[1] * x[1], ni = Math.max(Math.abs(x[0]), Math.abs(x[1]));
+        var in1 = n1 <= R, in2 = n22 <= R * R, ini = ni <= R;
+        var code = (in1 ? "1" : "") + (in2 ? "2" : "") + (ini ? "i" : "");
+        if (n22 === R * R || n1 === R) return null;
+        var lab = { "12i": L2(l, "a tutte e tre le palle", "to all three balls"), "2i": L2(l, "solo alle palle $\\ell_2$ e $\\ell_\\infty$", "only to the $\\ell_2$ and $\\ell_\\infty$ balls"),
+                    "i": L2(l, "solo alla palla $\\ell_\\infty$", "only to the $\\ell_\\infty$ ball"), "": L2(l, "a nessuna delle tre palle", "to none of the three balls") };
+        var all = ["12i", "2i", "i", ""];
+        if (all.indexOf(code) < 0) return null;
+        var vals = [code].concat(all.filter(function (c) { return c !== code; }));
+        return out(L2(l, "In $\\R^2$ le palle di raggio $" + R + "$ centrate nell'origine sono $\\{\\boldsymbol x : \\|\\boldsymbol x\\| \\le " + R + "\\}$ per le norme $\\ell_1$ ($|x_1| + |x_2|$), $\\ell_2$ ($\\sqrt{x_1^2 + x_2^2}$) e $\\ell_\\infty$ ($\\max\\{|x_1|, |x_2|\\}$). A quali palle appartiene il punto $\\boldsymbol x = " + vt(x) + "$?",
+            "In $\\R^2$ the balls of radius $" + R + "$ centred at the origin are $\\{\\boldsymbol x : \\|\\boldsymbol x\\| \\le " + R + "\\}$ for the norms $\\ell_1$ ($|x_1| + |x_2|$), $\\ell_2$ ($\\sqrt{x_1^2 + x_2^2}$) and $\\ell_\\infty$ ($\\max\\{|x_1|, |x_2|\\}$). To which balls does the point $\\boldsymbol x = " + vt(x) + "$ belong?"),
+          vals, function (c) { return lab[c]; },
+          L2(l, "$\\|\\boldsymbol x\\|_1 = " + n1 + "$, $\\|\\boldsymbol x\\|_2^2 = " + n22 + "$ (da confrontare con $" + (R * R) + "$), $\\|\\boldsymbol x\\|_\\infty = " + ni + "$. Le palle sono annidate: $\\ell_1 \\subseteq \\ell_2 \\subseteq \\ell_\\infty$.",
+            "$\\|\\boldsymbol x\\|_1 = " + n1 + "$, $\\|\\boldsymbol x\\|_2^2 = " + n22 + "$ (to compare with $" + (R * R) + "$), $\\|\\boldsymbol x\\|_\\infty = " + ni + "$. The balls are nested: $\\ell_1 \\subseteq \\ell_2 \\subseteq \\ell_\\infty$."),
+          { R: R, x: x });
+      });
+    }
+  });
+  // F4. sistema omogeneo con parametro
+  add({
+    id: "la-g-sys-omog-k", livello: "facile", capitolo: "linear-systems", link: LK("systems", "box-defHomogeneous-6"),
+    genera: function (r, l) {
+      return retry(function () {
+        var a = rnz(r, -3, 3), b = ri(r, -4, 4), c = rnz(r, -3, 3), d0 = ri(r, -4, 4);
+        // det [[a, b], [c, d0 + k]] = a (d0 + k) - b c = 0  ->  k = (b c - a d0) / a
+        var kk = F(b * c - a * d0, a);
+        var w1 = F(a * d0 - b * c, a), w2 = F(b * c, a), w3 = fadd(kk, 1);
+        return out(L2(l, "Per quale valore di $k$ il sistema omogeneo $" + a + "x_1 + " + (b < 0 ? "(" + b + ")" : b) + "x_2 = 0$, $" + c + "x_1 + (" + d0 + " + k)\\,x_2 = 0$ ha soluzioni non nulle?",
+            "For which value of $k$ does the homogeneous system $" + a + "x_1 + " + (b < 0 ? "(" + b + ")" : b) + "x_2 = 0$, $" + c + "x_1 + (" + d0 + " + k)\\,x_2 = 0$ have nonzero solutions?"),
+          [kk, w1, w2, w3], function (v) { return M$("k = " + tex(v)); },
+          L2(l, "Soluzioni non nulle se e solo se il determinante è nullo: $" + a + "(" + d0 + " + k) - (" + b + ")(" + c + ") = 0$, cioè $k = " + tex(kk) + "$.",
+            "Nonzero solutions if and only if the determinant is zero: $" + a + "(" + d0 + " + k) - (" + b + ")(" + c + ") = 0$, i.e. $k = " + tex(kk) + "$."),
+          { a: a, b: b, c: c, d0: d0 });
+      });
+    }
+  });
+  // F5. esito dalla forma a scala
+  add({
+    id: "la-g-sys-scala", livello: "facile", capitolo: "linear-systems", link: LK("systems", "3-gaussian-elimination-and-the-rouchecapelli-theorem", "3-eliminazione-di-gauss-e-teorema-di-rouchecapelli"),
+    genera: function (r, l) {
+      return retry(function () {
+        var tipo = pick(r, ["none", "one", "inf1", "inf2"]);
+        var R = [[rnz(r, 1, 4), ri(r, -3, 3), ri(r, -3, 3), ri(r, -5, 5)]];
+        if (tipo === "one") { R.push([0, rnz(r, 1, 4), ri(r, -3, 3), ri(r, -5, 5)]); R.push([0, 0, rnz(r, 1, 4), ri(r, -5, 5)]); }
+        if (tipo === "inf1") { R.push([0, rnz(r, 1, 4), ri(r, -3, 3), ri(r, -5, 5)]); R.push([0, 0, 0, 0]); }
+        if (tipo === "inf2") { R.push([0, 0, 0, 0]); R.push([0, 0, 0, 0]); }
+        if (tipo === "none") { R.push([0, rnz(r, 1, 4), ri(r, -3, 3), ri(r, -5, 5)]); R.push([0, 0, 0, rnz(r, 1, 6)]); }
+        var lab = { none: L2(l, "Nessuna soluzione", "No solution"), one: L2(l, "Un'unica soluzione", "A unique solution"),
+                    inf1: L2(l, "Infinite soluzioni, con $1$ parametro libero", "Infinitely many solutions, with $1$ free parameter"),
+                    inf2: L2(l, "Infinite soluzioni, con $2$ parametri liberi", "Infinitely many solutions, with $2$ free parameters") };
+        var all = ["none", "one", "inf1", "inf2"], vals = [tipo].concat(all.filter(function (x) { return x !== tipo; }));
+        var M3 = "\\left(\\begin{array}{rrr|r} " + R.map(function (rw) { return rw.join(" & "); }).join(" \\\\ ") + " \\end{array}\\right)";
+        return out(L2(l, "L'eliminazione di Gauss sulla matrice completa $(\\boldsymbol A \\,|\\, \\boldsymbol b)$ di un sistema di $3$ equazioni in $3$ incognite dà la forma a scala $" + M3 + "$. Che cosa si conclude (teorema di Rouché–Capelli)?",
+            "Gaussian elimination on the augmented matrix $(\\boldsymbol A \\,|\\, \\boldsymbol b)$ of a system of $3$ equations in $3$ unknowns gives the echelon form $" + M3 + "$. What is concluded (Rouché–Capelli theorem)?"),
+          vals, function (c) { return lab[c]; },
+          L2(l, "Si confrontano $\\mathrm{rank}(\\boldsymbol A)$ e $\\mathrm{rank}(\\boldsymbol A|\\boldsymbol b)$ (righe non nulle); se coincidono, i parametri liberi sono $3 - \\mathrm{rank}(\\boldsymbol A)$.",
+            "Compare $\\mathrm{rank}(\\boldsymbol A)$ and $\\mathrm{rank}(\\boldsymbol A|\\boldsymbol b)$ (nonzero rows); if they coincide, the free parameters are $3 - \\mathrm{rank}(\\boldsymbol A)$."),
+          { R: R });
+      });
+    }
+  });
+  // M2. direzione delle soluzioni di un sistema omogeneo 2 x 3
+  add({
+    id: "la-g-sys-nucleo", livello: "media", capitolo: "linear-systems", link: LK("systems", "box-obsHomogeneous-7"),
+    genera: function (r, l) {
+      return retry(function () {
+        var v = [ri(r, -4, 4), ri(r, -4, 4), 1];
+        var A = [], k;
+        for (k = 0; k < 2; k++) { var a1 = ri(r, -3, 3), a2 = ri(r, -3, 3); A.push([a1, a2, -(a1 * v[0] + a2 * v[1])]); }
+        if (rank(A) < 2) return null;
+        var w1 = [v[1], v[0], 1], w2 = [-v[0], -v[1], 1], w3 = [v[0], -v[1], 1];
+        return out(L2(l, "Le soluzioni del sistema omogeneo $" + sistema(A, [0, 0]) + "$ sono i multipli $t\\,\\boldsymbol v$ di un vettore. Quale $\\boldsymbol v$, con terza componente $1$, va bene?",
+            "The solutions of the homogeneous system $" + sistema(A, [0, 0]) + "$ are the multiples $t\\,\\boldsymbol v$ of a vector. Which $\\boldsymbol v$, with third component $1$, works?"),
+          [v, w1, w2, w3], function (x) { return M$("\\boldsymbol v = " + vt(x)); },
+          L2(l, "Rango $2$ con $3$ incognite: un parametro. Posto $x_3 = 1$ si risolvono le due equazioni: $\\boldsymbol v = " + vt(v) + "$ (si verifica $\\boldsymbol A\\boldsymbol v = \\boldsymbol 0$).",
+            "Rank $2$ with $3$ unknowns: one parameter. Setting $x_3 = 1$ the two equations are solved: $\\boldsymbol v = " + vt(v) + "$ (check $\\boldsymbol A\\boldsymbol v = \\boldsymbol 0$)."),
+          { A: A });
+      });
+    }
+  });
+  // X2. Cramer 3 x 3
+  add({
+    id: "la-g-cramer3", livello: "complessa", capitolo: "linear-systems", link: LK("systems", "62-systems-of-three-equations-and-three-variables", "62-sistemi-di-tre-equazioni-in-tre-variabili"),
+    genera: function (r, l) {
+      return retry(function () {
+        var A = [[ri(r, -3, 3), ri(r, -3, 3), ri(r, -3, 3)], [ri(r, -3, 3), ri(r, -3, 3), ri(r, -3, 3)], [ri(r, -3, 3), ri(r, -3, 3), ri(r, -3, 3)]];
+        var D = det3(A); if (fz(D)) return null;
+        var x = [ri(r, -3, 3), ri(r, -3, 3), ri(r, -3, 3)], b = A.map(function (rw) { return rw[0] * x[0] + rw[1] * x[1] + rw[2] * x[2]; });
+        var j = ri(r, 0, 2), Aj = A.map(function (rw, i) { var c = rw.slice(); c[j] = b[i]; return c; }), Dj = det3(Aj);
+        if (fz(Dj)) return null;
+        var Ar = A.map(function (rw) { return rw.slice(); }); Ar[j] = b.slice(); var Dr = det3(Ar);
+        var vals = [[Dj, D, fdiv(Dj, D)], [Dr, D, fdiv(Dr, D)], [D, Dj, fdiv(D, Dj)], [Dj, D, fdiv(Dj, D).map ? fneg(fdiv(Dj, D)) : 0]];
+        if (fz(Dj)) return null;
+        var f = function (v) { return M$("\\det(\\boldsymbol A_{" + (j + 1) + "}) = " + tex(v[0])) + ", " + M$("x_{" + (j + 1) + "} = " + tex(v[2])); };
+        if (!distinct(vals.map(f))) return null;
+        return out(L2(l, "Con la regola di Cramer ($x_j = \\det(\\boldsymbol A_j)/\\det(\\boldsymbol A)$, dove $\\boldsymbol A_j$ è $\\boldsymbol A$ con la colonna $j$ sostituita da $\\boldsymbol b$), per il sistema $" + sistema(A, b) + "$ con $\\det(\\boldsymbol A) = " + tex(D) + "$, quanto valgono $\\det(\\boldsymbol A_{" + (j + 1) + "})$ e $x_{" + (j + 1) + "}$?",
+            "With Cramer's rule ($x_j = \\det(\\boldsymbol A_j)/\\det(\\boldsymbol A)$, where $\\boldsymbol A_j$ is $\\boldsymbol A$ with column $j$ replaced by $\\boldsymbol b$), for the system $" + sistema(A, b) + "$ with $\\det(\\boldsymbol A) = " + tex(D) + "$, what are $\\det(\\boldsymbol A_{" + (j + 1) + "})$ and $x_{" + (j + 1) + "}$?"),
+          vals, f,
+          L2(l, "Si sostituisce la colonna $" + (j + 1) + "$ (non la riga) con $\\boldsymbol b$: $\\det(\\boldsymbol A_{" + (j + 1) + "}) = " + tex(Dj) + "$ e $x_{" + (j + 1) + "} = " + tex(fdiv(Dj, D)) + "$.",
+            "Column $" + (j + 1) + "$ (not the row) is replaced by $\\boldsymbol b$: $\\det(\\boldsymbol A_{" + (j + 1) + "}) = " + tex(Dj) + "$ and $x_{" + (j + 1) + "} = " + tex(fdiv(Dj, D)) + "$."),
+          { A: A, b: b, j: j });
+      });
+    }
+  });
+  function fneg(x) { x = q(x); return F(-x[0], x[1]); }
+  // F6. equazione con valore assoluto
+  add({
+    id: "la-g-abs-eq", livello: "facile", capitolo: "absolute-value", link: LK("abs", "box-def_absolute-value-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var a = ri(r, -6, 6), b = ri(r, 1, 7);
+        var f = function (v) { return v.length ? M$("x \\in \\{" + v.join(", ") + "\\}") : L2(l, "nessuna soluzione", "no solution"); };
+        var vals = [[a - b, a + b], [a + b], [-a - b, -a + b], [b - a, a + b]];
+        vals = vals.map(function (v) { return v.slice().sort(function (u, w) { return u - w; }); });
+        if (!distinct(vals.map(function (v) { return v.join(","); }))) return null;
+        return out(L2(l, "Quali sono le soluzioni reali di $|x - " + (a < 0 ? "(" + a + ")" : a) + "| = " + b + "$?", "What are the real solutions of $|x - " + (a < 0 ? "(" + a + ")" : a) + "| = " + b + "$?"),
+          vals, f, L2(l, "$x - " + (a < 0 ? "(" + a + ")" : a) + " = \\pm " + b + "$: due soluzioni simmetriche rispetto a $" + a + "$.", "$x - " + (a < 0 ? "(" + a + ")" : a) + " = \\pm " + b + "$: two solutions symmetric about $" + a + "$."),
+          { a: a, b: b });
+      });
+    }
+  });
+  // M3. disuguaglianza con due valori assoluti
+  add({
+    id: "la-g-abs-somma", livello: "media", capitolo: "absolute-value", link: LK("abs", "box-obs_triangle-inequality-2"),
+    genera: function (r, l) {
+      return retry(function () {
+        var a = ri(r, -6, 6), b = ri(r, -6, 6); if (a >= b) return null;
+        var c = (b - a) + 2 * ri(r, 1, 4);
+        var lo = (a + b - c) / 2, hi = (a + b + c) / 2;
+        var f = function (v) { return M$(v[0] + " \\le x \\le " + v[1]); };
+        var vals = [[lo, hi], [a, b], [a - c, b + c], [lo - 1, hi + 1]];
+        return out(L2(l, "Per quali $x$ reali vale $|x - (" + a + ")| + |x - (" + b + ")| \\le " + c + "$?", "For which real $x$ does $|x - (" + a + ")| + |x - (" + b + ")| \\le " + c + "$ hold?"),
+          vals, f,
+          L2(l, "Per $" + a + " \\le x \\le " + b + "$ la somma vale $" + (b - a) + " \\le " + c + "$; fuori cresce con pendenza $2$, quindi gli estremi sono $" + lo + "$ e $" + hi + "$ (dove la somma vale $" + c + "$).",
+            "For $" + a + " \\le x \\le " + b + "$ the sum equals $" + (b - a) + " \\le " + c + "$; outside it grows with slope $2$, so the endpoints are $" + lo + "$ and $" + hi + "$ (where the sum equals $" + c + "$)."),
+          { a: a, b: b, c: c });
+      });
+    }
+  });
+  // F7. aritmetica modulare
+  add({
+    id: "la-g-mod-espr", livello: "facile", capitolo: "modular-arithmetic", link: LK("mod", "2-modulo-and-modulo-congruence", "2-modulo-e-congruenza-modulo-m"),
+    genera: function (r, l) {
+      return retry(function () {
+        var m = ri(r, 3, 11), a = ri(r, 10, 60), b = ri(r, 10, 60), c = ri(r, 1, 30);
+        var t = (a * b + c) % m, w1 = (a + b + c) % m, w2 = ((a % m) * (b % m)) % m, w3 = (t + 1) % m;
+        return out(L2(l, "Quanto vale $(" + a + " \\cdot " + b + " + " + c + ") \\bmod " + m + "$ (resto della divisione euclidea per $" + m + "$)?", "What is $(" + a + " \\cdot " + b + " + " + c + ") \\bmod " + m + "$ (remainder of Euclidean division by $" + m + "$)?"),
+          [t, w1, w2, w3], function (v) { return M$(String(v)); },
+          L2(l, "Si riduce modulo $" + m + "$ ogni fattore: $" + (a % m) + " \\cdot " + (b % m) + " + " + (c % m) + "$, poi si prende il resto: $" + t + "$.", "Reduce each factor modulo $" + m + "$: $" + (a % m) + " \\cdot " + (b % m) + " + " + (c % m) + "$, then take the remainder: $" + t + "$."),
+          { a: a, b: b, c: c, m: m });
+      });
+    }
+  });
+  // X3. congruenza lineare
+  add({
+    id: "la-g-mod-lineare", livello: "complessa", capitolo: "modular-arithmetic", link: LK("mod", "2-modulo-and-modulo-congruence", "2-modulo-e-congruenza-modulo-m"),
+    genera: function (r, l) {
+      return retry(function () {
+        var m = pick(r, [7, 9, 11, 13]), a = ri(r, 2, m - 1), b = ri(r, 1, m - 1);
+        if (gcd(a, m) !== 1) return null;
+        var x = 0; while ((a * x - b) % m !== 0) x++;
+        var w1 = ((b - a) % m + m) % m, w2 = (b * a) % m, w3 = (x + 1) % m;
+        return out(L2(l, "Qual è la più piccola soluzione $x \\ge 0$ della congruenza $" + a + "\\,x \\equiv " + b + " \\pmod{" + m + "}$?", "What is the smallest solution $x \\ge 0$ of the congruence $" + a + "\\,x \\equiv " + b + " \\pmod{" + m + "}$?"),
+          [x, w1, w2, w3], function (v) { return M$("x = " + v); },
+          L2(l, "$" + a + " \\cdot " + x + " = " + (a * x) + " \\equiv " + b + "$; poiché $" + a + "$ e $" + m + "$ sono coprimi la soluzione è unica modulo $" + m + "$.", "$" + a + " \\cdot " + x + " = " + (a * x) + " \\equiv " + b + "$; since $" + a + "$ and $" + m + "$ are coprime the solution is unique modulo $" + m + "$."),
+          { a: a, b: b, m: m });
+      });
+    }
+  });
+  // F8. sommatoria per definizione
+  add({
+    id: "la-g-sum-def", livello: "facile", capitolo: "sums", link: LK("sums", "box-def_sum-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var a = ri(r, 1, 4), b = ri(r, a + 3, a + 7), c = rnz(r, -3, 4), d = ri(r, -5, 5);
+        var s = function (lo, hi) { var t = 0; for (var j = lo; j <= hi; j++) t += c * j + d; return t; };
+        var t0 = s(a, b), w1 = s(a, b - 1), w2 = s(a + 1, b), w3 = s(1, b);
+        var termine = lc([[c, "j"]]) + (d ? (d > 0 ? " + " : " - ") + Math.abs(d) : "");
+        return out(L2(l, "Quanto vale $\\sum_{j=" + a + "}^{" + b + "} (" + termine + ")$?", "What is $\\sum_{j=" + a + "}^{" + b + "} (" + termine + ")$?"),
+          [t0, w1, w2, w3], function (v) { return M$(String(v)); },
+          L2(l, "Si sommano i $" + (b - a + 1) + "$ termini da $j = " + a + "$ a $j = " + b + "$ compresi: $" + t0 + "$.", "Add the $" + (b - a + 1) + "$ terms from $j = " + a + "$ to $j = " + b + "$ included: $" + t0 + "$."),
+          { a: a, b: b, c: c, d: d });
+      });
+    }
+  });
+  // X4. sommatoria doppia
+  add({
+    id: "la-g-sum-doppia", livello: "complessa", capitolo: "sums", link: LK("sums", "box-def_sum-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var n = ri(r, 4, 9), t = 0, w1 = 0, w2, w3;
+        for (var i = 1; i <= n; i++) for (var j = 1; j <= i; j++) t += j;
+        for (i = 1; i <= n; i++) for (j = 1; j <= n; j++) w1 += j;
+        w2 = n * (n + 1) / 2; w3 = 0; for (i = 1; i <= n; i++) for (j = 1; j < i; j++) w3 += j;
+        return out(L2(l, "Quanto vale la sommatoria doppia $\\sum_{i=1}^{" + n + "} \\sum_{j=1}^{i} j$?", "What is the double sum $\\sum_{i=1}^{" + n + "} \\sum_{j=1}^{i} j$?"),
+          [t, w1, w2, w3], function (v) { return M$(String(v)); },
+          L2(l, "La somma interna vale $\\frac{i(i+1)}{2}$; sommando per $i = 1, \\dots, " + n + "$ si ottiene $\\frac{n(n+1)(n+2)}{6} = " + t + "$.", "The inner sum equals $\\frac{i(i+1)}{2}$; summing over $i = 1, \\dots, " + n + "$ gives $\\frac{n(n+1)(n+2)}{6} = " + t + "$."),
+          { n: n });
+      });
+    }
+  });
+  // M4. produttoria telescopica
+  add({
+    id: "la-g-prod-telescopica", livello: "media", capitolo: "products", link: LK("products", "box-def_product-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var n = ri(r, 4, 30), k = ri(r, 1, 3);
+        // prod_{j=1}^{n} (j + k) / (j + k - 1) = (n + k) / k
+        var t = F(n + k, k), w1 = F(n + k, 1), w2 = F(n, k), w3 = F(n + k - 1, k);
+        return out(L2(l, "Quanto vale la produttoria $\\prod_{j=1}^{" + n + "} \\frac{j + " + k + "}{j + " + (k - 1) + "}$?", "What is the product $\\prod_{j=1}^{" + n + "} \\frac{j + " + k + "}{j + " + (k - 1) + "}$?"),
+          [t, w1, w2, w3], function (v) { return M$(tex(v)); },
+          L2(l, "Telescopica: ogni numeratore si semplifica con il denominatore successivo; restano $\\frac{" + (n + k) + "}{" + k + "}$.", "Telescoping: each numerator cancels the next denominator; $\\frac{" + (n + k) + "}{" + k + "}$ remains."),
+          { n: n, k: k });
+      });
+    }
+  });
+  // X5. potenza di una matrice triangolare
+  add({
+    id: "la-g-mat-potenza", livello: "complessa", capitolo: "matrices", link: LK("matrices", "3-matrix-product", "3-prodotto-di-matrici"),
+    genera: function (r, l) {
+      return retry(function () {
+        var a = rnz(r, -2, 3), b = rnz(r, -3, 3), d = rnz(r, -2, 3);
+        if (a === d) return null;
+        var c = [[a * a * a, b * (a * a + a * d + d * d)], [0, d * d * d]];
+        var w1 = [[a * a * a, 3 * b], [0, d * d * d]], w2 = [[a * a * a, b * b * b], [0, d * d * d]], w3 = [[a * a * a, b * (a + d)], [0, d * d * d]];
+        return out(L2(l, "Quanto vale $\\boldsymbol A^3 = \\boldsymbol A\\boldsymbol A\\boldsymbol A$ per $\\boldsymbol A = " + pm([[a, b], [0, d]]) + "$?", "What is $\\boldsymbol A^3 = \\boldsymbol A\\boldsymbol A\\boldsymbol A$ for $\\boldsymbol A = " + pm([[a, b], [0, d]]) + "$?"),
+          [c, w1, w2, w3], function (v) { return M$(pm(v)); },
+          L2(l, "$\\boldsymbol A^2 = " + pm([[a * a, b * (a + d)], [0, d * d]]) + "$ e $\\boldsymbol A^3 = \\boldsymbol A^2\\boldsymbol A$; l'elemento fuori diagonale non è $b^3$ né $3b$.", "$\\boldsymbol A^2 = " + pm([[a * a, b * (a + d)], [0, d * d]]) + "$ and $\\boldsymbol A^3 = \\boldsymbol A^2\\boldsymbol A$; the off-diagonal entry is neither $b^3$ nor $3b$."),
+          { a: a, b: b, d: d });
+      });
+    }
+  });
+  // X6. autovalori di una matrice 3 x 3 a blocchi triangolare
+  add({
+    id: "la-g-eig-blocchi", livello: "complessa", capitolo: "eigenvalues", link: LK("eigen", "box-defEigen-1"),
+    genera: function (r, l) {
+      return retry(function () {
+        var l1 = ri(r, -3, 4), l2 = ri(r, -3, 4), g = ri(r, -3, 4); if (l1 === l2 || l1 === g || l2 === g) return null;
+        var s = l1 + l2, p = l1 * l2, a = ri(r, -3, 3), d = s - a, bc = a * d - p;
+        var b = pick(r, [1, -1, 2, -2]); if (bc % b !== 0) return null; var c = bc / b;
+        if (b === 0 || c === 0) return null;
+        var A = [[a, b, 0], [c, d, 0], [ri(r, -3, 3), ri(r, -3, 3), g]];
+        var ord_ = function (v) { return v.slice().sort(function (u, w) { return u - w; }); };
+        var vals = [ord_([l1, l2, g]), ord_([a, d, g]), ord_([l1, l2, A[2][0]]), ord_([-l1, -l2, g])];
+        if (!distinct(vals.map(String))) return null;
+        return out(L2(l, "Quali sono gli autovalori di $\\boldsymbol A = " + pm(A) + "$?", "What are the eigenvalues of $\\boldsymbol A = " + pm(A) + "$?"),
+          vals, function (v) { return M$(v.join(",\\; ")); },
+          L2(l, "Sviluppando $\\det(\\boldsymbol A - \\lambda\\boldsymbol I)$ lungo la terza colonna: $(" + g + " - \\lambda)\\,[(" + a + " - \\lambda)(" + d + " - \\lambda) - (" + b + ")(" + c + ")]$; il blocco $2 \\times 2$ ha traccia $" + s + "$ e determinante $" + p + "$.",
+            "Expanding $\\det(\\boldsymbol A - \\lambda\\boldsymbol I)$ along the third column: $(" + g + " - \\lambda)\\,[(" + a + " - \\lambda)(" + d + " - \\lambda) - (" + b + ")(" + c + ")]$; the $2 \\times 2$ block has trace $" + s + "$ and determinant $" + p + "$."),
+          { A: A });
       });
     }
   });
