@@ -38,3 +38,9 @@ One deck per chapter, with the same numbering as the lecture notes.
 - [:octicons-download-24: A.1 Absolute value](pdf/slides-A1-absolute-value.pdf)
 - [:octicons-download-24: A.2 Modular arithmetic](pdf/slides-A2-modular-arithmetic.pdf)
 
+<!-- banca-domande -->
+## Quiz question bank
+
+All the self-assessment questions, by part and chapter, with the correct answer and the explanation; for the generated questions, whose numbers change at every start, a few examples.
+
+[:material-format-list-checks: Question bank](quiz/question_list.html){ .md-button }
