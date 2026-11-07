@@ -170,6 +170,6 @@ nav:
   - Quiz: self-assessment.md
   - Lab: lab/index.md
   - Downloads: downloads.md
-  - The course:
-      - organization.md
+  - Index:
       - Full index: index-full.md
+      - How to work with the course: organization.md
