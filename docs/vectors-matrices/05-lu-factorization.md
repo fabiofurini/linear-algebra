@@ -10,6 +10,24 @@ title: "Factorization of matrices"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 4.2 «Matrix operations»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/03-elementary-operations/): Gaussian elimination and pivoting.
+
+    - From this module, [Chapter 4.1 «Matrices»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/02-matrices/): triangular and permutation matrices, and the determinant.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - compute the LU factorization of a matrix by storing the multipliers of Gaussian elimination;
+
+    - compute the PLU factorization when row swaps are needed;
+
+    - say when the LU factorization exists without row swaps;
+
+    - compute the determinant from the PLU factorization.
+
 ## 1. LU factorization
 
 - The LU factorization (or LU decomposition) is a fundamental matrix decomposition that expresses a matrix as the product of a lower triangular matrix and an upper triangular matrix.
@@ -457,6 +475,18 @@ title: "Factorization of matrices"
     - Example [Example 3](#box-ex_plu-2x2-4): one row swap (\(s=1\)), so \(\det(\boldsymbol A) = -(1\cdot 1) = -1\). Indeed, \(\det(\boldsymbol A) = 0\cdot 1 - 1\cdot 1 = -1\).
 
     - Example [Example 4](#box-ex_plu-3x3-5): one row swap (\(s=1\)), so \(\det(\boldsymbol A) = -(2\cdot 4\cdot 1) = -8\). Indeed, by Laplace expansion along the first row, \(\det(\boldsymbol A) = 2\cdot(2-9) - 1\cdot(4+6) + 1\cdot(12+4) = -14 - 10 + 16 = -8\).
+
+## 3. In summary
+
+!!! chiave "In summary"
+
+    - A PLU factorization writes ${\boldsymbol P}{\boldsymbol A} = {\boldsymbol L}{\boldsymbol U}$, with ${\boldsymbol P}$ a permutation matrix, ${\boldsymbol L}$ lower triangular with unit diagonal, ${\boldsymbol U}$ upper triangular.
+
+    - It is computed by Gaussian elimination: ${\boldsymbol U}$ is the final matrix, ${\boldsymbol L}$ stores the multipliers, ${\boldsymbol P}$ records the swaps.
+
+    - Without row swaps, ${\boldsymbol P} = {\boldsymbol I}$ and the factorization is the LU factorization.
+
+    - The determinant follows from the diagonal of ${\boldsymbol U}$ and the number of swaps.
 
 ## Exercises and lab
 

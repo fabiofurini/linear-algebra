@@ -10,6 +10,22 @@ title: "Vectors"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 1 «Sums»](https://fabiofurini.github.io/linear-algebra/sums-products/01-sums/): the symbol $\sum$, used in the scalar product.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - write column and row vectors of $\R^n$ and their transposes;
+
+    - compute sums of vectors, products by a scalar and scalar products, with their properties;
+
+    - decide whether vectors are linearly independent;
+
+    - describe the span of a set of vectors, a basis of $\R^n$ and the coordinates with respect to it.
+
 ## 1. Definition and transpose
 
 <a id="box-defVector-1"></a>
@@ -635,6 +651,18 @@ $$
     +
     1\begin{pmatrix}1\\-1\end{pmatrix}.
     $$
+
+## 5. In summary
+
+!!! chiave "In summary"
+
+    - A vector of $\R^n$ is a column of $n$ real numbers; its transpose is a row.
+
+    - Vectors are added and multiplied by scalars entry by entry; the scalar product is ${\boldsymbol p}'{\boldsymbol w} = \sum_i p_i w_i$.
+
+    - Vectors are linearly independent if only the zero combination gives the zero vector; more than $n$ vectors of $\R^n$ are always dependent.
+
+    - A basis of $\R^n$ is a set of $n$ independent vectors; every vector has unique coordinates with respect to it, as with the canonical basis.
 
 ## Exercises and lab
 

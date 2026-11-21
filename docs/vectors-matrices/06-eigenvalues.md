@@ -10,6 +10,24 @@ title: "Eigenvalues and eigenvectors"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 4.1 «Matrices»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/02-matrices/): determinants, triangular, symmetric and semidefinite matrices.
+
+    - From this module, [Chapter 6 «System of linear equations»](https://fabiofurini.github.io/linear-algebra/systems/01-linear-systems/): homogeneous linear systems, used to find the eigenvectors.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - compute the eigenvalues of a matrix from the characteristic equation, and the associated eigenvectors;
+
+    - read the eigenvalues of triangular and diagonal matrices, and link trace and determinant to the eigenvalues;
+
+    - decide whether a symmetric matrix is positive semidefinite or definite from its eigenvalues;
+
+    - apply Sylvester's criterion with the leading principal minors.
+
 ## 1. Eigenvalues
 
 <a id="box-defEigen-1"></a>
@@ -707,6 +725,18 @@ title: "Eigenvalues and eigenvectors"
     the same computation step by step: change the matrix and watch the steps change.
 
 <div class="la-tool" data-tool="autovalori" data-matrix="2,-1;-1,2"></div>
+
+## 5. In summary
+
+!!! chiave "In summary"
+
+    - $\lambda$ is an eigenvalue of ${\boldsymbol A}$ if ${\boldsymbol A}{\boldsymbol x} = \lambda {\boldsymbol x}$ for some ${\boldsymbol x} \ne {\boldsymbol 0}$, that is, if $\det({\boldsymbol A} - \lambda {\boldsymbol I}) = 0$.
+
+    - The eigenvalues of a triangular matrix are its diagonal entries; the trace is the sum of the eigenvalues, the determinant their product.
+
+    - Eigenvectors of distinct eigenvalues are linearly independent.
+
+    - A symmetric matrix is positive semidefinite (definite) if and only if its eigenvalues are non-negative (positive); Sylvester's criterion tests definiteness with the leading principal minors.
 
 ## Exercises and lab
 

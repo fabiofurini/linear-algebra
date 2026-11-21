@@ -10,6 +10,24 @@ title: "Norms"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 3 «Vectors»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/01-vectors/): vectors and the scalar product.
+
+    - From this module, [Chapter A.1 «Absolute value»](https://fabiofurini.github.io/linear-algebra/extras/01-absolute-value/): the absolute value and the triangle inequality.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - compute the norms $\ell_1$, $\ell_2$ and $\ell_\infty$ of a vector, and the generalized $\ell_2$ norm;
+
+    - prove non-negativity, absolute homogeneity and the triangle inequality for each norm;
+
+    - use the Cauchy–Schwarz inequality;
+
+    - compare the three norms with the inequalities between them, and draw their unit balls.
+
 ## 1. Introduction to norms
 
 - A <strong>norm</strong> is a mathematical function that assigns a non-negative length or size to vectors. While there are many different types of norms, they all share three essential properties that ensure they behave consistently and meaningfully.
@@ -1364,6 +1382,18 @@ title: "Norms"
     the same computation step by step: change the matrix and watch the steps change.
 
 <div class="la-tool" data-tool="norme" data-x="3,-4,12"></div>
+
+## 7. In summary
+
+!!! chiave "In summary"
+
+    - $\|{\boldsymbol x}\|_1 = \sum_i |x_i|$, $\|{\boldsymbol x}\|_2 = \sqrt{\sum_i x_i^2}$, $\|{\boldsymbol x}\|_\infty = \max_i |x_i|$.
+
+    - Every norm is non-negative and zero only at ${\boldsymbol 0}$, is absolutely homogeneous and satisfies the triangle inequality.
+
+    - Cauchy–Schwarz: $|{\boldsymbol p}'{\boldsymbol w}| \le \|{\boldsymbol p}\|_2 \, \|{\boldsymbol w}\|_2$; it gives the triangle inequality of the $\ell_2$ norm.
+
+    - $\|{\boldsymbol x}\|_\infty \le \|{\boldsymbol x}\|_2 \le \|{\boldsymbol x}\|_1$: the unit balls are a square, a disk and a diamond, one inside the other.
 
 ## Exercises and lab
 

@@ -10,6 +10,20 @@ title: "Products"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 1 «Sums»](https://fabiofurini.github.io/linear-algebra/sums-products/01-sums/): the notation and the properties of sums, which products mirror.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - read and write a product with the symbol $\prod$;
+
+    - use the properties of products: constant terms and factors, product of products, decomposition, index changes;
+
+    - define the factorial $n!$, with $0! = 1$, and compute it.
+
 ## 1. Definition
 
 <a id="box-def_product-1"></a>
@@ -207,6 +221,16 @@ title: "Products"
     the same computation step by step: change the matrix and watch the steps change.
 
 <div class="la-tool" data-tool="somme" data-f="k" data-tipo="prod"></div>
+
+## 4. In summary
+
+!!! chiave "In summary"
+
+    - The product $\prod_{i=1}^n a_i$ multiplies the terms $a_1, \dots, a_n$; a constant term gives $c^n$.
+
+    - Products have the same rules as sums, with multiplication in place of addition; the empty product is $1$.
+
+    - The factorial is $n! = \prod_{j=1}^n j$, with $0! = 1$.
 
 ## Exercises and lab
 

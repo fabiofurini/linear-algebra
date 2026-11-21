@@ -10,6 +10,20 @@ title: "Modular arithmetic"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    None: the chapter uses only the division of integer numbers.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - state Euclid's division and compute quotient and remainder;
+
+    - recognize multiples and factors;
+
+    - compute $n \bmod m$ and decide whether two numbers are congruent modulo $m$.
+
 ## 1. Euclid's division
 
 <a id="box-lem_euclid-division-1"></a>
@@ -126,6 +140,16 @@ title: "Modular arithmetic"
 !!! esempio "Example 1: congruence modulo $5$"
 
     For example, $23$ and $13$ are congruent modulo $5$ and we have $23 \equiv 13 \tpmod{5}$
+
+## 3. In summary
+
+!!! chiave "In summary"
+
+    - Euclid's division: for integers $n$ and $m \ne 0$ there are unique integers $q$ and $r$ with $n = q\,m + r$ and $0 \le r < |m|$.
+
+    - $m$ is a factor of $n$, and $n$ a multiple of $m$, when the remainder is $0$.
+
+    - $n \bmod m$ is the remainder $r$; $n \equiv k \pmod m$ when $n$ and $k$ have the same remainder.
 
 ## Exercises and lab
 

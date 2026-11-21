@@ -10,6 +10,20 @@ title: "Absolute value"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    None: the chapter uses only the order of the real numbers.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - state the definition of absolute value and read $|g - h|$ as a distance on the line;
+
+    - solve inequalities of the form $|a| \le \varepsilon$;
+
+    - prove and use the triangle inequality and the reverse triangle inequality.
+
 ## 1. Definition
 
 <a id="box-def_absolute-value-1"></a>
@@ -152,6 +166,16 @@ title: "Absolute value"
     |b\:c| = |b| \: |c|, \qquad \left| \frac{b}{c}\right|= \frac{|b|}{|c|}, \qquad |-b|=|b| \qquad \forall  b,c \in \mathbb{R} ~ (c \neq 0 {\rm ~in~the~quotient}).
     \label{ass_7}
     \end{equation}
+
+## 3. In summary
+
+!!! chiave "In summary"
+
+    - $|a| = a$ if $a \ge 0$ and $|a| = -a$ if $a < 0$; $|g - h|$ is the distance between $g$ and $h$.
+
+    - $|a| \le \varepsilon$ is the same as $-\varepsilon \le a \le \varepsilon$.
+
+    - Triangle inequality: $|a + b| \le |a| + |b|$; reverse triangle inequality: $\big||a| - |b|\big| \le |a - b|$.
 
 ## Exercises and lab
 

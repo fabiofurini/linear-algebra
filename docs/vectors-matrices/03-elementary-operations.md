@@ -10,6 +10,22 @@ title: "Matrix operations"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 4.1 «Matrices»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/02-matrices/): matrices, determinants, triangular and permutation matrices.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - apply the three elementary row and column operations;
+
+    - say how each elementary operation changes the determinant;
+
+    - reduce a matrix to row echelon form with Gaussian elimination, and compute the determinant from it;
+
+    - choose the pivots, also with partial pivoting.
+
 ## 1. Elementary row and column operations
 
 - Elementary row and column operations are fundamental tools in linear algebra. They are used in many algorithms, including Gaussian elimination, computation of the inverse matrix, and matrix factorizations (such as the LU decomposition)
@@ -861,6 +877,18 @@ title: "Matrix operations"
     the same computation step by step: change the matrix and watch the steps change.
 
 <div class="la-tool" data-tool="pivoting"></div>
+
+## 5. In summary
+
+!!! chiave "In summary"
+
+    - The elementary operations are the swap $R_i \leftrightarrow R_j$, the multiplication $R_i \leftarrow c R_i$ and the replacement $R_i \leftarrow R_i - \ell R_j$.
+
+    - A swap changes the sign of the determinant, $R_i \leftarrow c R_i$ multiplies it by $c$, a replacement leaves it unchanged.
+
+    - Gaussian elimination reaches a row echelon form; then $\det = (-1)^s \prod_i u_{ii}$, with $s$ the number of swaps.
+
+    - Partial pivoting chooses the pivot with the largest absolute value, for numerical stability.
 
 ## Exercises and lab
 

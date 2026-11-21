@@ -10,6 +10,24 @@ title: "Inversion of matrices"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 4.1 «Matrices»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/02-matrices/): the inverse matrix and the determinant.
+
+    - From this module, [Chapter 4.2 «Matrix operations»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/03-elementary-operations/): elementary row operations and Gaussian elimination.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - use the uniqueness and the properties of the inverse matrix;
+
+    - compute the inverse with the Gauss–Jordan method, and recognize a singular matrix during it;
+
+    - compute the inverse with the cofactor and adjugate matrices;
+
+    - invert a $2 \times 2$ matrix with the direct rule.
+
 ## 1. Properties of the inverse matrix
 
 - Recall (see the chapter on matrices) that a square matrix \(\boldsymbol A \in \R^{n\times n}\) is <strong>invertible</strong> if there exists a matrix \(\boldsymbol A^{-1} \in \R^{n\times n}\) such that \(\boldsymbol A\boldsymbol A^{-1} = \boldsymbol A^{-1}\boldsymbol A = \boldsymbol I\). A square matrix which is not invertible is called <strong>singular</strong>.
@@ -638,6 +656,18 @@ title: "Inversion of matrices"
     the same computation step by step: change the matrix and watch the steps change.
 
 <div class="la-tool" data-tool="inversa" data-matrix="2,1;1,1"></div>
+
+## 3. In summary
+
+!!! chiave "In summary"
+
+    - The inverse, when it exists, is unique; $({\boldsymbol A}{\boldsymbol B})^{-1} = {\boldsymbol B}^{-1}{\boldsymbol A}^{-1}$.
+
+    - Gauss–Jordan reduces $({\boldsymbol A} \mid {\boldsymbol I})$ to $({\boldsymbol I} \mid {\boldsymbol A}^{-1})$; a zero row shows that ${\boldsymbol A}$ is singular.
+
+    - Adjugate formula: ${\boldsymbol A}^{-1} = \frac{1}{\det({\boldsymbol A})}\,\mathrm{adj}({\boldsymbol A})$, so ${\boldsymbol A}$ is invertible if and only if $\det({\boldsymbol A}) \ne 0$.
+
+    - For a $2 \times 2$ matrix: swap the diagonal entries, change the sign of the others, divide by the determinant.
 
 ## Exercises and lab
 

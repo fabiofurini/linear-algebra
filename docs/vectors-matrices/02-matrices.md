@@ -10,6 +10,24 @@ title: "Matrices"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 3 «Vectors»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/01-vectors/): vectors, the transpose, the scalar product and linear independence.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - write matrices, their transposes, rows, columns and minors;
+
+    - compute sums, products by a scalar and products of matrices, with their properties;
+
+    - recognize identity, diagonal, symmetric, triangular, permutation, inverse and semidefinite matrices;
+
+    - compute a determinant with the Laplace expansion, and use its properties;
+
+    - compute the rank of a matrix and link it to linear independence.
+
 ## 1. Definition and transpose
 
 <a id="box-defMatrix-1"></a>
@@ -1640,6 +1658,18 @@ $$
     the same computation step by step: change the matrix and watch the steps change.
 
 <div class="la-tool" data-tool="rango" data-matrix="1,2,3;2,4,6"></div>
+
+## 7. In summary
+
+!!! chiave "In summary"
+
+    - A matrix ${\boldsymbol A} \in \R^{m \times n}$ has $m$ rows and $n$ columns; the product ${\boldsymbol A}{\boldsymbol B}$ is defined when the inner sizes agree, and in general ${\boldsymbol A}{\boldsymbol B} \ne {\boldsymbol B}{\boldsymbol A}$.
+
+    - Special square matrices: identity, diagonal, symmetric, triangular, permutation, inverse and semidefinite.
+
+    - The determinant is computed with the Laplace expansion; for a triangular matrix it is the product of the diagonal entries, and ${\boldsymbol A}$ is invertible if and only if $\det({\boldsymbol A}) \ne 0$.
+
+    - The rank is the maximum number of linearly independent columns.
 
 ## Exercises and lab
 

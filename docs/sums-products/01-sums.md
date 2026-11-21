@@ -10,6 +10,22 @@ title: "Sums"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    None: the chapter uses only the arithmetic of the real numbers.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - read and write a sum with the symbol $\sum$, its index and its bounds;
+
+    - use the properties of sums: constant terms, constant factors, union, decomposition;
+
+    - translate and reflect the index of a sum;
+
+    - compute the sums of the first $n$ natural, even and odd numbers.
+
 ## 1. Definition
 
 <a id="box-def_sum-1"></a>
@@ -242,6 +258,18 @@ title: "Sums"
     the same computation step by step: change the matrix and watch the steps change.
 
 <div class="la-tool" data-tool="somme" data-f="k^2" data-tipo="sum"></div>
+
+## 4. In summary
+
+!!! chiave "In summary"
+
+    - The sum $\sum_{i=1}^n a_i$ adds the terms $a_1, \dots, a_n$; a constant term gives $n\,c$, a constant factor can be taken out.
+
+    - A sum can be split into two sums over consecutive ranges, or into the sum of two sums of simpler terms.
+
+    - Translating or reflecting the index changes the bounds, not the value.
+
+    - $\sum_{i=1}^n i = \frac{n(n+1)}{2}$, the first $n$ even numbers add up to $n(n+1)$, the first $n$ odd numbers to $n^2$.
 
 ## Exercises and lab
 

@@ -10,6 +10,28 @@ title: "System of linear equations"
 
 </div>
 
+!!! nota "Prerequisites"
+
+    - From this module, [Chapter 4.1 «Matrices»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/02-matrices/): the rank of a matrix.
+
+    - From this module, [Chapter 4.2 «Matrix operations»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/03-elementary-operations/): Gaussian elimination and the row echelon form.
+
+    - From this module, [Chapter 4.4 «Factorization of matrices»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/05-lu-factorization/): the LU factorization.
+
+    - From this module, [Chapter 4.3 «Inversion of matrices»](https://fabiofurini.github.io/linear-algebra/vectors-matrices/04-inverse-matrix/): the determinant and the cofactors, used by Cramer's rule.
+
+!!! chiave "Objectives"
+
+    At the end of this chapter you will be able to:
+
+    - decide with the Rouché–Capelli theorem whether a system has no solution, one solution or infinitely many;
+
+    - solve a system with Gaussian elimination, and describe infinitely many solutions with free parameters;
+
+    - solve homogeneous systems;
+
+    - solve a system with the LU factorization and with Cramer's rule, and compare the costs of the methods.
+
 ## 1. Existence and uniqueness of solutions
 
 !!! chiave ""
@@ -1219,6 +1241,18 @@ title: "System of linear equations"
     the same computation step by step: change the matrix and watch the steps change.
 
 <div class="la-tool" data-tool="sistema" data-matrix="-1,1;8,2" data-b="2,19"></div>
+
+## 7. In summary
+
+!!! chiave "In summary"
+
+    - Rouché–Capelli: ${\boldsymbol A}{\boldsymbol x} = {\boldsymbol b}$ has no solution if $\mathrm{rank}({\boldsymbol A}) < \mathrm{rank}({\boldsymbol A} \mid {\boldsymbol b})$, one solution if both ranks are $n$, infinitely many (with $n - \mathrm{rank}({\boldsymbol A})$ free parameters) otherwise.
+
+    - Gaussian elimination on the augmented matrix reaches a row echelon form, then back substitution gives the solutions.
+
+    - A homogeneous system always has the zero solution, and other solutions exactly when $\mathrm{rank}({\boldsymbol A}) < n$.
+
+    - With ${\boldsymbol A} = {\boldsymbol L}{\boldsymbol U}$ the system becomes two triangular systems; Cramer's rule works for small square systems with $\det({\boldsymbol A}) \ne 0$.
 
 ## Exercises and lab
 
