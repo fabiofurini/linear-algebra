@@ -32,11 +32,10 @@ with the same notation as the notes.
 <!-- collana-app -->
 ## Try it now
 
-Watch how a matrix becomes upper triangular with simple row operations: press
-«Next step» and the zeros appear below the diagonal, one step at a time (or ▶
-to let it run by itself).
+Gaussian elimination on a 4×4 matrix, halfway through: the pivot, the row operation of step 4 and the
+zeros already below the diagonal. «Next step» goes on up to the triangular form, ▶ lets it run by itself.
 
-<div class="la-tool" data-tool="demo" data-matrix="2,4,2;4,10,6;2,6,8"></div>
+<div class="la-tool" data-tool="demo" data-matrix="2,1,-1,3;4,3,0,7;-2,2,10,-2;6,2,1,8" data-vetrina="4"></div>
 
 [:material-gesture-tap: More apps in the lab](lab/index.md){ .md-button }
 <!-- /collana-app -->

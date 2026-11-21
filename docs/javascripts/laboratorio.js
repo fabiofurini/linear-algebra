@@ -1381,7 +1381,10 @@
     const mat = el("div", { class: "la-disp la-demo-mat" });
     const punti = el("div", { class: "la-demo-punti" });
     scena.append(op, mat, punti);
-    let k = 0, timer = null;
+    // home della collana: data-vetrina="passo" (o "fine") apre la demo a quel passo, più grande
+    const vet = root.dataset.vetrina;
+    if (vet) root.classList.add("la-vetrina");
+    let k = !vet ? 0 : vet === "fine" ? passi.length : Math.max(0, Math.min(passi.length, parseInt(vet, 10) || 0)), timer = null;
     const ferma = () => { clearTimeout(timer); timer = null; aggiornaPlay(); };
     const bPlay = button("", () => {
       if (timer) return ferma();

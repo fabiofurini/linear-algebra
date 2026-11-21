@@ -147,6 +147,11 @@
 @media (max-width: 600px) { .la-demo-mat { font-size: 1.15em; } .la-demo { padding: .8em; } }
 .la-demo-ctl .la-btn:disabled { opacity: .4; cursor: default; }
 .la-demo-play { min-width: 2.6em; font-size: 1.05em; }
+/* la demo nella home della collana (data-vetrina): matrici più grandi nel riquadro */
+.la-demo.la-vetrina .la-demo-mat { font-size: 1.75em; }
+.la-demo.la-vetrina .la-demo-sintesi { font-size: 1.2em; }
+.la-demo.la-vetrina .la-demo-op { font-size: 1.3em; }
+@media (max-width: 600px) { .la-demo.la-vetrina .la-demo-mat { font-size: 1.2em; } .la-demo.la-vetrina .la-demo-sintesi { font-size: .95em; } }
 
 /* Pagine delle singole app: l'app occupa tutta la pagina, grande */
 body:has(.gi-app-intera) .md-grid { max-width: none; }
