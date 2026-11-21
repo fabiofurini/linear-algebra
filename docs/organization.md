@@ -21,7 +21,7 @@ modules take for granted.
 
 | Topic | Where it comes back |
 |---|---|
-| Linear systems, rank, bases | the simplex method — [Operations Research Lab](https://fabiofurini.github.io/operations-research-lab/) |
+| Linear systems, rank, bases | the simplex method and linear models — [LP Modelling](https://fabiofurini.github.io/lp-modelling/) |
 | Definite matrices, generalized \(\ell_2\) norm | quadratic models, Markowitz portfolios |
 | \(\ell_1\) and \(\ell_\infty\) norms | robust and quantile regression |
 | Determinants, LU | solving systems efficiently inside a solver |
@@ -35,7 +35,8 @@ under [CC BY 4.0](https://github.com/fabiofurini/linear-algebra/blob/main/LICENS
 
 ## Of the same series
 
-- [Operations Research Lab](https://fabiofurini.github.io/operations-research-lab/)
+- [LP Modelling](https://fabiofurini.github.io/lp-modelling/)
+- [NLP Modelling](https://fabiofurini.github.io/nlp-modelling/)
 - [MIP Modelling](https://fabiofurini.github.io/mip-modelling/)
 - [Mathematical Analysis 1](https://fabiofurini.github.io/mathematical-analysis-1/)
 - [Linear Programming](https://fabiofurini.github.io/linear-programming/)
