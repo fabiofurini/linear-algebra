@@ -1,10 +1,12 @@
 # Sums and products
 
-*Part 1 of the course, chapters 1–2 of the lecture notes.* Summation and product notation, their properties, closed-form sums, the factorial.
+<div class="info-capitolo" markdown>
 
-[:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf){ .md-button }
+**Part 1 · Sums and products** · 2 chapters · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
-[:material-calculator-variant: App: Sums and products](../lab/sums.md)
+</div>
+
+Summation and product notation, their properties, shifting and reflecting the index. Closed-form sums (of the first natural, even and odd numbers) and the factorial, with exercises worked out step by step.
 
 <div class="grid cards" markdown>
 

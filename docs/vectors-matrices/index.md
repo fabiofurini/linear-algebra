@@ -1,10 +1,12 @@
 # Vectors and matrices
 
-*Part 2 of the course, chapters 3–4 of the lecture notes.* Vectors and linear independence, matrices, determinants and rank; elementary operations and Gaussian elimination, inverse matrix, LU factorization, eigenvalues and Sylvester's criterion.
+<div class="info-capitolo" markdown>
 
-[:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf){ .md-button }
+**Part 2 · Vectors and matrices** · 6 chapters · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
 
-[:material-calculator-variant: App: Matrix product](../lab/product.md) · [:material-calculator-variant: App: Determinant](../lab/determinant.md) · [:material-calculator-variant: App: Rank](../lab/rank.md) · [:material-calculator-variant: App: Gaussian elimination](../lab/gauss.md) · [:material-calculator-variant: App: Why partial pivoting](../lab/pivoting.md) · [:material-calculator-variant: App: Inverse matrix](../lab/inverse.md) · [:material-calculator-variant: App: LU factorization](../lab/lu.md) · [:material-calculator-variant: App: Linear systems](../lab/systems.md) · [:material-calculator-variant: App: Eigenvalues and definiteness](../lab/eigenvalues.md)
+</div>
+
+Vectors and linear independence, matrices, determinants and rank; elementary operations and Gaussian elimination, inverse matrix, LU factorization, eigenvalues and Sylvester's criterion.
 
 <div class="grid cards" markdown>
 

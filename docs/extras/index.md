@@ -1,8 +1,12 @@
 # Further topics
 
-*Part 5 of the course, appendix of the lecture notes.* Absolute value and modular arithmetic.
+<div class="info-capitolo" markdown>
 
-[:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf){ .md-button }
+**Part 5 · Further topics** · 2 chapters · [:material-file-pdf-box: Lecture notes (PDF)](../pdf/lecture-notes-linear-algebra.pdf)
+
+</div>
+
+Two tools used throughout the course: the absolute value, with its properties and the triangle inequality, and modular arithmetic, with Euclidean division and congruences.
 
 <div class="grid cards" markdown>
 
