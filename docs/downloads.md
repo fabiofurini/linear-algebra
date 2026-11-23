@@ -7,7 +7,7 @@ title: Downloads
 All the course material as PDF, updated at every publication of the site.
 Text and figures are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).
 
-## The lecture notes
+## Lecture notes
 
 <div class="grid cards" markdown>
 
@@ -21,22 +21,22 @@ Text and figures are released under [CC BY 4.0](https://creativecommons.org/lice
 
 </div>
 
-## The slides
+## Slides
 
 One deck per chapter, with the same numbering as the lecture notes.
 
-- [:octicons-download-24: 1. Sums](pdf/slides-01-sums.pdf)
-- [:octicons-download-24: 2. Products](pdf/slides-02-products.pdf)
-- [:octicons-download-24: 3. Vectors](pdf/slides-03-vectors.pdf)
-- [:octicons-download-24: 4.1 Matrices](pdf/slides-04-1-matrices.pdf)
-- [:octicons-download-24: 4.2 Matrix operations](pdf/slides-04-2-operations.pdf)
-- [:octicons-download-24: 4.3 Inversion of matrices](pdf/slides-04-3-inverse.pdf)
-- [:octicons-download-24: 4.4 Factorization of matrices](pdf/slides-04-4-factorization.pdf)
-- [:octicons-download-24: 4.5 Eigenvalues and eigenvectors](pdf/slides-04-5-eigenvalues.pdf)
-- [:octicons-download-24: 5. Norms](pdf/slides-05-norms.pdf)
-- [:octicons-download-24: 6. Linear systems](pdf/slides-06-systems.pdf)
-- [:octicons-download-24: A.1 Absolute value](pdf/slides-A1-absolute-value.pdf)
-- [:octicons-download-24: A.2 Modular arithmetic](pdf/slides-A2-modular-arithmetic.pdf)
+- :material-presentation: [1. Sums](pdf/slides-01-sums.pdf)
+- :material-presentation: [2. Products](pdf/slides-02-products.pdf)
+- :material-presentation: [3. Vectors](pdf/slides-03-vectors.pdf)
+- :material-presentation: [4.1 Matrices](pdf/slides-04-1-matrices.pdf)
+- :material-presentation: [4.2 Matrix operations](pdf/slides-04-2-operations.pdf)
+- :material-presentation: [4.3 Inversion of matrices](pdf/slides-04-3-inverse.pdf)
+- :material-presentation: [4.4 Factorization of matrices](pdf/slides-04-4-factorization.pdf)
+- :material-presentation: [4.5 Eigenvalues and eigenvectors](pdf/slides-04-5-eigenvalues.pdf)
+- :material-presentation: [5. Norms](pdf/slides-05-norms.pdf)
+- :material-presentation: [6. Linear systems](pdf/slides-06-systems.pdf)
+- :material-presentation: [A.1 Absolute value](pdf/slides-A1-absolute-value.pdf)
+- :material-presentation: [A.2 Modular arithmetic](pdf/slides-A2-modular-arithmetic.pdf)
 
 <!-- banca-domande -->
 ## Quiz question bank
