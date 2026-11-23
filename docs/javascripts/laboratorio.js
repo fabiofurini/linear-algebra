@@ -442,27 +442,51 @@
   }
 
   // ------------------------------------------------------------------ cornice comune di uno strumento
+  /** Cornice di uno strumento, come le app delle altre collane: una testata blu con
+   * titolo, descrizione e schede (pillole); sotto, ogni scheda ha una colonna dei
+   * risultati (.la-main) e una colonna dei comandi (.la-side). Nelle pagine del
+   * laboratorio (gi-app-intera) titolo e descrizione della pagina vanno nella testata. */
   function Frame(root, spec) {
     root.innerHTML = "";
     root.classList.add("la-mj");
-    const tabs = el("div", { class: "la-tabs" });
-    const panes = {};
     const modes = spec.modes || ["compute"];
+    const testa = el("div", { class: "la-testa" });
+    const titolo = el("span", { class: "la-titolo" });
+    if (root.classList.contains("gi-app-intera")) {
+      const h1 = root.parentElement && root.parentElement.querySelector(":scope > h1");
+      if (h1) {
+        const p = h1.nextElementSibling && h1.nextElementSibling.tagName === "P" ? h1.nextElementSibling : null;
+        const t1 = h1.cloneNode(true);
+        t1.querySelectorAll(".headerlink").forEach((a) => a.remove());
+        titolo.innerHTML = t1.innerHTML + (p ? `<small>${p.innerHTML}</small>` : "");
+        h1.classList.add("la-nascosto");
+        if (p) p.classList.add("la-nascosto");
+      }
+    }
+    const tabs = el("div", { class: "la-tabs", role: "tablist" });
+    const panes = {};
     modes.forEach((m, i) => {
-      const t = button(TXT[m] || m, () => select(m), "la-tab");
+      const t = el("button", { type: "button", class: "la-tab", role: "tab", "aria-selected": "false", on: { click: () => select(m) } }, TXT[m] || m);
       t.dataset.mode = m;
       tabs.appendChild(t);
-      panes[m] = el("div", { class: "la-pane" });
-      if (i) panes[m].hidden = true;
+      const pane = el("div", { class: "la-pane" });
+      pane.side = el("div", { class: "la-side" });
+      pane.main = el("div", { class: "la-main" });
+      pane.append(pane.side, pane.main);
+      panes[m] = pane;
+      if (i) pane.hidden = true;
     });
     function select(m) {
-      tabs.querySelectorAll(".la-tab").forEach((t) => t.classList.toggle("la-on", t.dataset.mode === m));
+      tabs.querySelectorAll(".la-tab").forEach((t) => t.setAttribute("aria-selected", t.dataset.mode === m ? "true" : "false"));
       Object.entries(panes).forEach(([k, p]) => (p.hidden = k !== m));
       if (spec.onMode) spec.onMode(m);
     }
-    if (modes.length > 1) root.appendChild(tabs);
+    if (titolo.innerHTML) testa.append(titolo);
+    if (modes.length > 1) testa.append(tabs);
+    if (testa.childNodes.length) root.appendChild(testa);
     Object.values(panes).forEach((p) => root.appendChild(p));
     select(modes[0]);
+    if (titolo.innerHTML) typeset(titolo);
     return { panes: panes, select: select };
   }
 
@@ -473,7 +497,8 @@
     const actions = el("div", { class: "la-actions" });
     const msg = el("div", { class: "la-msg", role: "status" });
     const out = el("div", { class: "la-out" });
-    pane.append(inputs, opts, actions, msg, out);
+    pane.side.append(inputs, opts, actions, msg);
+    pane.main.append(out);
     return { inputs, opts, actions, msg, out };
   }
 
@@ -506,17 +531,20 @@
     // make() → {prompt (html), answerUI (el), check() → bool|null, solution() → [cards]}
     let score = 0, total = 0, cur = null;
     const head = el("div", { class: "la-practice-head" });
+    const prompt = el("div", { class: "la-prompt" });
     const box = el("div", { class: "la-practice" });
     const res = el("div", { class: "la-msg" });
     const sol = el("div", { class: "la-out" });
     const scoreEl = el("span", { class: "la-score" });
-    pane.append(head, box, res, sol);
+    pane.side.append(head, box, res);
+    pane.main.append(prompt, sol);
     const nuovo = () => {
       cur = make();
       box.innerHTML = "";
       res.innerHTML = "";
       sol.innerHTML = "";
-      box.append(el("div", { class: "la-prompt" }, cur.prompt));
+      prompt.innerHTML = cur.prompt;
+      typeset(prompt);
       box.append(cur.answerUI);
       const acts = el("div", { class: "la-actions" });
       acts.append(button(TXT.check, () => {
@@ -578,9 +606,11 @@
 
   /** «Fallo tu»: lo studente sceglie le operazioni */
   function DoIt(pane, getStart) {
-    pane.append(el("p", { class: "la-intro" }, TXT.doitIntro));
-    const wrap = el("div", {});
-    pane.append(wrap);
+    pane.side.append(el("p", { class: "la-intro" }, TXT.doitIntro));
+    const wrap = el("div", {});      // comandi (colonna a destra)
+    const vista = el("div", {});     // matrice e mosse (colonna dei risultati)
+    pane.side.append(wrap);
+    pane.main.append(vista);
     let A0, A, history;
     function start() { A0 = getStart(); A = M.clone(A0); history = []; draw(); }
     function isEchelon(B) {
@@ -595,12 +625,13 @@
     }
     function draw(message) {
       wrap.innerHTML = "";
+      vista.innerHTML = "";
       const m = A.length;
       const mat = el("div", { class: "la-doit-mat" }, disp(LA.texMatrix(A, { rows: history.length ? history[history.length - 1].rows : [] })));
-      wrap.append(mat);
+      vista.append(mat);
       if (isEchelon(A)) {
         const std = LA.gauss(A0).steps.filter((s) => s.op).length;
-        wrap.append(el("div", { class: "la-ok" }, "✓ " + TXT.doitDone(history.length, std)));
+        vista.append(el("div", { class: "la-ok" }, "✓ " + TXT.doitDone(history.length, std)));
       }
       const rowSel = (v) => select(Array.from({ length: m }, (_, i) => [String(i), `${TXT.rowWord} ${i + 1}`]), String(v), () => {});
       const ctl = el("div", { class: "la-doit-ctl" });
@@ -641,8 +672,9 @@
         button("⟲ " + TXT.restart, start, "la-ghost"));
       wrap.append(acts);
       if (message) wrap.append(el("div", { class: "la-msg" }, `<div class="la-hint">${message}</div>`));
-      if (history.length) wrap.append(el("div", { class: "la-history" }, `<strong>${TXT.moves}:</strong> ` + history.map((h) => tex(LA.texOp(h.op))).join(" · ")));
+      if (history.length) vista.append(el("div", { class: "la-history" }, `<strong>${TXT.moves}:</strong> ` + history.map((h) => tex(LA.texOp(h.op))).join(" · ")));
       typeset(wrap);
+      typeset(vista);
     }
     start();
     pane.addEventListener("la-restart", start);
@@ -933,6 +965,7 @@
     bi = MatrixInput({ rows: A0.length, cols: 1, label: "\\boldsymbol b", random: false, fixedCols: true, maxR: 6,
       values: (h.b || root.dataset.b || "6,3,2").split(",").map((x) => [x]) });
     bi.el.querySelector(".la-dims").remove();
+    bi.el.querySelector(".la-input-bar").remove();   // b segue le righe di A
     function syncB() {
       if (!mi || !bi) return;
       const m = mi.dims()[0];
@@ -1320,14 +1353,14 @@
 
   // ------------------------------------------------------------------ perché serve il pivoting parziale
   TOOLS.pivoting = function (root) {
-    root.innerHTML = "";
-    root.classList.add("la-mj");
-    const wrap = el("div", { class: "la-pivdemo" });
-    root.append(wrap);
+    const F = Frame(root, { modes: ["compute"] });
+    const wrap = F.panes.compute;
+    wrap.classList.add("la-pivdemo");
     const slider = el("input", { type: "range", min: "1", max: "20", value: "4", class: "la-range" });
     const lab = el("div", { class: "la-range-lab" });
     const out = el("div", {});
-    wrap.append(el("div", { class: "la-disp" }, "\\[\\left\\{\\begin{aligned} \\varepsilon\\, x_1 + x_2 &= 1\\\\ x_1 + x_2 &= 2\\end{aligned}\\right.\\qquad \\varepsilon = 10^{-k}\\]"), lab, slider, out);
+    wrap.side.append(lab, slider);
+    wrap.main.append(el("div", { class: "la-disp" }, "\\[\\left\\{\\begin{aligned} \\varepsilon\\, x_1 + x_2 &= 1\\\\ x_1 + x_2 &= 2\\end{aligned}\\right.\\qquad \\varepsilon = 10^{-k}\\]"), out);
     function fmt(v) { return Number.isFinite(v) ? v.toPrecision(17).replace(/(\.\d*?)0+(e|$)/, "$1$2").replace(/\.(e|$)/, "$1") : String(v); }
     function run() {
       const k = +slider.value;

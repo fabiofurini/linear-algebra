@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 1](../sums-products/01-sums.md), [chapter 2](../sums-products/02-products.md)
+[← Lab](index.md) · Chapter: [Sums](../sums-products/01-sums.md), [Products](../sums-products/02-products.md)
 
 # Sums and products
 

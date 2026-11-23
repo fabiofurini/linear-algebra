@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 4.5](../vectors-matrices/06-eigenvalues.md)
+[← Lab](index.md) · Chapter: [Eigenvalues and eigenvectors](../vectors-matrices/06-eigenvalues.md)
 
 # Eigenvalues and definiteness
 

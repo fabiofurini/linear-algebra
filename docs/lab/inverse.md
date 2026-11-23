@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 4.3](../vectors-matrices/04-inverse-matrix.md)
+[← Lab](index.md) · Chapter: [Inversion of matrices](../vectors-matrices/04-inverse-matrix.md)
 
 # Inverse matrix
 

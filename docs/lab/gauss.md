@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 4.2](../vectors-matrices/03-elementary-operations.md), [chapter 6](../systems/01-linear-systems.md)
+[← Lab](index.md) · Chapter: [Matrix operations](../vectors-matrices/03-elementary-operations.md), [System of linear equations](../systems/01-linear-systems.md)
 
 # Gaussian elimination
 

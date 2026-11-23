@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 4.1](../vectors-matrices/02-matrices.md), [chapter 4.2](../vectors-matrices/03-elementary-operations.md)
+[← Lab](index.md) · Chapter: [Matrices](../vectors-matrices/02-matrices.md), [Matrix operations](../vectors-matrices/03-elementary-operations.md)
 
 # Determinant
 

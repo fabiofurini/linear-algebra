@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 4.1](../vectors-matrices/02-matrices.md)
+[← Lab](index.md) · Chapter: [Matrices](../vectors-matrices/02-matrices.md)
 
 # Matrix product
 

@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 4.2](../vectors-matrices/03-elementary-operations.md)
+[← Lab](index.md) · Chapter: [Matrix operations](../vectors-matrices/03-elementary-operations.md)
 
 # Why partial pivoting
 

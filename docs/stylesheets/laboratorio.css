@@ -16,11 +16,25 @@
   box-shadow: none;
 }
 
-/* schede (Calcola / Esercitati / Fallo tu) */
-.la-tabs { display: flex; gap: .4em; padding: .7em 1em 0; background: linear-gradient(120deg, #16324A, #0E7490 70%, #15AABF); }
-.la-tab { border: 0; background: rgba(255,255,255,.18); color: #fff; padding: .35em 1.1em; border-radius: 10px 10px 0 0; cursor: pointer; font: inherit; font-weight: 600; }
-.la-tab.la-on { background: var(--la-card); color: var(--md-default-fg-color); }
-.la-pane { padding: 1em; }
+/* testata (titolo, descrizione, schede Calcola / Esercitati / Fallo tu): come .gi-testa delle altre collane */
+.la-testa {
+  background: linear-gradient(120deg, #16324A, #0E7490 70%, #15AABF); color: #fff;
+  padding: .7em 1.1em; display: flex; align-items: center; justify-content: space-between; gap: .8em; flex-wrap: wrap;
+}
+.la-titolo { font-weight: 700; font-size: 1.05em; }
+.la-titolo small { display: block; margin: .2em 0 0; font-weight: 400; font-size: .72em; line-height: 1.4; opacity: .92; }
+.la-titolo small a { color: inherit; text-decoration: underline; }
+.la-tabs { display: flex; gap: .4em; flex-wrap: wrap; }
+.la-tab { border: 0; background: rgba(255,255,255,.18); color: #fff; padding: .25em .9em; border-radius: 999px; cursor: pointer; font: inherit; font-weight: 600; }
+.la-tab[aria-selected="true"] { background: #fff; color: #16324A; }
+.la-nascosto { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ogni scheda: comandi (.la-side) e risultati (.la-main); in colonna, i comandi stanno sopra */
+.la-pane { padding: 1em; display: flex; flex-direction: column; gap: .2em; }
+.la-pane[hidden] { display: none !important; }
+.la-main, .la-side { min-width: 0; }
+.la-main > .la-out:empty, .la-main > .la-prompt:empty { display: none; }
+.la-opts .la-select { width: 100%; }
 
 /* inserimento */
 .la-inputs { display: flex; flex-wrap: wrap; gap: 1.2em; align-items: flex-start; }
@@ -54,7 +68,15 @@
 .la-btn.la-primary:hover { background: #0E7490; color: #fff; }
 .la-btn.la-mini { padding: .1em .55em; }
 .la-btn.la-ghost { color: var(--la-muted); }
-.la-select { border: 1px solid var(--la-line); border-radius: 999px; padding: .3em .7em; background: var(--md-default-bg-color); color: inherit; font: inherit; max-width: 100%; }
+.la-select { border: 1px solid var(--la-line); border-radius: 999px; padding: .2em .8em; background: transparent; color: inherit; font: inherit; max-width: 100%; cursor: pointer; }
+.la-select option { background: var(--la-card); color: var(--md-default-fg-color); }
+/* negli strumenti i pulsanti sono quelli delle altre collane (.gi-btn); la demo della home resta com'è */
+.la-tool:not(.la-demo) .la-btn { border: 0; border-radius: 10px; padding: .45em .9em; font: inherit; font-weight: 600; cursor: pointer; background: var(--la-line); color: inherit; }
+.la-tool:not(.la-demo) .la-btn:hover { background: color-mix(in srgb, var(--la-line) 70%, var(--la-piv)); color: inherit; }
+.la-tool:not(.la-demo) .la-btn.la-primary { background: #0E7490; color: #fff; }
+.la-tool:not(.la-demo) .la-btn.la-primary:hover { background: #0B5F75; }
+.la-tool:not(.la-demo) .la-btn.la-mini { padding: .2em .6em; }
+.la-tool:not(.la-demo) .la-chip { padding: .2em .8em; }
 
 /* messaggi */
 .la-msg:empty { display: none; }
@@ -153,31 +175,54 @@
 .la-demo.la-vetrina .la-demo-op { font-size: 1.3em; }
 @media (max-width: 600px) { .la-demo.la-vetrina .la-demo-mat { font-size: 1.2em; } .la-demo.la-vetrina .la-demo-sintesi { font-size: .95em; } }
 
-/* Pagine delle singole app: l'app occupa tutta la pagina, grande */
+/* Pagine delle singole app (come .gi-app-intera delle altre collane): l'app occupa la
+   larghezza e circa l'altezza della finestra; a sinistra i risultati e i passi (scorrono
+   dentro la loro colonna), a destra i comandi; sotto 860px una colonna sola. */
 body:has(.gi-app-intera) .md-grid { max-width: none; }
 .la-tool.gi-app-intera {
   width: 100%; box-sizing: border-box;
-  min-height: max(480px, calc(100vh - 230px));
-  margin: .8em 0 1.6em;
-  font-size: .85rem;
+  display: flex; flex-direction: column;
+  height: calc(100vh - 230px); min-height: 480px;
+  margin: .4em 0 1em;
+  font-size: .8rem;
 }
-.la-tool.gi-app-intera .la-pane { padding: 1.2em 1.6em; }
+.la-tool.gi-app-intera > .la-pane {
+  flex: 1 1 auto; min-height: 0;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 340px); gap: 1em; padding: 1em;
+}
+.la-tool.gi-app-intera > .la-pane[hidden] { display: none !important; }
+.la-tool.gi-app-intera .la-main { grid-column: 1; grid-row: 1; min-height: 0; overflow: auto; }
+.la-tool.gi-app-intera .la-side { grid-column: 2; grid-row: 1; min-height: 0; overflow: auto; }
+.la-tool.gi-app-intera .la-main > .la-out > .la-nav:first-child,
+.la-tool.gi-app-intera .la-main > .la-prompt:first-child { margin-top: 0; }
+.la-tool.gi-app-intera .la-side .la-inputs { gap: .8em; }
+@media (max-width: 860px) {
+  .la-tool.gi-app-intera { height: auto; min-height: 0; }
+  .la-tool.gi-app-intera > .la-pane { grid-template-columns: minmax(0, 1fr); }
+  .la-tool.gi-app-intera .la-side { grid-row: 1; overflow: visible; }
+  .la-tool.gi-app-intera .la-main { grid-row: 2; overflow: visible; }
+}
 @media (max-width: 600px) {
-  .la-tool.gi-app-intera { min-height: 70vh; font-size: .8rem; }
-  .la-tool.gi-app-intera .la-pane { padding: .8em; }
+  .la-tool.gi-app-intera > .la-pane { padding: .8em; }
 }
 
-/* pagine delle app: titolo e descrizione in una testata blu attaccata allo strumento, niente spazio bianco in alto */
+/* pagine delle app: niente spazio bianco in alto; il titolo e la descrizione stanno nella testata */
 body:has(.gi-app-intera) .md-main__inner { margin-top: 0; }
 body:has(.gi-app-intera) .md-content__inner { margin-top: 0; padding-top: .3rem; }
 body:has(.gi-app-intera) .md-content__inner::before { display: none; }
-body:has(.la-tool.gi-app-intera) .md-content__inner > h1 {
-  margin: .5em 0 0; padding: .55em 1.1rem .1em; color: #fff; font-size: 1.25em; font-weight: 700;
-  background: linear-gradient(120deg, #16324A, #0E7490 70%, #15AABF); border-radius: .5rem .5rem 0 0;
-}
-body:has(.la-tool.gi-app-intera) .md-content__inner > h1 .headerlink { display: none; }
-body:has(.la-tool.gi-app-intera) .md-content__inner > h1 + p {
-  margin: 0; padding: 0 1.1rem .7em; color: #fff; font-size: .72rem; opacity: .95;
-  background: linear-gradient(120deg, #16324A, #0E7490 70%, #15AABF);
-}
-body:has(.la-tool.gi-app-intera) .la-tool.gi-app-intera { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+body:has(.gi-app-intera) .md-content__inner > p { margin: .2em 0 .4em; font-size: .8rem; }
+/* testata delle app: titolo e descrizione su tutta la riga, le schede sotto (come in .gi-testa) */
+.la-tool.gi-app-intera .la-titolo { flex: 1 1 100%; font-size: 1.25em; line-height: 1.3; }
+/* sistemi: A | b affiancati anche nella colonna dei comandi */
+.la-side .la-pair { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: .5em; }
+.la-side .la-pair > .la-input { min-width: 0; }
+/* colonna dei comandi compatta */
+.la-side .la-dims { gap: .4em; font-size: .92em; }
+.la-side .la-dim { gap: .15em; }
+.la-side .la-input-bar, .la-side .la-opts, .la-side .la-actions { margin-top: .45em; gap: .4em; }
+.la-side .la-sumrow .la-cell { width: 4.5em; min-width: 0; flex: 0 0 auto; }
+.la-side .la-sumrow .la-cell.la-wide { width: 100%; max-width: none; flex: 1 1 100%; }
+/* cursore come quelli delle altre collane */
+.la-tool input[type=range] { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 6px; background: var(--la-line); margin: .6em 0 .2em; }
+.la-tool input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #0E7490; border: 3px solid var(--la-card); box-shadow: 0 1px 6px rgba(0,0,0,.3); cursor: grab; }
+.la-tool input[type=range]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #0E7490; border: 3px solid var(--la-card); cursor: grab; }

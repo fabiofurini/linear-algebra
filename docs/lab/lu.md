@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 4.4](../vectors-matrices/05-lu-factorization.md)
+[← Lab](index.md) · Chapter: [Factorization of matrices](../vectors-matrices/05-lu-factorization.md)
 
 # LU factorization
 

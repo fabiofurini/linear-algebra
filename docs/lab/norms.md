@@ -5,7 +5,7 @@ hide:
   - toc
 ---
 
-[← Lab](index.md) · Lecture notes: [chapter 5](../norms/01-norms.md)
+[← Lab](index.md) · Chapter: [Norms](../norms/01-norms.md)
 
 # Norms
 

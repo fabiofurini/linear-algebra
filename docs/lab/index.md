@@ -4,19 +4,13 @@ hide:
   - navigation
 ---
 
-# The computation lab
+# Interactive lab
 
-Here you do not only get the answer: you see **every step**, written the way
-you would write it by hand, with the notation of the lecture notes
-(\(R_2 \leftarrow R_2 - 2R_1\)). The arithmetic is **exact**: fractions, never
-rounded decimals. Pick a tool: each one opens full page, with tabs to **compute**,
-to **practice** on exercises generated for you, and (for Gaussian elimination) to
-**do it yourself**, choosing each row operation.
+Each app carries out a computation of the course step by step, with the notation
+of the lecture notes and exact fractions. Choose an app: it opens full page.
+Where available, the “Practice” and “Do it yourself” tabs propose randomly generated exercises.
 
-Everything runs in your browser: nothing to install, no account, and it works on
-a phone.
-
-## Sums and products (chapters 1–2)
+## Sums and products
 
 <div class="grid cards" markdown>
 
@@ -30,7 +24,7 @@ a phone.
 
 </div>
 
-## Vectors and matrices (chapters 3–4)
+## Vectors and matrices
 
 <div class="grid cards" markdown>
 
@@ -100,7 +94,7 @@ a phone.
 
 </div>
 
-## Norms (chapter 5)
+## Norms
 
 <div class="grid cards" markdown>
 
@@ -114,7 +108,7 @@ a phone.
 
 </div>
 
-## Linear systems (chapter 6)
+## Linear systems
 
 <div class="grid cards" markdown>
 
