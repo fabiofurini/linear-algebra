@@ -71,12 +71,12 @@
 .la-select { border: 1px solid var(--la-line); border-radius: 999px; padding: .2em .8em; background: transparent; color: inherit; font: inherit; max-width: 100%; cursor: pointer; }
 .la-select option { background: var(--la-card); color: var(--md-default-fg-color); }
 /* negli strumenti i pulsanti sono quelli delle altre collane (.gi-btn); la demo della home resta com'è */
-.la-tool:not(.la-demo) .la-btn { border: 0; border-radius: 10px; padding: .45em .9em; font: inherit; font-weight: 600; cursor: pointer; background: var(--la-line); color: inherit; }
-.la-tool:not(.la-demo) .la-btn:hover { background: color-mix(in srgb, var(--la-line) 70%, var(--la-piv)); color: inherit; }
-.la-tool:not(.la-demo) .la-btn.la-primary { background: #0E7490; color: #fff; }
-.la-tool:not(.la-demo) .la-btn.la-primary:hover { background: #0B5F75; }
-.la-tool:not(.la-demo) .la-btn.la-mini { padding: .2em .6em; }
-.la-tool:not(.la-demo) .la-chip { padding: .2em .8em; }
+.la-tool .la-btn { border: 0; border-radius: 10px; padding: .45em .9em; font: inherit; font-weight: 600; cursor: pointer; background: var(--la-line); color: inherit; }
+.la-tool .la-btn:hover { background: color-mix(in srgb, var(--la-line) 70%, var(--la-piv)); color: inherit; }
+.la-tool .la-btn.la-primary { background: #0E7490; color: #fff; }
+.la-tool .la-btn.la-primary:hover { background: #0B5F75; }
+.la-tool .la-btn.la-mini { padding: .2em .6em; }
+.la-tool .la-chip { padding: .2em .8em; }
 
 /* messaggi */
 .la-msg:empty { display: none; }
@@ -151,7 +151,7 @@
 }
 
 /* dimostrazione animata della home */
-.la-demo { padding: 1em 1.2em; }
+.la-demo { padding: 0; }
 .la-demo .la-zero { color: var(--la-ok) !important; font-weight: 700; }
 .la-demo-sintesi { font-size: 1.05em; opacity: .9; }
 .la-demo-scena { border: 1px solid var(--la-line); border-radius: 12px; padding: .8em 1em; margin: .6em 0;
@@ -163,10 +163,10 @@
 .la-demo-punti i { width: .55em; height: .55em; border-radius: 50%; background: var(--la-line); display: inline-block; }
 .la-demo-punti i.on { background: var(--la-piv); }
 .la-demo-punti .la-note { margin-left: .5em; }
-.la-demo-ctl { justify-content: center; }
-.la-demo-cta { text-align: center; margin-top: .8em; }
+.la-demo-ctl { justify-content: flex-start; }
+.la-demo-cta { text-align: left; margin-top: .8em; }
 .la-demo-cta .md-button { margin: 0; }
-@media (max-width: 600px) { .la-demo-mat { font-size: 1.15em; } .la-demo { padding: .8em; } }
+@media (max-width: 600px) { .la-demo-mat { font-size: 1.15em; } }
 .la-demo-ctl .la-btn:disabled { opacity: .4; cursor: default; }
 .la-demo-play { min-width: 2.6em; font-size: 1.05em; }
 /* la demo nella home della collana (data-vetrina): matrici più grandi nel riquadro */
@@ -226,3 +226,11 @@ body:has(.gi-app-intera) .md-content__inner > p { margin: .2em 0 .4em; font-size
 .la-tool input[type=range] { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 6px; background: var(--la-line); margin: .6em 0 .2em; }
 .la-tool input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #0E7490; border: 3px solid var(--la-card); box-shadow: 0 1px 6px rgba(0,0,0,.3); cursor: grab; }
 .la-tool input[type=range]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #0E7490; border: 3px solid var(--la-card); cursor: grab; }
+
+/* demo della home: testata e due colonne come le app delle altre collane */
+.la-demo-corpo { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(240px, 1fr); gap: 1em; padding: 1em; align-items: start; }
+@media (max-width: 860px) { .la-demo-corpo { grid-template-columns: minmax(0, 1fr); } }
+.la-demo .la-demo-scena { margin: 0; }
+.la-demo-dx .la-demo-sintesi { font-size: .95em; margin-bottom: .4em; }
+.la-demo.la-vetrina .la-demo-dx .la-demo-sintesi { font-size: 1em; }
+.md-typeset a.la-tab-link, a.la-tab-link { background: #fff; color: #16324A !important; text-decoration: none !important; }

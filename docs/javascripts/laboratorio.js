@@ -1399,10 +1399,12 @@
     const T = IT
       ? { start: "Matrice di partenza", done: "Forma triangolare superiore: sotto la diagonale solo zeri.", step: (k, n) => `Passo ${k} di ${n}`,
           prev: "Passo precedente", next: "Passo successivo", again: "Ricomincia", try: "Prova tu con il metodo di Gauss",
-          play: "Riproduci", pause: "Pausa" }
+          play: "Riproduci", pause: "Pausa", title: "Metodo di Gauss", sub: "la riduzione a forma triangolare superiore, un passo alla volta",
+          open: "Apri l'app" }
       : { start: "Starting matrix", done: "Upper triangular form: only zeros below the diagonal.", step: (k, n) => `Step ${k} of ${n}`,
           prev: "Previous step", next: "Next step", again: "Restart", try: "Try it yourself with Gaussian elimination",
-          play: "Play", pause: "Pause" };
+          play: "Play", pause: "Pause", title: "Gaussian elimination", sub: "the reduction to upper triangular form, one step at a time",
+          open: "Open the app" };
     const A = parseMatrix(root.dataset.matrix || "2,4,2;4,10,6;2,6,8");
     const g = LA.gauss(A, { pivoting: "first" });
     const passi = g.steps.filter((x) => x.op);
@@ -1447,7 +1449,18 @@
     const prova = el("a", { class: "md-button md-button--primary la-demo-prova", href: `${RADICE}${CARTELLA_LAB}gauss/#A=${matStr(A)}` }, T.try + " →");
     const cta = el("div", { class: "la-demo-cta" });
     cta.append(prova);
-    root.append(sintesi, scena, ctl, cta);
+    // come le app delle altre collane: testata blu con titolo e link all'app; risultati a sinistra, comandi a destra
+    const testa = el("div", { class: "la-testa" });
+    const titolo = el("span", { class: "la-titolo" });
+    titolo.innerHTML = `${T.title}<small>${T.sub}</small>`;
+    const apri = el("a", { class: "la-tab la-tab-link", href: prova.getAttribute("href") }, T.open + " →");
+    testa.append(titolo, apri);
+    const sx = el("div", { class: "la-demo-sx" }), dx = el("div", { class: "la-demo-dx" });
+    sx.append(scena);
+    dx.append(sintesi, ctl);
+    const corpo = el("div", { class: "la-demo-corpo" });
+    corpo.append(sx, dx);
+    root.append(testa, corpo);
     function disegna() {
       const s = k === 0 ? null : passi[k - 1];
       const M0 = s ? s.matrix : A;
