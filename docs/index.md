@@ -19,9 +19,6 @@ professor at [DIAG](https://www.diag.uniroma1.it/), Sapienza University of Rome.
 The course presents linear algebra: sums and products, vectors and matrices with their operations,
 inversion and LU factorization, eigenvalues and eigenvectors, norms and linear systems.
 
-Every chapter has definitions, worked examples and exercises with solutions; the **computation lab**
-shows every step with the same notation as the notes.
-
 [Start :material-arrow-right:](sums-products/index.md){ .md-button .md-button--primary }
 [:material-pencil: Exercises](exercises/index.md){ .md-button }
 [:material-gesture-tap: Lab](lab/index.md){ .md-button }
