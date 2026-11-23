@@ -16,10 +16,11 @@ hide:
 Teaching material designed and developed by **[Fabio Furini](https://fabiofurini.github.io/)**, associate
 professor at [DIAG](https://www.diag.uniroma1.it/), Sapienza University of Rome.
 
-**The course lecture notes, online**: definitions, worked examples, exercises
-with full solutions, and a **computation lab** that shows every step —
-Gaussian elimination, determinants, inverses, linear systems, LU factorization —
-with the same notation as the notes.
+The course presents linear algebra: sums and products, vectors and matrices with their operations,
+inversion and LU factorization, eigenvalues and eigenvectors, norms and linear systems.
+
+Every chapter has definitions, worked examples and exercises with solutions; the **computation lab**
+shows every step with the same notation as the notes.
 
 [Start :material-arrow-right:](sums-products/index.md){ .md-button .md-button--primary }
 [:material-pencil: Exercises](exercises/index.md){ .md-button }
